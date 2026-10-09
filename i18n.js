@@ -1,6 +1,8 @@
 // Localisation stays offline and keeps the existing slide URLs stable.
 let language='et';
 try { language=localStorage.getItem('openmapstack-talk-language')==='en'?'en':'et'; } catch {}
+const requestedLanguage=new URLSearchParams(location.search).get('lang');
+if(['et','en'].includes(requestedLanguage))language=requestedLanguage;
 const tr=(et,en)=>language==='en'?en:et;
 function updateFullscreenLabel(){
  const on=Boolean(document.fullscreenElement),button=$('#fullscreen');

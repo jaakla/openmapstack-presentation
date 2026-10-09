@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenMapStack · Markdown editor</title>
+<style>
+:root{font:15px system-ui,sans-serif;color:#163329;background:#f4f5ef;color-scheme:light}*{box-sizing:border-box}body{margin:0}header{display:flex;align-items:center;gap:18px;padding:14px 20px;border-bottom:1px solid #ccd4c9;background:#fff}h1{font-size:18px;margin:0}button,select,a{font:inherit}button,select{padding:8px 12px;border:1px solid #bac7b8;border-radius:5px;background:#fff;color:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:default}a{color:#275d45}main{height:calc(100dvh - 65px);display:grid;grid-template-columns:minmax(340px,40%) 1fr;gap:16px;padding:16px}.source{display:flex;flex-direction:column;min-height:0;gap:10px}.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}label{font-weight:600}.help{margin:0;color:#546651;font-size:13px;line-height:1.5}textarea{flex:1;min-height:240px;resize:none;width:100%;padding:18px;border:1px solid #bdc9b9;border-radius:8px;background:#fff;color:#17342a;font:14px/1.6 ui-monospace,monospace;tab-size:2}textarea:focus{outline:2px solid #498a65;outline-offset:2px}#status{font-size:13px;min-height:1.4em}#error{white-space:pre-wrap;color:#972e22;font-size:13px;margin:0;max-height:100px;overflow:auto}.previews{display:flex;flex-direction:column;gap:12px;min-height:0}.preview{display:flex;flex:1;min-height:220px;flex-direction:column;gap:6px}.preview-head{display:flex;justify-content:space-between;align-items:center;font-size:13px}.viewport{flex:1;position:relative;overflow:hidden;background:#e4e8df;border:1px solid #c6cebf;border-radius:8px}.viewport iframe{position:absolute;width:1280px;height:800px;border:0;transform-origin:top left;background:#fafbf5}#translation{font-size:13px;margin:0;color:#53664e}@media(max-width:850px){main{height:auto;grid-template-columns:1fr}.source{height:70vh}.preview{height:360px;flex:auto}header{flex-wrap:wrap}.previews{min-height:740px}}
+</style>
+<header><h1>OpenMapStack</h1><span>Markdown editor · 24 slides / 45 min</span></header>
+<main>
+ <section class="source" aria-label="Markdown source">
+  <div class="toolbar"><label for="language">Edit language</label><select id="language"><option value="et">ET · Eesti</option><option value="en">EN · English</option></select><button id="reload">Reload source</button></div>
+  <p class="help">Edit text under the <code>##</code> keys. Keep keys unchanged. Text saves automatically as you type. You can also edit either Markdown file in your own editor.</p>
+  <textarea id="markdown" aria-label="Presentation Markdown" spellcheck="false" disabled></textarea>
+  <div id="status" role="status">Loading…</div><pre id="error" role="alert"></pre>
+  <div class="toolbar"><button id="translate" disabled>Refresh other language</button></div>
+  <p id="translation">Translation runs only when requested.</p>
+ </section>
+ <section class="previews" aria-label="Live previews">
+  <div class="preview"><div class="preview-head"><strong>ET · Eesti</strong><a href="/index.html?lang=et&amp;live=1" target="_blank" rel="noopener">Open preview ↗</a></div><div class="viewport"><iframe title="Estonian live preview" src="/index.html?lang=et&amp;live=1"></iframe></div></div>
+  <div class="preview"><div class="preview-head"><strong>EN · English</strong><a href="/index.html?lang=en&amp;live=1" target="_blank" rel="noopener">Open preview ↗</a></div><div class="viewport"><iframe title="English live preview" src="/index.html?lang=en&amp;live=1"></iframe></div></div>
+ </section>
+</main>
+<script>
+'use strict';
+const token='__TOKEN__', $=s=>document.querySelector(s), area=$('#markdown');
+let language='et',revision='',dirty=false,saving=null,timer,editVersion=0,saveError='',serverError='',polling=false;
+async function api(path,body){const response=await fetch(path,body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json','X-Editor-Token':token},body:JSON.stringify(body)});const data=await response.json();if(!response.ok)throw Error(data.error||'Request failed');return data;}
+function errors(){ $('#error').textContent=saveError||serverError; }
+async function loadSource(lang){const data=await api('/api/source/'+lang);language=lang;revision=data.revision;area.value=data.markdown;area.disabled=false;dirty=false;saveError='';$('#status').textContent='Saved · content-'+language+'.md';errors();}
+function saveNow(){
+ clearTimeout(timer);
+ if(saving)return saving;
+ saving=(async()=>{while(dirty){
+  const version=editVersion,source=area.value;$('#status').textContent='Saving…';
+  try{const data=await api('/api/source/'+language,{markdown:source,revision});revision=data.revision;dirty=editVersion!==version;serverError=data.error;saveError='';errors();$('#status').textContent=data.error?'Saved · fix the error to update previews':'Saved · previews updated';}
+  catch(error){saveError=error.message;errors();$('#status').textContent='Not saved · local edits kept';break;}
+ }})().finally(()=>saving=null);return saving;
+}
+function followCursor(){const keys=[...area.value.slice(0,area.selectionStart).matchAll(/^## slide-(\d+)\./gm)];if(!keys.length)return;const index=Number(keys.at(-1)[1])-1;for(const frame of document.querySelectorAll('iframe'))frame.contentWindow.postMessage({type:'openmapstack-go',index},location.origin);}
+area.addEventListener('input',()=>{dirty=true;editVersion++;saveError='';errors();$('#status').textContent='Unsaved changes…';clearTimeout(timer);timer=setTimeout(saveNow,250);followCursor();});
+area.addEventListener('click',followCursor);area.addEventListener('keyup',followCursor);
+$('#language').addEventListener('change',async e=>{const next=e.target.value;await saveNow();if(dirty){e.target.value=language;return;}await loadSource(next);});
+$('#reload').addEventListener('click',async()=>{if(dirty&&!confirm('Discard unsaved editor text and reload the file?'))return;await saving;await loadSource(language);});
+$('#translate').addEventListener('click',async()=>{await saveNow();if(dirty||serverError)return;try{await api('/api/translate',{source:language});$('#translate').disabled=true;$('#translation').textContent='Translating changed blocks…';}catch(error){saveError=error.message;errors();}});
+async function poll(){if(polling)return;polling=true;try{const state=await api('/api/state');serverError=state.error;errors();$('#translate').disabled=!state.canTranslate||state.translating||Boolean(state.error)||dirty;$('#translation').textContent=state.translation||(state.canTranslate?'Translation runs only when requested.':'To enable translation, restart serve.py with --translator-command (see README).');if(state.revisions[language]!==revision&&!saving&&!dirty)await loadSource(language);}catch(error){serverError=error.message;errors();}finally{polling=false;}}
+window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
+const resize=new ResizeObserver(entries=>{for(const {target} of entries){const scale=Math.min(target.clientWidth/1280,target.clientHeight/800),frame=target.querySelector('iframe');frame.style.transform='scale('+scale+')';frame.style.left=(target.clientWidth-1280*scale)/2+'px';frame.style.top=(target.clientHeight-800*scale)/2+'px';}});
+for(const viewport of document.querySelectorAll('.viewport'))resize.observe(viewport);
+loadSource('et').then(poll).catch(error=>{saveError=error.message;errors();});setInterval(poll,500);
+</script>
+</html>

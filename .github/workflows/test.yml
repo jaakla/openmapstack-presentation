@@ -1,0 +1,26 @@
+name: Presentation checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Test engine, translation and local editor
+        run: python -m unittest discover -v
+      - name: Build the standalone offline presentation
+        run: python build.py
+      - name: Check that the offline export matches the sources
+        run: git diff --exit-code -- index.html

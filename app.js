@@ -57,3 +57,29 @@ window.addEventListener('hashchange',()=>{current=slideIndex();render();});
 let swipeX=0,swipeY=0;$('#stage').addEventListener('touchstart',e=>{swipeX=e.changedTouches[0].clientX;swipeY=e.changedTouches[0].clientY;},{passive:true});$('#stage').addEventListener('touchend',e=>{if(e.target.closest('input,button,a'))return;const dx=e.changedTouches[0].clientX-swipeX,dy=e.changedTouches[0].clientY-swipeY;if(Math.abs(dx)>85&&Math.abs(dx)>Math.abs(dy)*1.8)go(current+(dx<0?1:-1));},{passive:true});
 window.addEventListener('beforeprint',()=>{$('#stage').innerHTML=SLIDES.map(s=>`<article class="slide"><h2>${esc(s.title)}</h2>${s.html().replace(/<h[12][^>]*>[\s\S]*?<\/h[12]>/,'')}</article>`).join('');});window.addEventListener('afterprint',render);
 current=slideIndex();render();
+
+// Development-only hot updates: keep slide, notes and interactive demo state.
+// The bundled offline file never contacts the editor server without ?live=1.
+if(new URLSearchParams(location.search).get('live')==='1'&&location.protocol!=='file:'){
+ let liveVersion=0,liveError='',liveBusy=false;
+ window.addEventListener('message',event=>{
+  if(event.origin===location.origin&&event.data?.type==='openmapstack-go'&&Number.isInteger(event.data.index))go(event.data.index);
+ });
+ async function refreshLive(){
+  if(liveBusy)return;liveBusy=true;
+  try{
+   const state=await fetch('/api/state').then(r=>{if(!r.ok)throw Error('Preview server unavailable');return r.json();});
+   if(state.error&&state.error!==liveError)toast('Preview unchanged: '+state.error);
+   liveError=state.error;
+   if(state.version!==liveVersion){
+    const data=await fetch('/api/deck').then(r=>r.json());
+    for(const lang of ['et','en'])DECK[lang]=data.deck[lang];
+    SLIDES_ET.splice(0,SLIDES_ET.length,...makeSlides('et'));
+    SLIDES_EN.splice(0,SLIDES_EN.length,...makeSlides('en'));
+    liveVersion=data.version;render();
+   }
+  }catch(error){if(liveError!==error.message)toast(error.message);liveError=error.message;}
+  finally{liveBusy=false;}
+ }
+ refreshLive();setInterval(refreshLive,500);
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "slide-01",
+    "minutes": 1,
+    "html": "<div class=\"cover\"><div><h1>{{slide-01.text-01}}</h1><p class=\"lead\">{{slide-01.text-02}}</p><p class=\"sub\">{{slide-01.text-03}}</p></div><div><oms-component data-name=\"network\"></oms-component><p class=\"caption\">{{slide-01.text-04}}</p></div></div>",
+    "notes": 3
+  },
+  {
+    "id": "slide-02",
+    "minutes": 2,
+    "html": "<h2>{{slide-02.text-01}}</h2><p class=\"big-question\">{{slide-02.text-02}} <span class=\"em\">{{slide-02.text-03}}</span></p><div class=\"flow three\"><div class=\"step\"><b class=\"num\">{{slide-02.text-04}}</b><h3>{{slide-02.text-05}}</h3><p>{{slide-02.text-06}}</p></div><div class=\"step\"><b class=\"num\">{{slide-02.text-07}}</b><h3>{{slide-02.text-08}}</h3><p>{{slide-02.text-09}}</p></div><div class=\"step\"><b class=\"num\">{{slide-02.text-10}}</b><h3>{{slide-02.text-11}}</h3><p>{{slide-02.text-12}}</p></div></div><p class=\"note-line\">{{slide-02.text-13}}</p>",
+    "notes": 3
+  },
+  {
+    "id": "slide-03",
+    "minutes": 1,
+    "html": "<h2>{{slide-03.text-01}}</h2><div class=\"schedule\"><div style=\"flex:16\"><b>{{slide-03.text-02}}</b><span>{{slide-03.text-03}}</span></div><div style=\"flex:15\"><b>{{slide-03.text-04}}</b><span>{{slide-03.text-05}}</span></div><div style=\"flex:12\"><b>{{slide-03.text-06}}</b><span>{{slide-03.text-07}}</span></div><div style=\"flex:2\"><b>{{slide-03.text-08}}</b><span>{{slide-03.text-09}}</span></div></div><ul class=\"list\"><li><strong>{{slide-03.text-10}}</strong><span>{{slide-03.text-11}}</span></li><li><strong>{{slide-03.text-12}}</strong><span>{{slide-03.text-13}}</span></li><li><strong>{{slide-03.text-14}}</strong><span>{{slide-03.text-15}}</span></li></ul>",
+    "notes": 2
+  },
+  {
+    "id": "slide-04",
+    "minutes": 1,
+    "html": "<h2>{{slide-04.text-01}}</h2><div class=\"prompt\"><p>{{slide-04.text-02}}</p><p><em>{{slide-04.text-03}}</em></p><p><em>{{slide-04.text-04}}</em></p></div><p class=\"note-line\">{{slide-04.text-05}}</p><p class=\"caption\">{{slide-04.text-06}} <a href=\"https://claude.ai/share/f21cd0a5-02d3-411a-8575-238bf22e2b6d\" target=\"_blank\" rel=\"noopener\">{{slide-04.text-07}}</a></p>",
+    "notes": 2
+  },
+  {
+    "id": "slide-05",
+    "minutes": 2,
+    "html": "<h2>{{slide-05.text-01}}</h2><div class=\"two\"><div><ul class=\"list\"><li><strong>{{slide-05.text-02}}</strong><span>{{slide-05.text-03}}</span></li><li><strong>{{slide-05.text-04}}</strong><span>{{slide-05.text-05}}</span></li><li><strong>{{slide-05.text-06}}</strong><span>{{slide-05.text-07}}</span></li></ul></div><div><pre class=\"code\">{{slide-05.text-08}}</pre><p class=\"caption\">{{slide-05.text-09}}</p></div></div>",
+    "notes": 3
+  },
+  {
+    "id": "slide-06",
+    "minutes": 2,
+    "html": "<h2>{{slide-06.text-01}}<br>{{slide-06.text-02}}</h2><div class=\"flow \"><div class=\"step\"><b class=\"num\">{{slide-06.text-03}}</b><h3>{{slide-06.text-04}}</h3><p>{{slide-06.text-05}}</p></div><div class=\"step\"><b class=\"num\">{{slide-06.text-06}}</b><h3>{{slide-06.text-07}}</h3><p>{{slide-06.text-08}}</p></div><div class=\"step\"><b class=\"num\">{{slide-06.text-09}}</b><h3>{{slide-06.text-10}}</h3><p>{{slide-06.text-11}}</p></div><div class=\"step\"><b class=\"num\">{{slide-06.text-12}}</b><h3>{{slide-06.text-13}}</h3><p>{{slide-06.text-14}}</p></div></div><div class=\"two\"><p>{{slide-06.text-15}}</p><p class=\"sub\">{{slide-06.text-16}}</p></div><p class=\"caption\">{{slide-06.text-17}} <a href=\"https://skills.sh/\" target=\"_blank\" rel=\"noopener\">{{slide-06.text-18}}</a> {{slide-06.text-19}}</p>",
+    "notes": 3
+  },
+  {
+    "id": "slide-07",
+    "minutes": 2,
+    "html": "<h2>{{slide-07.text-01}}</h2><table class=\"table\"><thead><tr><th>{{slide-07.text-02}}</th><th>{{slide-07.text-03}}</th><th>{{slide-07.text-04}}</th></tr></thead><tbody><tr><td>{{slide-07.text-05}}</td><td>{{slide-07.text-06}}</td><td>{{slide-07.text-07}}</td></tr><tr><td>{{slide-07.text-08}}</td><td>{{slide-07.text-09}}</td><td>{{slide-07.text-10}}</td></tr><tr><td>{{slide-07.text-11}}</td><td>{{slide-07.text-12}}</td><td>{{slide-07.text-13}}</td></tr><tr><td>{{slide-07.text-14}}</td><td>{{slide-07.text-15}}</td><td>{{slide-07.text-16}}</td></tr></tbody></table><p class=\"note-line\">{{slide-07.text-17}}</p>",
+    "notes": 3
+  },
+  {
+    "id": "slide-08",
+    "minutes": 2,
+    "html": "<h2>{{slide-08.text-01}}</h2><div class=\"flow \"><div class=\"step\"><b class=\"num\">{{slide-08.text-02}}</b><h3>{{slide-08.text-03}}</h3><p>{{slide-08.text-04}}</p></div><div class=\"step\"><b class=\"num\">{{slide-08.text-05}}</b><h3>{{slide-08.text-06}}</h3><p>{{slide-08.text-07}}</p></div><div class=\"step\"><b class=\"num\">{{slide-08.text-08}}</b><h3>{{slide-08.text-09}}</h3><p>{{slide-08.text-10}}</p></div><div class=\"step\"><b class=\"num\">{{slide-08.text-11}}</b><h3>{{slide-08.text-12}}</h3><p>{{slide-08.text-13}}</p></div></div><pre class=\"code\">{{slide-08.text-14}}</pre><p class=\"note-line\">{{slide-08.text-15}}</p>",
+    "notes": 3
+  },
+  {
+    "id": "slide-09",
+    "minutes": 2,
+    "html": "<h2>{{slide-09.text-01}}</h2><div class=\"two\"><pre class=\"code\"><span class=\"comment\">{{slide-09.text-02}}</span>\n<span class=\"key\">{{slide-09.text-03}}</span> {{slide-09.text-04}}\n<span class=\"key\">{{slide-09.text-05}}</span>\n  {{slide-09.text-06}}\n<span class=\"key\">{{slide-09.text-07}}</span>\n  {{slide-09.text-08}}\n<span class=\"key\">{{slide-09.text-09}}</span>\n  {{slide-09.text-10}}\n<span class=\"key\">{{slide-09.text-11}}</span> {{slide-09.text-12}}\n<span class=\"key\">{{slide-09.text-13}}</span> {{slide-09.text-14}}\n<span class=\"key\">{{slide-09.text-15}}</span> {{slide-09.text-16}}</pre><ul class=\"list\"><li><strong>{{slide-09.text-17}}</strong><span>{{slide-09.text-18}}</span></li><li><strong>{{slide-09.text-19}}</strong><span>{{slide-09.text-20}}</span></li><li><strong>{{slide-09.text-21}}</strong><span>{{slide-09.text-22}}</span></li></ul></div><p class=\"caption\">{{slide-09.text-23}}</p>",
+    "notes": 3
+  },
+  {
+    "id": "slide-10",
+    "minutes": 1,
+    "html": "<h2>{{slide-10.text-01}}</h2><div class=\"two project-files-slide\"><pre class=\"code\">{{slide-10.text-02}}       <span class=\"comment\">{{slide-10.text-03}}</span>\n{{slide-10.text-04}}        <span class=\"comment\">{{slide-10.text-05}}</span>\n{{slide-10.text-06}}   <span class=\"comment\">{{slide-10.text-07}}</span>\n{{slide-10.text-08}}          <span class=\"comment\">{{slide-10.text-09}}</span>\n  {{slide-10.text-10}}       <span class=\"comment\">{{slide-10.text-11}}</span>\n  {{slide-10.text-12}}         <span class=\"comment\">{{slide-10.text-13}}</span>\n{{slide-10.text-14}}        <span class=\"comment\">{{slide-10.text-15}}</span>\n{{slide-10.text-16}}              <span class=\"comment\">{{slide-10.text-17}}</span>\n{{slide-10.text-18}}</pre><div><ul class=\"list\"><li><strong>{{slide-10.text-19}}</strong><span>{{slide-10.text-20}}</span></li><li><strong>{{slide-10.text-21}}</strong><span>{{slide-10.text-22}}</span></li><li><strong>{{slide-10.text-23}}</strong><span>{{slide-10.text-24}}</span></li></ul></div></div>",
+    "notes": 3
+  },
+  {
+    "id": "slide-11",
+    "minutes": 3,
+    "html": "<h2>{{slide-11.text-01}}</h2><div class=\"two wide\"><div id=\"network-view\"><oms-component data-name=\"network\"></oms-component></div><div><ul class=\"list\"><li><strong>{{slide-11.text-02}}</strong><span>{{slide-11.text-03}}</span></li><li><strong>{{slide-11.text-04}}</strong><span>{{slide-11.text-05}}</span></li></ul><oms-component data-name=\"controls-true\"></oms-component><p class=\"caption\">{{slide-11.text-06}}</p></div></div>",
+    "notes": 3
+  },
+  {
+    "id": "slide-12",
+    "minutes": 2,
+    "html": "<h2>{{slide-12.text-01}}</h2><div class=\"two\"><div><div class=\"legend-row\"><span>{{slide-12.text-02}}</span><span class=\"alt\" id=\"bridge-legend\" __BRIDGE_HIDDEN__>{{slide-12.text-03}}</span></div><div id=\"chart-view\"><oms-component data-name=\"chart\"></oms-component></div><oms-component data-name=\"controls-false\"></oms-component><p class=\"caption\">{{slide-12.text-04}}</p></div><div><div id=\"metric\"><oms-component data-name=\"metric\"></oms-component></div><p class=\"note-line\">{{slide-12.text-05}}</p><p class=\"sub\" style=\"margin-top:18px\">{{slide-12.text-06}}</p></div></div>",
+    "notes": 3
+  },
+  {
+    "id": "slide-13",
+    "minutes": 2,
+    "html": "<h2>{{slide-13.text-01}}</h2><div class=\"two wide\"><div><oms-shot data-key=\"analysis\">{{slide-13.text-02}}</oms-shot></div><div class=\"steps\"><div class=\"step-row\"><b>{{slide-13.text-03}}</b><div><h3>{{slide-13.text-04}}</h3><p>{{slide-13.text-05}}</p></div></div><div class=\"step-row\"><b>{{slide-13.text-06}}</b><div><h3>{{slide-13.text-07}}</h3><p>{{slide-13.text-08}}</p></div></div><div class=\"step-row\"><b>{{slide-13.text-09}}</b><div><h3>{{slide-13.text-10}}</h3><p>{{slide-13.text-11}}</p></div></div><div class=\"step-row\"><b>{{slide-13.text-12}}</b><div><h3>{{slide-13.text-13}}</h3><p>{{slide-13.text-14}}</p></div></div></div></div>",
+    "notes": 3
+  },
+  {
+    "id": "slide-14",
+    "minutes": 4,
+    "html": "<h2>{{slide-14.text-01}}</h2><div class=\"two wide\"><div><oms-shot data-key=\"map\">{{slide-14.text-02}}</oms-shot></div><div><div class=\"steps\"><div class=\"step-row\"><b>{{slide-14.text-03}}</b><div><h3>{{slide-14.text-04}}</h3><p>{{slide-14.text-05}}</p></div></div><div class=\"step-row\"><b>{{slide-14.text-06}}</b><div><h3>{{slide-14.text-07}}</h3><p>{{slide-14.text-08}}</p></div></div><div class=\"step-row\"><b>{{slide-14.text-09}}</b><div><h3>{{slide-14.text-10}}</h3><p>{{slide-14.text-11}}</p></div></div></div><a class=\"demo-link\" href=\"https://tartu-sillad.jaak-laineste.workers.dev/\" target=\"_blank\" rel=\"noopener\">{{slide-14.text-12}}</a></div></div>",
+    "notes": 5
+  },
+  {
+    "id": "slide-15",
+    "minutes": 2,
+    "html": "<h2>{{slide-15.text-01}}</h2><div class=\"two wide\"><div><oms-shot data-key=\"provenance\">{{slide-15.text-02}}</oms-shot></div><div><div class=\"steps\"><div class=\"step-row\"><b>{{slide-15.text-03}}</b><div><h3>{{slide-15.text-04}}</h3><p>{{slide-15.text-05}}</p></div></div><div class=\"step-row\"><b>{{slide-15.text-06}}</b><div><h3>{{slide-15.text-07}}</h3><p>{{slide-15.text-08}}</p></div></div><div class=\"step-row\"><b>{{slide-15.text-09}}</b><div><h3>{{slide-15.text-10}}</h3><p>{{slide-15.text-11}}</p></div></div><div class=\"step-row\"><b>{{slide-15.text-12}}</b><div><h3>{{slide-15.text-13}}</h3><p>{{slide-15.text-14}}</p></div></div></div></div></div>",
+    "notes": 4
+  },
+  {
+    "id": "slide-16",
+    "minutes": 2,
+    "html": "<h2>{{slide-16.text-01}}</h2><div class=\"two wide\"><div><oms-shot data-key=\"comparison\">{{slide-16.text-02}}</oms-shot></div><div><div class=\"steps\"><div class=\"step-row\"><b>{{slide-16.text-03}}</b><div><h3>{{slide-16.text-04}}</h3><p>{{slide-16.text-05}}</p></div></div><div class=\"step-row\"><b>{{slide-16.text-06}}</b><div><h3>{{slide-16.text-07}}</h3><p>{{slide-16.text-08}}</p></div></div><div class=\"step-row\"><b>{{slide-16.text-09}}</b><div><h3>{{slide-16.text-10}}</h3><p>{{slide-16.text-11}}</p></div></div></div><p class=\"note-line\">{{slide-16.text-12}}</p></div></div>",
+    "notes": 4
+  },
+  {
+    "id": "slide-17",
+    "minutes": 2,
+    "html": "<h2>{{slide-17.text-01}}</h2><div class=\"two\"><div class=\"timeline\"><div class=\"timeline-row\"><b>{{slide-17.text-02}}</b><div><p>{{slide-17.text-03}}</p><small>{{slide-17.text-04}}</small></div></div><div class=\"timeline-row\"><b>{{slide-17.text-05}}</b><div><p>{{slide-17.text-06}}</p><small>{{slide-17.text-07}}</small></div></div><div class=\"timeline-row\"><b>{{slide-17.text-08}}</b><div><p>{{slide-17.text-09}}</p><small>{{slide-17.text-10}}</small></div></div><div class=\"timeline-row\"><b>{{slide-17.text-11}}</b><div><p>{{slide-17.text-12}}</p><small>{{slide-17.text-13}}</small></div></div></div><div><p class=\"quote\">{{slide-17.text-14}}</p><p class=\"note-line\">{{slide-17.text-15}}</p></div></div>",
+    "notes": 3
+  },
+  {
+    "id": "slide-18",
+    "minutes": 2,
+    "html": "<h2>{{slide-18.text-01}}</h2><div class=\"two\"><div><ul class=\"list\"><li><strong>{{slide-18.text-02}}</strong><span>{{slide-18.text-03}}</span></li><li><strong>{{slide-18.text-04}}</strong><span>{{slide-18.text-05}}</span></li><li><strong>{{slide-18.text-06}}</strong><span>{{slide-18.text-07}}</span></li></ul></div><div><oms-shot data-key=\"trips\">{{slide-18.text-08}}</oms-shot></div></div><p class=\"caption\">{{slide-18.text-09}}</p>",
+    "notes": 3
+  },
+  {
+    "id": "slide-19",
+    "minutes": 2,
+    "html": "<h2>{{slide-19.text-01}}</h2><div class=\"two\"><div class=\"status-list\"><div class=\"status-row\"><b class=\"em\">{{slide-19.text-02}}</b><p>{{slide-19.text-03}}</p></div><div class=\"status-row\"><b class=\"warning\">{{slide-19.text-04}}</b><p>{{slide-19.text-05}}</p></div><div class=\"status-row\"><b>{{slide-19.text-06}}</b><p>{{slide-19.text-07}}</p></div><div class=\"status-row\"><b class=\"warning\">{{slide-19.text-08}}</b><p>{{slide-19.text-09}}</p></div></div><div><pre class=\"code\">{{slide-19.text-10}}\n<span class=\"comment\">{{slide-19.text-11}}</span>\n\n{{slide-19.text-12}}\n<span class=\"comment\">{{slide-19.text-13}}</span>\n\n{{slide-19.text-14}}\n<span class=\"comment\">{{slide-19.text-15}}</span></pre></div></div><p class=\"note-line\">{{slide-19.text-16}}</p>",
+    "notes": 3
+  },
+  {
+    "id": "slide-20",
+    "minutes": 2,
+    "html": "<h2>{{slide-20.text-01}}</h2><div class=\"costs\"><div><div class=\"huge em\">{{slide-20.text-02}}<span class=\"unit\"> {{slide-20.text-03}}</span></div><p>{{slide-20.text-04}}</p></div><div><div class=\"huge em\">{{slide-20.text-05}}<span class=\"unit\">{{slide-20.text-06}}</span></div><p>{{slide-20.text-07}}</p></div><div><div class=\"huge\">{{slide-20.text-08}}</div><p>{{slide-20.text-09}}</p></div></div><div class=\"two\"><p>{{slide-20.text-10}}</p><p class=\"sub\">{{slide-20.text-11}}</p></div><p class=\"note-line\">{{slide-20.text-12}}</p>",
+    "notes": 3
+  },
+  {
+    "id": "slide-21",
+    "minutes": 2,
+    "html": "<h2>{{slide-21.text-01}}</h2><div class=\"flow \"><div class=\"step\"><b class=\"num\">{{slide-21.text-02}}</b><h3>{{slide-21.text-03}}</h3><p>{{slide-21.text-04}}</p></div><div class=\"step\"><b class=\"num\">{{slide-21.text-05}}</b><h3>{{slide-21.text-06}}</h3><p>{{slide-21.text-07}}</p></div><div class=\"step\"><b class=\"num\">{{slide-21.text-08}}</b><h3>{{slide-21.text-09}}</h3><p>{{slide-21.text-10}}</p></div><div class=\"step\"><b class=\"num\">{{slide-21.text-11}}</b><h3>{{slide-21.text-12}}</h3><p>{{slide-21.text-13}}</p></div></div><div class=\"two\"><p><span class=\"em\">{{slide-21.text-14}}</span> {{slide-21.text-15}}</p><p class=\"sub\">{{slide-21.text-16}}</p></div><p class=\"note-line\">{{slide-21.text-17}}</p>",
+    "notes": 3
+  },
+  {
+    "id": "slide-22",
+    "minutes": 1,
+    "html": "<h2>{{slide-22.text-01}}</h2><ul class=\"list\"><li><strong>{{slide-22.text-02}}</strong><span>{{slide-22.text-03}}</span></li><li><strong>{{slide-22.text-04}}</strong><span>{{slide-22.text-05}}</span></li><li><strong>{{slide-22.text-06}}</strong><span>{{slide-22.text-07}}</span></li></ul><p class=\"note-line\">{{slide-22.text-08}}</p>",
+    "notes": 2
+  },
+  {
+    "id": "slide-23",
+    "minutes": 1,
+    "html": "<h2>{{slide-23.text-01}}</h2><p class=\"quote\">{{slide-23.text-02}}<br><span class=\"em\">{{slide-23.text-03}}</span><br>{{slide-23.text-04}}</p><div class=\"source-links\"><a href=\"https://github.com/jaakla/openmapstack-skills\" target=\"_blank\" rel=\"noopener\">{{slide-23.text-05}}</a><a href=\"https://jaakla.github.io/openmapstack-skills/\" target=\"_blank\" rel=\"noopener\">{{slide-23.text-06}}</a><a href=\"https://tartu-sillad.jaak-laineste.workers.dev/\" target=\"_blank\" rel=\"noopener\">{{slide-23.text-07}}</a></div><p class=\"caption\">{{slide-23.text-08}}</p>",
+    "notes": 2
+  },
+  {
+    "id": "slide-24",
+    "minutes": 2,
+    "html": "<h2>{{slide-24.text-01}}</h2><div class=\"discussion\"><div><h3>{{slide-24.text-02}}</h3><p>{{slide-24.text-03}}</p></div><div><h3>{{slide-24.text-04}}</h3><p>{{slide-24.text-05}}</p></div><div><h3>{{slide-24.text-06}}</h3><p>{{slide-24.text-07}}</p></div></div><p class=\"note-line\">{{slide-24.text-08}}</p>",
+    "notes": 2
+  }
+]

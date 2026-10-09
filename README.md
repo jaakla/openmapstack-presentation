@@ -1,86 +1,98 @@
-# OpenMapStack — 45 minuti demo ja esitlus
+# OpenMapStack presentation
 
-Eesti- ja ingliskeelne esitlus tehnilise tooteettevõtte GIS-ekspertidele: 24 slaidi,
-45 minuti ajastus, juhitud demo ja iga slaidi esinejamärkmed.
+A standalone Markdown presentation editor with two live language previews,
+explicit translation sync and a self-contained offline HTML export. Includes
+the bilingual Estonian/English OpenMapStack demo: 24 slides, 45 minutes, speaker
+notes, dashboard screenshots and an interactive synthetic network example.
 
-## Ava ja esitle
+## Start editing
 
-Ava `index.html` brauseris. See on üks iseseisev HTML-fail: stiilid, JavaScript,
-graafika ja viis tegelikku dashboardi ekraanipilti on faili sees. Slaidid ja
-interaktiivne näidis töötavad ilma serveri või võrguühenduseta.
-
-- **ET / EN jaluses:** slaidide, esinejamärkmete, graafikute ja juhtnuppude keel.
-  Valik säilib järgmisel avamisel, kui brauser lubab kohalikku salvestust.
-  Keelevahetus säilitab slaidi ja interaktiivse demo seaded. Päris dashboardi
-  ekraanipildid ja väline demorakendus jäävad eestikeelseks.
-- **Edasi / ← → / PageDown / PageUp:** järgmine või eelmine slaid.
-- **Vali slaid / G:** slaidivalik koos ajakavaga.
-- **Täisekraan / F:** brauseri täisekraan. Piiratud eelvaaturis ava fail tavalises brauseris.
-- **Märkmed / N:** esinejamärkmed ja slaidi kavandatud aeg; paneel on samas aknas.
-- **Home / End:** esimene või viimane slaid.
-- **Klõps ekraanipildil:** pildi suurendus; Escape sulgeb.
-
-## 45 minuti läbimäng
-
-| Slaidid | Aeg | Teema |
-|---|---:|---|
-| 1–10 | 0–16 min | Demoküsimus, agent, skill, andmetöö ja projektileping |
-| 11–16 | 16–31 min | Võrgupõhine katvus, kaalud, dashboard, päritolu, stsenaarium |
-| 17–23 | 31–43 min | Iteratsioon, brauser/QGIS, kontrollid, kulu, privaatandmed |
-| 24 | 43–45 min | Arutelu ja piloodi valik |
-
-Demo kolm käiku:
-
-1. Slaid 11: muuda jalutusaega 15 → 10 → 20 minutit ja lisa näidisvõrku sild.
-2. Slaid 12: võrdle elumajade arvu ja eluruumidega kaalutud katvust.
-3. Slaid 16: võrdle päris rakenduses Tuglast, Marjat ja mõlemat silda koos.
-
-Slaidilt 14 saab avada [Tartu Emajõe sillaanalüüsi](https://tartu-sillad.jaak-laineste.workers.dev/).
-Live-demo viis vaadet on Kõik kohad, Tuglase vs Marja, Teekonnad, Kaart ja
-Päritolu. Võrdle sillakohti, jalgsi/rattaga liikumist, mõjumõõdikuid ja
-tundlikkuse parameetreid. Poolestusaeg (gravitatsioonipõhine ligipääsetavus) ja
-ajalävi (kumulatiivne ligipääsetavus) on eri parameetrid. Rakendus vajab võrku;
-katkestuse korral kasuta sisse ehitatud ekraanipilte ja näidisvõrku.
-
-## Sisu ja tõendite piir
-
-Algkoolide 15 minuti küsimus jääb algse analüüsi lähtejuhtumiks; selle
-katvusprotsenti pole välja mõeldud. Live-demo ja viis ekraanipilti näitavad
-kasutaja antud Tartu sillaanalüüsi. Pildid jäädvustati 08.10.2026; rakenduse
-Päritolu vaates on käivitus `run-20261002-181138`. Kaardi omistused
-Maa- ja Ruumiametile, OpenStreetMapi panustajatele ja Overture Mapsile on
-ekraanipiltidel säilitatud. See on rakenduse tulemuste esitlus; analüüsi ei ole
-esitluse koostamisel sõltumatult uuesti arvutatud.
-
-Interaktiivne võrk ja katvuse graafik kasutavad selgelt märgitud sünteetilisi
-andmeid: servade ajakulud, 12 elumaja ja 304 eluruumi. Arvutus on Dijkstra
-lühim tee suunamata võrgus. Katvuse graafik tuleneb samast arvutusest ning
-hoonete kaaludest; selle joon pole käsitsi joonistatud trend. Sünteetiline sild
-lisab võrguserva. Ka päris sillaanalüüs kirjeldab Päritolu vaates sildade
-lisamist jalgsi- ja rattavõrku; selle arvutus ei ole sama mis esitlusskeemi oma.
-
-Autori antud ajakulu, tokenikulu, iteratsioonid ja ajaloolised versioonid on
-märgitud demokogemusena. Mudelite üldist paremusjärjestust ega muutuvat
-hinnakirja ei esitata kontrollitud faktina. Tehniliste väidete aluseks on hoidla
-README, CLI parser, hoidla projekti näide ja sillarakenduse Päritolu vaade.
-[skills.sh](https://skills.sh/) on kataloogi näide, mitte kvaliteedigarantii.
-
-## Muutmine
-
-- `content.js`: eestikeelsed slaidid, ajad ja esinejamärkmed.
-- `content-en.js`: samade slaidide ja märkmete ingliskeelsed tõlked.
-- `i18n.js`: keelevalik ning vaaturi tekstid.
-  Sisu muutmisel uuenda mõlemat keeleversiooni; slaidide järjekord ja ajad peavad kattuma.
-- `app.js`: vaatur ja interaktiivse näite arvutus.
-- `styles.css`: kujundus; siht on arvuti esitlusvaade.
-- `viewer.html`: HTML-i karkass.
-- `assets/`: originaalsed dashboardi ekraanipildid.
-
-Pärast muutmist loo uuesti iseseisev fail:
+Requires Python 3.10+; the engine uses only the standard library.
 
 ```bash
-python3 presentations/openmapstack-45min/build.py
+git clone https://github.com/jaakla/openmapstack-presentation.git
+cd openmapstack-presentation
+python3 serve.py
 ```
 
-Koostaja kasutab ainult Pythoni standardteeki. Vaatamiseks pole Node’i,
-Pythoni, API võtme ega muu runtime’i vajadust.
+Open <http://127.0.0.1:8765/>. Edit Markdown in the browser or your own editor:
+
+- [content-et.md](content-et.md): Estonian text and speaker notes.
+- [content-en.md](content-en.md): English text and speaker notes.
+
+Browser edits autosave after a short typing pause. Saved file edits also rebuild
+HTML automatically. Both previews follow the slide under the cursor and preserve
+navigation, open notes and interactive demo state during updates. The other
+language keeps its wording until an explicit translation sync.
+
+The MVP edits existing text blocks. Slide structure, layout, image choices,
+links and timing live in [layouts.json](layouts.json). Viewer and interactive
+labels remain in JavaScript. Missing, duplicate or unknown Markdown keys are
+reported; previews keep the last valid build while you fix the source.
+
+Separate preview windows:
+
+- [Estonian preview](http://127.0.0.1:8765/index.html?lang=et&live=1)
+- [English preview](http://127.0.0.1:8765/index.html?lang=en&live=1)
+
+## Translate on demand
+
+Choose an installed and authenticated translator command. For example:
+
+```bash
+python3 serve.py \
+  --translator-command 'codex exec --ephemeral --sandbox read-only -'
+```
+
+Click **Refresh other language** to translate only changed source blocks into
+the other Markdown file. Or run a manual sync:
+
+```bash
+python3 translate_sync.py --from et \
+  --translator-command 'codex exec --ephemeral --sandbox read-only -'
+```
+
+Use `--from en` for English → Estonian. Both commands also accept
+`OPENMAPSTACK_TRANSLATOR_COMMAND`. Claude and custom commands are documented in
+[the editing guide](docs/presentation.md#explicit-translation-sync).
+Translation never runs automatically on typing. Changes to the same block in
+both languages are reported as conflicts; unrelated manual target edits remain.
+Keep [translation-state.json](translation-state.json) with both sources.
+
+## Build and present offline
+
+```bash
+python3 build.py
+```
+
+Open [index.html](index.html) in a browser. This single file embeds both language
+decks, styles, scripts and screenshots. It requires no server, runtime or API key
+to present. The external Tartu bridge dashboard requires a network connection;
+the embedded screenshots and synthetic example remain available offline.
+
+See [the presenter guide](docs/presentation.md) for navigation, the 45-minute
+schedule, demo steps and evidence limitations.
+
+## Develop
+
+```bash
+python3 -m unittest discover -v
+python3 build.py
+git diff --exit-code -- index.html
+```
+
+Tests use a fake translator and make no model calls. CI checks Python 3.10 and
+3.12, the deterministic tests and synchronization of the committed offline
+export. See [AGENTS.md](AGENTS.md) for maintenance guidance.
+
+## Origin and license
+
+Extracted from [OpenMapStack skills](https://github.com/jaakla/openmapstack-skills)
+with its presentation history and the Markdown/live-editing implementation. The
+presentation's original introduction was commit
+[`d79cc32`](https://github.com/jaakla/openmapstack-skills/commit/d79cc32401f4e9c882b131671d70a9784d698634).
+GIS skills, project validators and evaluation infrastructure remain in that
+repository.
+
+[MIT license](LICENSE), copyright 2026 Jaak Laineste. Dataset and screenshot
+attributions remain in the deck and presenter guide.
