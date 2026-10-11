@@ -5,6 +5,9 @@ Eesti- ja ingliskeelne esitlus tehnilise tooteettevõtte GIS-ekspertidele: 24 sl
 
 ## Ava ja esitle
 
+Ava [veebiesitlus](https://jaakla.github.io/openmapstack-presentation/?lang=et)
+brauseris — kohalikku paigaldust pole vaja. [Ingliskeelne otseviide](https://jaakla.github.io/openmapstack-presentation/?lang=en).
+
 Ava `index.html` brauseris. See on üks iseseisev HTML-fail: stiilid, JavaScript,
 graafika ja viis tegelikku dashboardi ekraanipilti on faili sees. Slaidid ja
 interaktiivne näidis töötavad ilma serveri või võrguühenduseta.

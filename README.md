@@ -5,6 +5,18 @@ explicit translation sync and a self-contained offline HTML export. Includes
 the bilingual Estonian/English OpenMapStack demo: 24 slides, 45 minutes, speaker
 notes, dashboard screenshots and an interactive synthetic network example.
 
+## Present online
+
+Open the [presentation on GitHub Pages](https://jaakla.github.io/openmapstack-presentation/)
+in any modern browser. No installation, account or local server is required.
+
+- [Estonian](https://jaakla.github.io/openmapstack-presentation/?lang=et)
+- [English](https://jaakla.github.io/openmapstack-presentation/?lang=en)
+
+Use **ET / EN** to switch languages, **← / →** to navigate, **F** for fullscreen
+and **N** for speaker notes. Screenshots and the interactive synthetic network
+demo are included; the external Tartu dashboard needs a network connection.
+
 ## Start editing
 
 Requires Python 3.10+; the engine uses only the standard library.
@@ -72,6 +84,18 @@ the embedded screenshots and synthetic example remain available offline.
 
 See [the presenter guide](docs/presentation.md) for navigation, the 45-minute
 schedule, demo steps and evidence limitations.
+
+## Publish updates
+
+[GitHub Actions](.github/workflows/pages.yml) tests and builds the presentation
+on every push to `main`, checks that the committed `index.html` matches its
+sources, and deploys that single HTML file to GitHub Pages. After editing sources,
+run `python3 build.py` and commit the updated `index.html` with them.
+
+The repository's **Settings → Pages → Source** must be **GitHub Actions**.
+To republish the current `main` without a new commit, run **Publish presentation**
+from the repository's **Actions** tab using **Run workflow**. Deployment status
+and the published URL appear in that workflow's `github-pages` environment.
 
 ## Develop
 
