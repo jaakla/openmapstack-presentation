@@ -20,19 +20,19 @@ OpenMapStack
 
 ## slide-01.text-02
 
-Tehisintellekti geo-oskused korratavaks kaardianalüüsiks
+AI geo-oskused korratavaks kaardianalüüsiks
 
 ## slide-01.text-03
 
-Tartu · 15 minuti jalutuskäik · 45 min
+Tartu · 15 minuti linn · 45 min tööd
 
 ## slide-01.text-04
 
-Meetodi skeem, mitte Tartu mõõtmistulemus.
+Illustratiivne joonis (AI looming).
 
 ## slide-01.note-01
 
-GIS-tööriistad on meil olemas. Mis juhtub, kui küsimusest projektini viiva töö teeb agent?
+GIS-tööriistad on meil olemas. Mis juhtub, kui küsimusest ehitusprojektini viiva töö teeb agent?
 
 ## slide-01.note-02
 
@@ -46,7 +46,7 @@ Kaardigraafika on sünteetiline ja on hiljem interaktiivne.
 
 ## slide-02.title
 
-Demoküsimus: Tartu algkoolid
+Demoküsimus: Tartu koolivõrgu katvus
 
 ## slide-02.section
 
@@ -74,7 +74,7 @@ Millised koolid?
 
 ## slide-02.text-06
 
-Algkooli definitsioon, tegutsevad asutused, sissepääsud.
+Algkooli tüübid (era, riigi, HEV), tegutsevad asutused, sissepääsud.
 
 ## slide-02.text-07
 
@@ -86,7 +86,7 @@ Milline jalutuskäik?
 
 ## slide-02.text-09
 
-Tänavavõrk, kiirus, sillad, ülekäigud ja ligipääs.
+Tänavavõrk, kiirused, sillad, ülekäigud ja ligipääs.
 
 ## slide-02.text-10
 
@@ -94,15 +94,16 @@ Tänavavõrk, kiirus, sillad, ülekäigud ja ligipääs.
 
 ## slide-02.text-11
 
-Katvus millest?
+Katvus mille suhtes?
 
 ## slide-02.text-12
 
-Eluruumid, elanikud või lapsed? Iga nimetaja annab eri vastuse.
+Eluruumid, elanikud või vanusegrupi lapsed? 
 
 ## slide-02.text-13
 
-Autori kogemus: esimene kasutatav tulemus ligikaudu tunniga. Sisuline õigsus vajab eraldi kontrolli.
+Mida täpsem küsimuse täpsustus, seda parem, aga ka kitsam on tulemus. 
+Detaile asendavad: (a) variandid (b) kõige tõenäolisem otsus (c) jätkuküsimused
 
 ## slide-02.note-01
 
@@ -110,7 +111,7 @@ Küsi publikult suuliselt, mida katvuse all mõõta. Võta kaks kiiret vastust.
 
 ## slide-02.note-02
 
-Lähim kool ei tõenda koolikoha kättesaadavust: mahutavus, vanus ja teeninduspiirkond on lisamõõtmed.
+Lähim kool ei tõenda koolikoha kättesaadavust: vabade kohtade arv, sihtgrupi vanus ja teeninduspiirkond on lisamõõtmed.
 
 ## slide-02.note-03
 
@@ -124,11 +125,11 @@ Algkoolide küsimus on algne lähtejuhtum. Live-demo näitab edasiarendust: Tart
 
 ## slide-03.section
 
-Küsimus ja raamistik
+Küsimus ja raamistik.
 
 ## slide-03.text-01
 
-45 minutit: küsimusest otsuseni
+45 minutit küsimusest otsuseni
 
 ## slide-03.text-02
 
@@ -152,7 +153,7 @@ Meetod ja juhitud demo
 
 ## slide-03.text-07
 
-Kontroll ja tootearendus
+Kontrolli ja korda
 
 ## slide-03.text-08
 
@@ -160,11 +161,11 @@ Kontroll ja tootearendus
 
 ## slide-03.text-09
 
-Arutelu
+Otsus
 
 ## slide-03.text-10
 
-Mida me tõendame?
+Väärtus
 
 ## slide-03.text-11
 
@@ -172,19 +173,18 @@ Töö muutub loetavaks, käivitatavaks ja kontrollitavaks.
 
 ## slide-03.text-12
 
-Mida me uurime?
-
+Uuring
 ## slide-03.text-13
 
 Kas agent valis õige allika, meetodi ja katvuse nimetaja?
 
 ## slide-03.text-14
 
-Mida GIS-ekspert otsustab?
+GIS-eksperdi otsus
 
 ## slide-03.text-15
 
-Millised eeldused ja piirangud on selle otsuse jaoks vastuvõetavad?
+Millised andmed, eeldused ja piirangud on selle otsuse jaoks vastuvõetavad?
 
 ## slide-03.note-01
 
@@ -206,15 +206,15 @@ Küsimus ja raamistik
 
 ## slide-04.text-01
 
-Prompt on lähteülesanne.
+Prompt - lähteülesanne.
 
 ## slide-04.text-02
 
-Analüüsi Tartu tegutsevate algkoolide 15 minuti jalgsikatvust. Täpsusta koolide valik ja mõõda katvust eluruumide järgi.
+Analüüsi Tartu algkoolide 15 minuti jalgsikatvust. Täpsusta koolide valik ja mõõda katvust eluruumide põhjal.
 
 ## slide-04.text-03
 
-Kasuta kõnnitavat võrku. Salvesta allikad, ajad, CRS, eeldused ja piirangud. Loo korratav OpenMapStacki projekt, kaart ning katvuse tundlikkus ajapiiri suhtes.
+Kasuta kõnnitavat teedevõrku. Salvesta allikad, ajad, CRS, eeldused ja piirangud. Loo korratav OpenMapStacki projekt, kaart ning katvuse tundlikkus ajapiiri suhtes.
 
 ## slide-04.text-04
 
@@ -222,11 +222,11 @@ Kui vajalik allikas või ligipääsuinfo puudub, too see nähtavale.
 
 ## slide-04.text-05
 
-Kursiivis nõuded lisab OpenMapStacki oskus vaikimisi; neid pole vaja promptis korrata.
+Kursiivis nõuded lisab OpenMapStacki oskus vaikimisi; neid võib, aga pole vaja promptis korrata.
 
 ## slide-04.text-06
 
-Demoks koostatud lähteülesanne.
+Demoks koostatud lähteülesanne:
 
 ## slide-04.text-07
 
@@ -252,7 +252,7 @@ Küsimus ja raamistik
 
 ## slide-05.text-01
 
-Vali töövahend, mis saab tööd teha.
+Vali töövahendid.
 
 ## slide-05.text-02
 
@@ -260,19 +260,19 @@ Agent + oskused
 
 ## slide-05.text-03
 
-Oskuste laadimine, failide kirjutamine ja koodi käivitamine.
+Skills (oskused), failide kirjutamine ja koodi käivitamine.
 
 ## slide-05.text-04
 
-Mudeli võimekus
+Keelemudel: Opus/Sol klass
 
 ## slide-05.text-05
 
-Keeruka ruumilise töö jaoks alusta tugevast mudelist ja piisavast mõtlemisajast.
+Keeruka ruumilise töö jaoks alusta tugevast mudelist ja piisavast mõtlemisajast (High+ reasoning).
 
 ## slide-05.text-06
 
-Tööpind
+Töökeskkond
 
 ## slide-05.text-07
 
@@ -282,8 +282,8 @@ Desktop GUI, terminal, IDE või eraldatud kaugkeskkond.
 
 Küsimus
 + projektikaust
-+ geotööriistad
-+ agent, kes neid kasutab
++ geotööriistad (OpenMapBench)
++ agent keelemudeliga, mis neid kasutab
 + sinu sisuline ülevaatus
 ──────────────────────────
 kontrollitav analüüs
@@ -316,7 +316,7 @@ Küsimus ja raamistik
 
 ## slide-06.text-01
 
-Oskus annab detailid.
+Skill/oskus annab detailid.
 
 ## slide-06.text-02
 
@@ -332,7 +332,7 @@ Juhised
 
 ## slide-06.text-05
 
-Allikate leidmine, CRS, formaadid ja töövoog.
+Allikate leidmine, formaadid ja töövoog.
 
 ## slide-06.text-06
 
@@ -344,7 +344,7 @@ Valikud
 
 ## slide-06.text-08
 
-Open-first stack või olemasolev ettevõtte tehnoloogia.
+Open-first stack või olemasolev ettevõtte tehnoloogia (nt ESRI).
 
 ## slide-06.text-09
 
@@ -352,11 +352,11 @@ Open-first stack või olemasolev ettevõtte tehnoloogia.
 
 ## slide-06.text-10
 
-Artefaktid
+Väljundid
 
 ## slide-06.text-11
 
-Projekt, pipeline, päritolu ja valitud väljundid.
+Projekt, pipeline.py, päritolu, readme ja valitud väljundid.
 
 ## slide-06.text-12
 
@@ -368,19 +368,19 @@ Tõendid
 
 ## slide-06.text-14
 
-Testid, eval’id ja tulemuse sisuline ülevaatus.
+Testid, kontrollid (eval’id) ja tulemuse sisuline ülevaatus.
 
 ## slide-06.text-15
 
-Skill on loetav ja versioonitav juhis. Selle väärtust saab mõõta agentide käitumises.
+Skill on loetav täiendav juhis. Selle täpsustab agentide käitumist ja väljundit.
 
 ## slide-06.text-16
 
-Risk: teenus, formaat või API muutub. Täpne väide tuleb allikast uuesti kontrollida.
+Riskid: andmed, teenus, formaat või API muutub. Täpne väide tuleb allikast uuesti kontrollida.
 
 ## slide-06.text-17
 
-Oskuste kataloogi näide:
+AI skill-i/oskuste populaarne kataloog:
 
 ## slide-06.text-18
 
@@ -388,7 +388,7 @@ skills.sh
 
 ## slide-06.text-19
 
-· kataloog ei tähenda iga oskuse sõltumatut kvaliteedikontrolli.
+· Kataloog ei taga iga oskuse sõltumatut kvaliteedikontrolli.
 
 ## slide-06.note-01
 
@@ -414,11 +414,11 @@ Küsimus ja raamistik
 
 ## slide-07.text-01
 
-Andmed liiguvad tööriistadesse.
+Andmed liiguvad läbi tööriistade.
 
 ## slide-07.text-02
 
-Andmetöö
+Andmed
 
 ## slide-07.text-03
 
@@ -426,7 +426,7 @@ Töövahend
 
 ## slide-07.text-04
 
-Mida ekspert kontrollib?
+Kontroll
 
 ## slide-07.text-05
 
