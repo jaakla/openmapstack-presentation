@@ -36,6 +36,12 @@ class PresentationTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name) / 'deck'
         shutil.copytree(DECK, self.root, ignore=shutil.ignore_patterns('index.html', '__pycache__', '.git', 'tests', '.github', '.venv'))
+        # Real content may have edits awaiting translation. Each test starts
+        # from its own synchronized baseline, written only in the temp copy.
+        _, fields = build.read_sources(self.root)
+        state = {lang: {key: translate.digest(value) for key, value in texts.items()}
+                 for lang, texts in fields.items()}
+        build.atomic_write(self.root / 'translation-state.json', json.dumps(state, indent=2) + '\n')
 
     def edit(self, lang, key, value):
         path = self.root / f'content-{lang}.md'
