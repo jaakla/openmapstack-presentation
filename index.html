@@ -25,36 +25,34 @@ footer{border-top:1px solid var(--line);display:flex;align-items:center;gap:12px
 @media(min-width:701px) and (max-width:1100px){footer .meta{display:none}footer .notes-toggle{display:none}}
 .prompt em{font-synthesis:style}
 
-/* Prezi camera coordinates stay independent of the browser viewport. */
-#stage.prezi-stage{position:relative;display:block;padding:0;overflow:hidden;background-color:#edf4f3;background-image:radial-gradient(#c6d8d5 1px,transparent 1px);background-size:24px 24px;isolation:isolate}
-.prezi-world{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
-.prezi-route{position:absolute;overflow:visible;pointer-events:none}
-.prezi-route polyline{fill:none;stroke:#b2cbc6;stroke-width:18;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:12 34}
-.prezi-frame{position:absolute;width:1440px;height:900px;background:white;border-radius:14px;box-shadow:0 8px 70px rgb(16 47 51 / .09);outline:3px solid #d4e3e0}
-.prezi-frame.is-current{outline:5px solid var(--teal)}
-.prezi-frame .prezi-slide{width:100%;max-width:none;height:100%;padding:58px 70px;display:flex;flex-direction:column;justify-content:center;overflow:auto;animation:none;border-radius:inherit}
-.prezi-slide h1{font-size:78px}.prezi-slide h2{font-size:52px}.prezi-slide h3{font-size:27px}.prezi-slide p,.prezi-slide li{font-size:23px}.prezi-slide .lead{font-size:31px}.prezi-slide .caption{font-size:14px}.prezi-slide .sub{font-size:22px}.prezi-slide .note-line{font-size:18px}
-.prezi-slide .cover{grid-template-columns:1.07fr 1fr;gap:44px}.prezi-slide .cover .sub{font-size:21px;margin-top:32px}
-.prezi-slide .two{grid-template-columns:1.05fr 1fr;gap:64px}.prezi-slide .two.wide{grid-template-columns:1.55fr 1fr;gap:44px}
-.prezi-slide .network{max-height:470px}.prezi-slide .photo{max-height:570px}.prezi-slide .photo-label{font-size:15px}
-.prezi-slide .list{gap:24px}.prezi-slide .list strong{font-size:27px}.prezi-slide .list span{font-size:21px}
-.prezi-slide .flow{grid-template-columns:repeat(4,1fr);gap:28px;margin:42px 0 32px}.prezi-slide .flow.three{grid-template-columns:repeat(3,1fr)}
-.prezi-slide .flow .step:not(:last-child):after{display:block}.prezi-slide .step b.num{width:52px;height:52px;font-size:23px;margin-bottom:24px}.prezi-slide .step p{font-size:21px}
-.prezi-slide .code{font-size:18px;padding:26px 30px}.prezi-slide .project-files-slide>.code{font-size:16px;line-height:1.65;padding:20px}
-.prezi-slide .big-question{font-size:59px}.prezi-slide .quote{font-size:54px}.prezi-slide .huge{font-size:140px}.prezi-slide .unit{font-size:38px}
-.prezi-slide .table td,.prezi-slide .table th{font-size:21px;padding:15px 18px}.prezi-slide .table th{font-size:16px}
-.prezi-slide .discussion{grid-template-columns:repeat(3,1fr);gap:36px}.prezi-slide .discussion p{font-size:21px}
-.prezi-slide .range-row{display:flex;gap:20px}.prezi-slide .range-row label{font-size:20px}.prezi-slide .range-row input{width:auto;margin:0}.prezi-slide .check-row{font-size:18px}
-.prezi-slide .schedule{height:90px;flex-wrap:nowrap}.prezi-slide .schedule>div{flex:revert!important;min-width:0;padding:14px 18px}.prezi-slide .schedule>div:nth-child(1){flex:16!important}.prezi-slide .schedule>div:nth-child(2){flex:15!important}.prezi-slide .schedule>div:nth-child(3){flex:12!important}.prezi-slide .schedule>div:nth-child(4){flex:2!important}.prezi-slide .schedule b{font-size:27px}.prezi-slide .schedule span{font-size:17px}
-.prezi-slide .status-row{grid-template-columns:150px 1fr;gap:25px}.prezi-slide .timeline-row{grid-template-columns:100px 1fr;gap:20px}.prezi-slide .timeline-row b{font-size:28px}.prezi-slide .timeline-row p{font-size:22px}
-.prezi-slide .costs{gap:35px}.prezi-slide .costs .huge{font-size:86px}.prezi-slide .costs p{font-size:20px}.prezi-slide .costs .unit{font-size:38px}
-.prezi-preview{pointer-events:none;user-select:none}
-.prezi-card-go{position:absolute;inset:0;border:0;background:transparent;border-radius:inherit;cursor:zoom-in;color:var(--ink);text-align:left}
-.prezi-card-go:hover,.prezi-card-go:focus-visible{outline:12px solid var(--teal);outline-offset:12px;background:rgb(0 127 118 / .04)}
-.prezi-card-number{position:absolute;top:0;left:0;font-size:var(--prezi-label-size);font-family:var(--mono);font-weight:700;background:var(--teal);color:white;padding:18px 28px;border-radius:12px 0 18px 0}
-.prezi-card-caption{position:absolute;top:calc(100% + 24px);left:0;right:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:var(--prezi-label-size);line-height:1.3;font-weight:600}
-.is-moving .prezi-card-go{pointer-events:none}.is-overview .prezi-slide{pointer-events:none}
-.mode-switch{font-size:13px;flex-shrink:0;cursor:pointer;max-width:110px}
+/* Fixed slide geometry is scaled as a whole, including text and graphics. */
+#stage.scaled-stage,#stage.overview-stage{position:relative;display:block;padding:0;overflow:hidden}
+#stage:focus{outline:none}
+.canvas-slide{position:absolute;left:0;top:0;width:1440px;max-width:none;height:900px;padding:58px 70px;display:flex;flex-direction:column;justify-content:center;transform-origin:0 0;animation:none}
+.canvas-slide h2{margin-bottom:22px}.canvas-slide .cover-map{max-height:620px}.canvas-slide .list li{padding-bottom:20px}.canvas-slide .list li:last-child{padding-bottom:0}.canvas-slide .prompt{font-size:26px;padding:30px 36px}
+.canvas-slide h1{font-size:78px}.canvas-slide h2{font-size:52px}.canvas-slide h3{font-size:27px}.canvas-slide p,.canvas-slide li{font-size:23px}.canvas-slide .lead{font-size:31px}.canvas-slide .caption{font-size:14px}.canvas-slide .sub{font-size:22px}.canvas-slide .note-line{font-size:18px}
+.canvas-slide .cover{grid-template-columns:1.07fr 1fr;gap:44px}.canvas-slide .cover .sub{font-size:21px;margin-top:32px}
+.canvas-slide .two{grid-template-columns:1.05fr 1fr;gap:64px}.canvas-slide .two.wide{grid-template-columns:1.55fr 1fr;gap:44px}
+.canvas-slide .network{max-height:470px}.canvas-slide .photo{max-height:570px}.canvas-slide .photo-label{font-size:15px}
+.canvas-slide .list{gap:24px}.canvas-slide .list strong{font-size:27px}.canvas-slide .list span{font-size:21px}
+.canvas-slide .flow{grid-template-columns:repeat(4,1fr);gap:28px;margin:42px 0 32px}.canvas-slide .flow.three{grid-template-columns:repeat(3,1fr)}
+.canvas-slide .flow .step:not(:last-child):after{display:block}.canvas-slide .step b.num{width:52px;height:52px;font-size:23px;margin-bottom:24px}.canvas-slide .step p{font-size:21px}
+.canvas-slide .code{font-size:18px;padding:26px 30px}.canvas-slide .project-files-slide>.code{font-size:16px;line-height:1.65;padding:20px}
+.canvas-slide .big-question{font-size:59px}.canvas-slide .quote{font-size:54px}.canvas-slide .huge{font-size:140px}.canvas-slide .unit{font-size:38px}
+.canvas-slide .table td,.canvas-slide .table th{font-size:21px;padding:15px 18px}.canvas-slide .table th{font-size:16px}
+.canvas-slide .discussion{grid-template-columns:repeat(3,1fr);gap:36px}.canvas-slide .discussion p{font-size:21px}
+.canvas-slide .range-row{display:flex;gap:20px}.canvas-slide .range-row label{font-size:20px}.canvas-slide .range-row input{width:auto;margin:0}.canvas-slide .check-row{font-size:18px}
+.canvas-slide .schedule{height:90px;flex-wrap:nowrap}.canvas-slide .schedule>div{flex:revert!important;min-width:0;padding:14px 18px}.canvas-slide .schedule>div:nth-child(1){flex:16!important}.canvas-slide .schedule>div:nth-child(2){flex:15!important}.canvas-slide .schedule>div:nth-child(3){flex:12!important}.canvas-slide .schedule>div:nth-child(4){flex:2!important}.canvas-slide .schedule b{font-size:27px}.canvas-slide .schedule span{font-size:17px}
+.canvas-slide .status-row{grid-template-columns:150px 1fr;gap:25px}.canvas-slide .timeline-row{grid-template-columns:100px 1fr;gap:20px}.canvas-slide .timeline-row b{font-size:28px}.canvas-slide .timeline-row p{font-size:22px}
+.canvas-slide .costs{gap:35px}.canvas-slide .costs .huge{font-size:86px}.canvas-slide .costs p{font-size:20px}.canvas-slide .costs .unit{font-size:38px}
+
+#stage.overview-stage{background:var(--soft)}
+.overview-grid{width:100%;height:100%;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr));gap:18px;padding:24px 24px 30px}
+.overview-card{min-width:0;min-height:0;display:grid;grid-template-rows:minmax(0,1fr) 20px;gap:5px;padding:5px;border:1px solid var(--line);border-radius:5px;background:white;color:var(--ink);text-align:left}
+.overview-card:hover,.overview-card[aria-current=true]{border-color:var(--teal);box-shadow:0 0 0 2px var(--teal)}
+.overview-preview{position:relative;min-height:0;overflow:hidden;pointer-events:none;user-select:none}
+.overview-caption{font-size:13px;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600}
+@media(max-width:700px) and (orientation:portrait){.overview-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(8,minmax(0,1fr));gap:10px;padding:16px 14px 28px}.overview-card{grid-template-rows:minmax(0,1fr) 16px;gap:3px;padding:3px}.overview-caption{font-size:11px;line-height:16px}}
 
 /* The slide owns the viewport; controls appear over it only when needed. */
 :root{--controls-height:70px}
@@ -79,8 +77,7 @@ footer{border-top:1px solid var(--line);display:flex;align-items:center;gap:12px
  #presentation-controls{display:grid;grid-template-columns:auto auto 1fr;grid-template-rows:40px 40px;gap:4px 8px;padding:10px 14px}
  footer .brand,footer .meta,footer .notes-toggle{display:none}
  .language-switch{grid-row:1;grid-column:1;justify-self:start}
- .mode-switch{grid-row:1;grid-column:2;justify-self:start;min-height:36px;padding:6px 10px}
- .overview-toggle{grid-row:1;grid-column:3;justify-self:end;min-height:36px;padding:6px 10px}
+ .overview-toggle{grid-row:1;grid-column:2 / 4;justify-self:end;min-height:36px;padding:6px 10px}
  .nav-center{grid-row:2;grid-column:1 / 3;margin-left:0;gap:4px}
  .nav-right{grid-row:2;grid-column:3;margin-left:0;justify-self:end;gap:4px}
  .fullscreen-label{font-size:0;width:36px;padding:6px}
@@ -96,8 +93,7 @@ footer{border-top:1px solid var(--line);display:flex;align-items:center;gap:12px
   <button id="controls-reveal" class="controls-reveal" aria-label="Näita juhtnuppe" aria-controls="presentation-controls"></button>
   <footer id="presentation-controls" aria-label="Esitluse juhtnupud">
     <span class="brand">OpenMapStack</span><div class="language-switch" role="group" aria-label="Esitluse keel"><button class="btn language-button" data-language="et" aria-label="Eesti" aria-pressed="true">ET</button><button class="btn language-button" data-language="en" aria-label="English" aria-pressed="false">EN</button></div><span class="meta" id="timing"></span>
-    <select class="btn mode-switch" id="presentation-mode" aria-label="Esitlusvaade (P)" aria-keyshortcuts="P"><option value="slides">Slaidid</option><option value="prezi">Prezi</option></select>
-    <button class="btn overview-toggle" id="prezi-overview" aria-keyshortcuts="O" aria-pressed="false">Ülevaade</button>
+    <button class="btn overview-toggle" id="overview-toggle" aria-keyshortcuts="O" aria-pressed="false">Ülevaade</button>
     <div class="nav-center"><button class="btn quiet back-label" id="previous" aria-label="Eelmine slaid">←</button><span class="counter" id="counter"></span><button class="btn" id="choose">Vali slaid</button></div>
     <div class="nav-right"><button class="btn quiet notes-toggle" id="notes-toggle" aria-label="Näita esinejamärkmeid" aria-expanded="false">Märkmed</button><button class="btn quiet fullscreen-label" id="fullscreen" data-compact-label="Täisekraan" aria-label="Lülita täisekraan">Täisekraan</button><button class="btn primary" id="next">Edasi →</button></div>
   </footer>
@@ -128,8 +124,7 @@ function updateChrome(){
   ['#choose','Vali slaid','Choose slide'],['#next','Edasi →','Next →'],['#notes-toggle','Märkmed','Notes'],
   ['#chooser-title','Vali slaid','Choose slide'],['#notes .dialog-head h3','Esinejamärkmed','Speaker notes'],
   ['[data-close="lightbox"]','Sulge','Close'],
-  ['#presentation-mode option[value="slides"]','Slaidid','Slides'],
-  ['#prezi-overview',overviewOpen?'Tagasi slaidile':'Ülevaade',overviewOpen?'Back to slide':'Overview'],
+  ['#overview-toggle',overviewOpen?'Tagasi slaidile':'Ülevaade',overviewOpen?'Back to slide':'Overview'],
   ['#chooser .caption','24 slaidi · 45 minutit · ← → liikumiseks · N märkmeteks · F täisekraaniks','24 slides · 45 minutes · ← → navigate · N notes · F fullscreen']
  ];
  for(const [selector,et,en] of textEntries)$(selector).textContent=tr(et,en);
@@ -139,13 +134,12 @@ function updateChrome(){
   ['[data-close="chooser"]','Sulge slaidivalik','Close slide chooser'],['#notes','Esinejamärkmed','Speaker notes'],
   ['#close-notes','Sulge märkmed','Close notes'],['[data-close="lightbox"]','Sulge ekraanipilt','Close screenshot'],
   ['.language-switch','Esitluse keel','Presentation language'],
-  ['#presentation-mode','Esitlusvaade (P)','Presentation view (P)'],
-  ['#prezi-overview',overviewOpen?'Tagasi slaidile (O)':'Esitluse ülevaade (O)',overviewOpen?'Back to slide (O)':'Presentation overview (O)'],
+  ['#overview-toggle',overviewOpen?'Tagasi slaidile (O)':'Esitluse ülevaade (O)',overviewOpen?'Back to slide (O)':'Presentation overview (O)'],
   ['#controls-reveal','Näita juhtnuppe','Show presentation controls']
  ];
  for(const [selector,et,en] of ariaEntries)$(selector).setAttribute('aria-label',tr(et,en));
  for(const button of document.querySelectorAll('[data-language]'))button.setAttribute('aria-pressed',String(button.dataset.language===language));
- $('#prezi-overview').setAttribute('aria-pressed',String(overviewOpen));
+ $('#overview-toggle').setAttribute('aria-pressed',String(overviewOpen));
  updateFullscreenLabel();
 }
 function setLanguage(next){
@@ -175,157 +169,64 @@ const makeSlides=lang=>DECK[lang].map(slide=>({...slide,html:()=>slideMarkup(sli
 const SLIDES_ET=makeSlides('et');
 const SLIDES_EN=makeSlides('en');
 
-// A local canvas and camera: the same deck works online and in the offline HTML.
-const PREZI_FRAME = {width:1440,height:900,gapX:260,gapY:250,columns:6};
-function preziPositions(count,columns=PREZI_FRAME.columns){
- const {width,height,gapX,gapY}=PREZI_FRAME;
- return Array.from({length:count},(_,index)=>{
-  const row=Math.floor(index/columns),column=row%2?columns-1-index%columns:index%columns;
-  return {x:column*(width+gapX),y:row*(height+gapY),width,height};
- });
-}
-
-class PreziView {
+// One logical slide size keeps text, images and spacing proportional on screen.
+const SLIDE_SIZE={width:1440,height:900};
+class SlideView {
  constructor(stage,onSelect){
-  this.stage=stage;this.onSelect=onSelect;this.index=-1;this.overview=false;
-  this.motion=matchMedia('(prefers-reduced-motion: reduce)');
-  this.onMotionChange=()=>{if(this.world)this.moveTo(this.viewCamera(),false);};
-  this.motion.addEventListener('change',this.onMotionChange);
-  this.resizeObserver=new ResizeObserver(()=>{
-   const size=`${stage.clientWidth},${stage.clientHeight}`;
-   if(size===this.size)return;this.size=size;
-   if(this.world){this.arrange();this.updateLabels();this.moveTo(this.viewCamera(),false);}
-  });
-  this.size=`${stage.clientWidth},${stage.clientHeight}`;
+  this.stage=stage;this.onSelect=onSelect;this.printing=false;
+  this.resizeObserver=new ResizeObserver(()=>this.fit());
   this.resizeObserver.observe(stage);
+  document.addEventListener('fullscreenchange',()=>this.fit());
  }
-
- mount(slides){
-  this.stop();this.slides=slides;
-  this.stage.classList.add('prezi-stage');
-  this.stage.innerHTML='<div class="prezi-world"></div>';
-  this.world=this.stage.querySelector('.prezi-world');
-  const route=document.createElementNS('http://www.w3.org/2000/svg','svg');
-  route.setAttribute('class','prezi-route');route.setAttribute('aria-hidden','true');
-  const path=document.createElementNS(route.namespaceURI,'polyline');
-  route.append(path);this.world.append(route);
-  this.arrange();
-  this.positions.forEach((position,index)=>{
-   const frame=document.createElement('section');frame.className='prezi-frame';
-   frame.style.left=position.x+'px';frame.style.top=position.y+'px';
-   frame.dataset.index=index;this.world.append(frame);this.drawFrame(index,false);
-  });
-  this.world.addEventListener('click',event=>{
-   const choice=event.target.closest('[data-prezi-go]');
-   if(choice&&this.overview)this.onSelect(Number(choice.dataset.preziGo));
-  });
-  this.updateLabels();
- }
-
- arrange(){
-  // Portrait screens get larger thumbnails instead of six cramped columns.
-  const columns=this.stage.clientWidth<700&&this.stage.clientHeight>this.stage.clientWidth?3:PREZI_FRAME.columns;
-  const {width,height}=PREZI_FRAME;
-  this.positions=preziPositions(this.slides.length,columns);
-  this.bounds={x:-80,y:-80,width:Math.max(...this.positions.map(p=>p.x+width))+160,
-               height:Math.max(...this.positions.map(p=>p.y+height))+240};
-  for(const frame of this.world.querySelectorAll('.prezi-frame')){
-   const position=this.positions[Number(frame.dataset.index)];
-   frame.style.left=position.x+'px';frame.style.top=position.y+'px';
-  }
-  const route=this.world.querySelector('.prezi-route');
-  route.setAttribute('width',this.bounds.width);route.setAttribute('height',this.bounds.height);
-  route.querySelector('polyline').setAttribute('points',this.positions.map(p=>`${p.x+width/2},${p.y+height/2}`).join(' '));
- }
-
- drawFrame(index,active){
-  const frame=this.world.querySelector(`[data-index="${index}"]`),slide=this.slides[index];
-  frame.classList.toggle('is-current',active);
-  const article=document.createElement('article');
-  article.className='slide prezi-slide';article.innerHTML=slide.html();
-  if(active){
-   article.id='prezi-active';article.setAttribute('aria-labelledby','slide-title');
-   const heading=article.querySelector('h1,h2');if(heading)heading.id='slide-title';
-   this.active=article;
+ show(slides,index,overview){
+  this.printing=false;this.overview=overview;
+  this.stage.classList.toggle('overview-stage',overview);
+  if(overview){
+   const grid=document.createElement('div');grid.className='overview-grid';
+   slides.forEach((slide,i)=>{
+    const button=document.createElement('button');button.className='overview-card';
+    button.dataset.overviewGo=i;button.setAttribute('aria-current',String(i===index));
+    button.setAttribute('aria-label',`${tr('Ava slaid','Open slide')} ${i+1}: ${slide.title}`);
+    const preview=document.createElement('div');preview.className='overview-preview';
+    preview.inert=true;preview.setAttribute('aria-hidden','true');
+    const article=document.createElement('article');article.className='slide canvas-slide';
+    article.innerHTML=slide.html();
+    // Preview content has no live controls, duplicated IDs or focus targets.
+    for(const node of article.querySelectorAll('[id],[for],[aria-labelledby],[aria-describedby]')){
+     for(const attr of ['id','for','aria-labelledby','aria-describedby'])node.removeAttribute(attr);
+    }
+    preview.append(article);
+    const caption=document.createElement('span');caption.className='overview-caption';
+    caption.textContent=`${String(i+1).padStart(2,'0')} · ${slide.title}`;
+    button.append(preview,caption);button.addEventListener('click',()=>this.onSelect(i));
+    grid.append(button);
+   });
+   this.stage.replaceChildren(grid);
   }else{
-   // Thumbnails must not duplicate live control IDs or enter the tab order.
-   article.classList.add('prezi-preview');article.inert=true;article.setAttribute('aria-hidden','true');
-   for(const node of article.querySelectorAll('[id],[for],[aria-labelledby],[aria-describedby]')){
-    for(const name of ['id','for','aria-labelledby','aria-describedby'])node.removeAttribute(name);
-   }
+   this.stage.innerHTML=`<article class="slide" aria-labelledby="slide-title">${slides[index].html()}</article>`;
+   const heading=this.stage.querySelector('h1,h2');if(heading)heading.id='slide-title';
   }
-  const choice=document.createElement('button');choice.className='prezi-card-go';
-  choice.dataset.preziGo=index;choice.hidden=!this.overview;
-  choice.setAttribute('aria-label',`${tr('Ava slaid','Open slide')} ${index+1}: ${slide.title}`);
-  choice.setAttribute('aria-current',String(active));
-  choice.innerHTML=`<span class="prezi-card-number">${String(index+1).padStart(2,'0')}</span><span class="prezi-card-caption">${esc(slide.title)}</span>`;
-  frame.replaceChildren(article,choice);
+  this.fit();
  }
-
- show(slides,index,refresh=false,overview=false){
-  const previous=this.index,wasOverview=this.overview;
-  const rebuilt=refresh||this.slides!==slides||!this.world?.isConnected;
-  if(rebuilt)this.mount(slides);
-  else if(previous!==index&&previous>=0)this.drawFrame(previous,false);
-  this.index=index;
-  this.overview=overview;
-  this.drawFrame(index,true);this.updateLabels();
-  const changed=previous>=0&&previous!==index;
-  const via=changed&&!wasOverview&&!rebuilt?this.travelCamera(previous,index):null;
-  this.moveTo(this.viewCamera(),!rebuilt&&(changed||wasOverview!==this.overview),via);
- }
-
- updateLabels(){
-  if(!this.world)return;
-  this.stage.classList.toggle('is-overview',this.overview);
-  for(const choice of this.world.querySelectorAll('[data-prezi-go]'))choice.hidden=!this.overview;
-  this.world.style.setProperty('--prezi-label-size',`${Math.max(38,12/this.fit(this.bounds).scale)}px`);
-  if(this.active){this.active.inert=this.overview;this.active.setAttribute('aria-hidden',String(this.overview));}
- }
-
- fit(bounds,maxScale=Infinity){
-  const width=this.stage.clientWidth,height=this.stage.clientHeight;
-  const scale=Math.max(.01,Math.min((width-40)/bounds.width,(height-100)/bounds.height,maxScale));
-  return {scale,x:width/2-(bounds.x+bounds.width/2)*scale,
-          y:(height+40)/2-(bounds.y+bounds.height/2)*scale};
- }
- viewCamera(){return this.fit(this.overview?this.bounds:this.positions[this.index]);}
- travelCamera(from,to){
-  const a=this.positions[from],b=this.positions[to];
-  const bounds={x:Math.min(a.x,b.x)-100,y:Math.min(a.y,b.y)-100,
-                width:Math.abs(a.x-b.x)+a.width+200,height:Math.abs(a.y-b.y)+a.height+200};
-  return this.fit(bounds,this.fit(b).scale*.43);
- }
- transform(camera){return `translate(${camera.x}px,${camera.y}px) scale(${camera.scale})`;}
-
- moveTo(camera,animate,via=null){
-  this.stop();
-  const start=getComputedStyle(this.world).transform,target=this.transform(camera);
-  this.world.style.transform=target;
-  if(!animate||this.motion.matches||!this.world.animate){this.setMoving(false);return;}
-  const frames=[{transform:start,offset:0}];
-  if(via)frames.push({transform:this.transform(via),offset:.45});
-  frames.push({transform:target,offset:1});
-  this.setMoving(true);
-  const animation=this.world.animate(frames,{duration:via?1150:750,easing:'cubic-bezier(.4,0,.2,1)'});
-  this.animation=animation;
-  animation.onfinish=()=>{
-   if(this.animation!==animation)return;
-   this.animation=null;animation.cancel();this.setMoving(false);
+ fit(){
+  if(this.printing)return;
+  const scaled=!this.overview&&(this.stage.clientWidth>700||Boolean(document.fullscreenElement));
+  this.stage.classList.toggle('scaled-stage',scaled);
+  const {width,height}=SLIDE_SIZE;
+  const fit=(article,box)=>{
+   const scale=Math.min(box.clientWidth/width,box.clientHeight/height);
+   article.style.transform=`translate(${(box.clientWidth-width*scale)/2}px,${(box.clientHeight-height*scale)/2}px) scale(${scale})`;
   };
+  if(this.overview){
+   for(const preview of this.stage.querySelectorAll('.overview-preview'))fit(preview.firstElementChild,preview);
+  }else{
+   const article=this.stage.firstElementChild;if(!article)return;
+   article.classList.toggle('canvas-slide',scaled);
+   if(scaled)fit(article,this.stage);else article.style.removeProperty('transform');
+  }
  }
- setMoving(moving){
-  this.stage.classList.toggle('is-moving',moving);this.stage.setAttribute('aria-busy',String(moving));
-  if(this.active)this.active.inert=moving||this.overview;
- }
- stop(){
-  if(!this.animation)return;
-  this.world.style.transform=getComputedStyle(this.world).transform;
-  this.animation.onfinish=null;this.animation.cancel();this.animation=null;
- }
- destroy(){
-  this.stop();this.resizeObserver.disconnect();this.motion.removeEventListener('change',this.onMotionChange);
-  this.stage.classList.remove('prezi-stage','is-overview','is-moving');this.stage.removeAttribute('aria-busy');
+ beforePrint(){
+  this.printing=true;this.stage.classList.remove('scaled-stage','overview-stage');
  }
 }
 
@@ -365,11 +266,9 @@ function demoControls(bridge=true){return `<div class="controls"><div class="ran
 function metricMarkup(){const c=coverage(demoState.minutes);return `<span class="huge em">${Math.round(c.pct)}<span class="unit">%</span></span><p class="metric-line">${c.yes} / ${c.total} ${demoState.weighted?tr('eluruumi','dwellings'):tr('elumaja','residential buildings')} ${tr('näidisvõrgus','in the example network')}</p>`;}
 
 let current=0, notesOpen=false, toastTimer;
-let presentationMode='slides',preziView=null,overviewOpen=false;
-try { if(localStorage.getItem('openmapstack-talk-mode')==='prezi')presentationMode='prezi'; } catch {}
-const requestedMode=new URLSearchParams(location.search).get('mode');
-if(['slides','prezi'].includes(requestedMode))presentationMode=requestedMode;
+let overviewOpen=false;
 const $=selector=>document.querySelector(selector);
+const slideView=new SlideView($('#stage'),go);
 const total=SLIDES.reduce((s,x)=>s+x.minutes,0);
 function startMinute(index){return SLIDES.slice(0,index).reduce((s,x)=>s+x.minutes,0);}
 function slideIndex(){const m=location.hash.match(/^#slaid-(\d+)$/);return m?Math.max(0,Math.min(SLIDES.length-1,Number(m[1])-1)):0;}
@@ -377,28 +276,13 @@ function updateNotes(){const s=SLIDES[current],start=startMinute(current);$('#no
 function buildChooser(){let previousSection='';$('#chooser-list').innerHTML=SLIDES.map((s,i)=>{let header=s.section!==previousSection?`<li class="chooser-section" role="presentation">${s.section}</li>`:'';previousSection=s.section;return `${header}<li><button data-go="${i}" aria-current="${current===i}" ${current===i?'id="current-choice"':''}><span>${String(i+1).padStart(2,'0')}</span><span>${s.title}</span><small>${startMinute(i)}–${startMinute(i)+s.minutes} min</small></button></li>`;}).join('');}
 function render(refresh=false){
  updateChrome();const s=SLIDES[current];
- $('#presentation-mode').value=presentationMode;
- if(presentationMode==='prezi'||overviewOpen){
-  if(!preziView)preziView=new PreziView($('#stage'),go);
-  preziView.show(SLIDES,current,refresh,overviewOpen);
- }else{
-  if(preziView){preziView.destroy();preziView=null;}
-  $('#stage').innerHTML=`<article class="slide" aria-labelledby="slide-title">${s.html()}</article>`;
-  const heading=$('#stage h1,#stage h2');if(heading)heading.id='slide-title';
- }
+ slideView.show(SLIDES,current,overviewOpen);
  $('#stage').scrollTop=0;$('#counter').textContent=`${current+1} / ${SLIDES.length}`;
  $('#timing').textContent=`${startMinute(current)}–${startMinute(current)+s.minutes} / ${total} min`;
  $('#previous').disabled=current===0;$('#next').disabled=current===SLIDES.length-1;
  $('#progress').style.width=`${(current+1)/SLIDES.length*100}%`;
  $('#announcement').textContent=`${tr('Slaid','Slide')} ${current+1} / ${SLIDES.length}: ${s.title}`;
  document.title=`${current+1}. ${s.title} — OpenMapStack`;updateNotes();buildChooser();bindDemo();
-}
-function setPresentationMode(next){
- if(!['slides','prezi'].includes(next)||next===presentationMode)return;
- presentationMode=next;overviewOpen=false;
- try { localStorage.setItem('openmapstack-talk-mode',next); } catch {}
- const url=new URL(location.href);url.searchParams.set('mode',next);
- history.replaceState(null,'',url);render();
 }
 function toggleOverview(force){
  overviewOpen=force??!overviewOpen;
@@ -414,14 +298,13 @@ async function fullscreen(){try{if(document.fullscreenElement)await document.exi
 $('#next').addEventListener('click',()=>go(current+1));$('#previous').addEventListener('click',()=>go(current-1));$('#choose').addEventListener('click',()=>{$('#chooser').showModal();$('#current-choice')?.scrollIntoView({block:'center'});});$('#notes-toggle').addEventListener('click',()=>toggleNotes());$('#close-notes').addEventListener('click',()=>toggleNotes(false));$('#fullscreen').addEventListener('click',fullscreen);
 document.addEventListener('fullscreenchange',updateFullscreenLabel);
 for(const button of document.querySelectorAll('[data-language]'))button.addEventListener('click',()=>setLanguage(button.dataset.language));
-$('#presentation-mode').addEventListener('change',event=>setPresentationMode(event.target.value));
-$('#prezi-overview').addEventListener('click',()=>toggleOverview());
+$('#overview-toggle').addEventListener('click',()=>toggleOverview());
 document.addEventListener('click',e=>{const close=e.target.closest('[data-close]');if(close)document.getElementById(close.dataset.close).close();const choice=e.target.closest('[data-go]');if(choice){$('#chooser').close();go(Number(choice.dataset.go));}const image=e.target.closest('[data-image]');if(image){const img=image.querySelector('img');$('#lightbox-img').src=img.src;$('#lightbox-img').alt=img.alt;$('#lightbox-title').textContent=img.alt+tr(' · Tartu Emajõe kergliiklussillad',' · Tartu bridges · screenshot in Estonian');$('#lightbox').showModal();}});
-document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'&&notesOpen){toggleNotes(false);return;}const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;if(e.key==='Escape'&&overviewOpen){toggleOverview(false);return;}if(['BUTTON','A'].includes(tag)&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(SLIDES.length-1);}if(e.key.toLowerCase()==='f')fullscreen();if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='g')$('#choose').click();if(e.key.toLowerCase()==='p')setPresentationMode(presentationMode==='prezi'?'slides':'prezi');if(e.key.toLowerCase()==='o')toggleOverview();});
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'&&notesOpen){toggleNotes(false);return;}const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;if(e.key==='Escape'&&overviewOpen){toggleOverview(false);return;}if(['BUTTON','A'].includes(tag)&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(SLIDES.length-1);}if(e.key.toLowerCase()==='f')fullscreen();if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='g')$('#choose').click();if(e.key.toLowerCase()==='o')toggleOverview();});
 for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 window.addEventListener('hashchange',()=>{overviewOpen=false;current=slideIndex();render();});
 let swipeX=0,swipeY=0;$('#stage').addEventListener('touchstart',e=>{swipeX=e.changedTouches[0].clientX;swipeY=e.changedTouches[0].clientY;},{passive:true});$('#stage').addEventListener('touchend',e=>{if(e.target.closest('input,button,a'))return;const dx=e.changedTouches[0].clientX-swipeX,dy=e.changedTouches[0].clientY-swipeY;if(Math.abs(dx)>85&&Math.abs(dx)>Math.abs(dy)*1.8)go(current+(dx<0?1:-1));},{passive:true});
-window.addEventListener('beforeprint',()=>{if(preziView){preziView.destroy();preziView=null;}$('#stage').innerHTML=SLIDES.map(s=>`<article class="slide"><h2>${esc(s.title)}</h2>${s.html().replace(/<h[12][^>]*>[\s\S]*?<\/h[12]>/,'')}</article>`).join('');});window.addEventListener('afterprint',()=>render(true));
+window.addEventListener('beforeprint',()=>{slideView.beforePrint();$('#stage').innerHTML=SLIDES.map(s=>`<article class="slide"><h2>${esc(s.title)}</h2>${s.html().replace(/<h[12][^>]*>[\s\S]*?<\/h[12]>/,'')}</article>`).join('');});window.addEventListener('afterprint',()=>render(true));
 current=slideIndex();render();
 
 // Controls overlay the slide; pointer hover and keyboard focus keep them open.
@@ -440,9 +323,6 @@ controlsDock.addEventListener('click',event=>{
  // Pointer activation must not leave a hidden toolbar pinned by button focus.
  if(event.detail>0)event.target.closest('button')?.blur();
  if(lastPointerType==='touch')revealControls(5000);
-});
-$('#presentation-mode').addEventListener('change',()=>{
- if(lastPointerType){$('#presentation-mode').blur();lastPointerType='';}
 });
 document.addEventListener('keydown',()=>{lastPointerType='';});
 document.addEventListener('fullscreenchange',()=>controlsDock.classList.remove('is-visible'));

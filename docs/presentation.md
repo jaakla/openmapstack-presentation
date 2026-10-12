@@ -26,19 +26,14 @@ interaktiivne näidis töötavad ilma serveri või võrguühenduseta.
 Alumine tööriistariba peitub automaatselt ega võta slaidilt ruumi ka täisekraanil.
 Riba avamiseks liiguta hiir alaserva, puuduta allserva väikest käepidet või liigu
 Tab-klahviga juhtnuppudeni. **F / Escape** väljub täisekraanist. **Ülevaade / O**
-avab kõigi slaidide ülevaate nii tava- kui ka Prezi-vaates; nupp asub alumisel ribal.
+avab kõigi slaidide ülevaate; nupp asub alumisel ribal.
 Slaidil klõpsamine avab selle, **Escape / O** viib tagasi senisele slaidile.
 
-### Prezi-vaade
-
-Vali jalusest **Prezi** või ava [Prezi-vaate otseviide](https://jaakla.github.io/openmapstack-presentation/?lang=et&mode=prezi).
-Kõik slaidid asuvad ühisel lõuendil. Slaidivahetus suumib välja, liigub järgmise
-slaidi juurde ja suumib sisse. **Ülevaade / O** näitab kogu esitlust; klõps slaidil
-avab selle. **Escape / O** viib ülevaatest tagasi valitud slaidile. **P** vahetab
-tavalise ja Prezi-vaate vahel. Keel, avatud märkmed ja interaktiivse näite seaded
-säilivad. Vaatevalik jääb brauseris meelde; lingi `mode=slides` või `mode=prezi`
-parameeter määrab avamisel vaate. Brauseri vähendatud liikumise eelistus lülitab
-suumianimatsiooni välja. Mõlemad vaated töötavad ka võrguühenduseta HTML-failis.
+Ülevaates jooksevad slaidid vasakult paremale, seejärel ülalt alla. Valimine
+säilitab keele, märkmed ja interaktiivse näite seaded. Arvutis skaleerub kogu slaid
+akna ja täisekraani mõõtmete järgi: tekst, graafika ja vahed suurenevad koos ning
+säilitavad proportsioonid. Väikese ekraani tavavaade jääb keritavaks mobiilivaateks.
+Kõik töötab ka võrguühenduseta HTML-failis.
 
 ## 45 minuti läbimäng
 
@@ -200,7 +195,7 @@ key. Live polling is enabled only for previews explicitly opened with `?live=1`.
 - `layouts.json`: shared, fixed slide structure and timing for both languages.
 - `content.js`: screenshot helpers and runtime layout components.
 - `app.js`: viewer, live text updates and interactive calculations.
-- `prezi.js`: shared-canvas camera, zoom transitions and slide overview.
+- `presentation.js`: proportional slide scaling and row-major slide overview.
 - `i18n.js`: language choice and viewer controls.
 - `styles.css`, `viewer.html`, `assets/`: design, shell and screenshot originals.
 - `build.py`, `serve.py`, `translate_sync.py`: compilation, editing and translation.

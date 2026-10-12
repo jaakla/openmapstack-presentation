@@ -34,11 +34,9 @@ function demoControls(bridge=true){return `<div class="controls"><div class="ran
 function metricMarkup(){const c=coverage(demoState.minutes);return `<span class="huge em">${Math.round(c.pct)}<span class="unit">%</span></span><p class="metric-line">${c.yes} / ${c.total} ${demoState.weighted?tr('eluruumi','dwellings'):tr('elumaja','residential buildings')} ${tr('näidisvõrgus','in the example network')}</p>`;}
 
 let current=0, notesOpen=false, toastTimer;
-let presentationMode='slides',preziView=null,overviewOpen=false;
-try { if(localStorage.getItem('openmapstack-talk-mode')==='prezi')presentationMode='prezi'; } catch {}
-const requestedMode=new URLSearchParams(location.search).get('mode');
-if(['slides','prezi'].includes(requestedMode))presentationMode=requestedMode;
+let overviewOpen=false;
 const $=selector=>document.querySelector(selector);
+const slideView=new SlideView($('#stage'),go);
 const total=SLIDES.reduce((s,x)=>s+x.minutes,0);
 function startMinute(index){return SLIDES.slice(0,index).reduce((s,x)=>s+x.minutes,0);}
 function slideIndex(){const m=location.hash.match(/^#slaid-(\d+)$/);return m?Math.max(0,Math.min(SLIDES.length-1,Number(m[1])-1)):0;}
@@ -46,28 +44,13 @@ function updateNotes(){const s=SLIDES[current],start=startMinute(current);$('#no
 function buildChooser(){let previousSection='';$('#chooser-list').innerHTML=SLIDES.map((s,i)=>{let header=s.section!==previousSection?`<li class="chooser-section" role="presentation">${s.section}</li>`:'';previousSection=s.section;return `${header}<li><button data-go="${i}" aria-current="${current===i}" ${current===i?'id="current-choice"':''}><span>${String(i+1).padStart(2,'0')}</span><span>${s.title}</span><small>${startMinute(i)}–${startMinute(i)+s.minutes} min</small></button></li>`;}).join('');}
 function render(refresh=false){
  updateChrome();const s=SLIDES[current];
- $('#presentation-mode').value=presentationMode;
- if(presentationMode==='prezi'||overviewOpen){
-  if(!preziView)preziView=new PreziView($('#stage'),go);
-  preziView.show(SLIDES,current,refresh,overviewOpen);
- }else{
-  if(preziView){preziView.destroy();preziView=null;}
-  $('#stage').innerHTML=`<article class="slide" aria-labelledby="slide-title">${s.html()}</article>`;
-  const heading=$('#stage h1,#stage h2');if(heading)heading.id='slide-title';
- }
+ slideView.show(SLIDES,current,overviewOpen);
  $('#stage').scrollTop=0;$('#counter').textContent=`${current+1} / ${SLIDES.length}`;
  $('#timing').textContent=`${startMinute(current)}–${startMinute(current)+s.minutes} / ${total} min`;
  $('#previous').disabled=current===0;$('#next').disabled=current===SLIDES.length-1;
  $('#progress').style.width=`${(current+1)/SLIDES.length*100}%`;
  $('#announcement').textContent=`${tr('Slaid','Slide')} ${current+1} / ${SLIDES.length}: ${s.title}`;
  document.title=`${current+1}. ${s.title} — OpenMapStack`;updateNotes();buildChooser();bindDemo();
-}
-function setPresentationMode(next){
- if(!['slides','prezi'].includes(next)||next===presentationMode)return;
- presentationMode=next;overviewOpen=false;
- try { localStorage.setItem('openmapstack-talk-mode',next); } catch {}
- const url=new URL(location.href);url.searchParams.set('mode',next);
- history.replaceState(null,'',url);render();
 }
 function toggleOverview(force){
  overviewOpen=force??!overviewOpen;
@@ -83,14 +66,13 @@ async function fullscreen(){try{if(document.fullscreenElement)await document.exi
 $('#next').addEventListener('click',()=>go(current+1));$('#previous').addEventListener('click',()=>go(current-1));$('#choose').addEventListener('click',()=>{$('#chooser').showModal();$('#current-choice')?.scrollIntoView({block:'center'});});$('#notes-toggle').addEventListener('click',()=>toggleNotes());$('#close-notes').addEventListener('click',()=>toggleNotes(false));$('#fullscreen').addEventListener('click',fullscreen);
 document.addEventListener('fullscreenchange',updateFullscreenLabel);
 for(const button of document.querySelectorAll('[data-language]'))button.addEventListener('click',()=>setLanguage(button.dataset.language));
-$('#presentation-mode').addEventListener('change',event=>setPresentationMode(event.target.value));
-$('#prezi-overview').addEventListener('click',()=>toggleOverview());
+$('#overview-toggle').addEventListener('click',()=>toggleOverview());
 document.addEventListener('click',e=>{const close=e.target.closest('[data-close]');if(close)document.getElementById(close.dataset.close).close();const choice=e.target.closest('[data-go]');if(choice){$('#chooser').close();go(Number(choice.dataset.go));}const image=e.target.closest('[data-image]');if(image){const img=image.querySelector('img');$('#lightbox-img').src=img.src;$('#lightbox-img').alt=img.alt;$('#lightbox-title').textContent=img.alt+tr(' · Tartu Emajõe kergliiklussillad',' · Tartu bridges · screenshot in Estonian');$('#lightbox').showModal();}});
-document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'&&notesOpen){toggleNotes(false);return;}const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;if(e.key==='Escape'&&overviewOpen){toggleOverview(false);return;}if(['BUTTON','A'].includes(tag)&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(SLIDES.length-1);}if(e.key.toLowerCase()==='f')fullscreen();if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='g')$('#choose').click();if(e.key.toLowerCase()==='p')setPresentationMode(presentationMode==='prezi'?'slides':'prezi');if(e.key.toLowerCase()==='o')toggleOverview();});
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'&&notesOpen){toggleNotes(false);return;}const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;if(e.key==='Escape'&&overviewOpen){toggleOverview(false);return;}if(['BUTTON','A'].includes(tag)&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(SLIDES.length-1);}if(e.key.toLowerCase()==='f')fullscreen();if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='g')$('#choose').click();if(e.key.toLowerCase()==='o')toggleOverview();});
 for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 window.addEventListener('hashchange',()=>{overviewOpen=false;current=slideIndex();render();});
 let swipeX=0,swipeY=0;$('#stage').addEventListener('touchstart',e=>{swipeX=e.changedTouches[0].clientX;swipeY=e.changedTouches[0].clientY;},{passive:true});$('#stage').addEventListener('touchend',e=>{if(e.target.closest('input,button,a'))return;const dx=e.changedTouches[0].clientX-swipeX,dy=e.changedTouches[0].clientY-swipeY;if(Math.abs(dx)>85&&Math.abs(dx)>Math.abs(dy)*1.8)go(current+(dx<0?1:-1));},{passive:true});
-window.addEventListener('beforeprint',()=>{if(preziView){preziView.destroy();preziView=null;}$('#stage').innerHTML=SLIDES.map(s=>`<article class="slide"><h2>${esc(s.title)}</h2>${s.html().replace(/<h[12][^>]*>[\s\S]*?<\/h[12]>/,'')}</article>`).join('');});window.addEventListener('afterprint',()=>render(true));
+window.addEventListener('beforeprint',()=>{slideView.beforePrint();$('#stage').innerHTML=SLIDES.map(s=>`<article class="slide"><h2>${esc(s.title)}</h2>${s.html().replace(/<h[12][^>]*>[\s\S]*?<\/h[12]>/,'')}</article>`).join('');});window.addEventListener('afterprint',()=>render(true));
 current=slideIndex();render();
 
 // Controls overlay the slide; pointer hover and keyboard focus keep them open.
@@ -109,9 +91,6 @@ controlsDock.addEventListener('click',event=>{
  // Pointer activation must not leave a hidden toolbar pinned by button focus.
  if(event.detail>0)event.target.closest('button')?.blur();
  if(lastPointerType==='touch')revealControls(5000);
-});
-$('#presentation-mode').addEventListener('change',()=>{
- if(lastPointerType){$('#presentation-mode').blur();lastPointerType='';}
 });
 document.addEventListener('keydown',()=>{lastPointerType='';});
 document.addEventListener('fullscreenchange',()=>controlsDock.classList.remove('is-visible'));

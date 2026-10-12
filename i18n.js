@@ -17,8 +17,7 @@ function updateChrome(){
   ['#choose','Vali slaid','Choose slide'],['#next','Edasi →','Next →'],['#notes-toggle','Märkmed','Notes'],
   ['#chooser-title','Vali slaid','Choose slide'],['#notes .dialog-head h3','Esinejamärkmed','Speaker notes'],
   ['[data-close="lightbox"]','Sulge','Close'],
-  ['#presentation-mode option[value="slides"]','Slaidid','Slides'],
-  ['#prezi-overview',overviewOpen?'Tagasi slaidile':'Ülevaade',overviewOpen?'Back to slide':'Overview'],
+  ['#overview-toggle',overviewOpen?'Tagasi slaidile':'Ülevaade',overviewOpen?'Back to slide':'Overview'],
   ['#chooser .caption','24 slaidi · 45 minutit · ← → liikumiseks · N märkmeteks · F täisekraaniks','24 slides · 45 minutes · ← → navigate · N notes · F fullscreen']
  ];
  for(const [selector,et,en] of textEntries)$(selector).textContent=tr(et,en);
@@ -28,13 +27,12 @@ function updateChrome(){
   ['[data-close="chooser"]','Sulge slaidivalik','Close slide chooser'],['#notes','Esinejamärkmed','Speaker notes'],
   ['#close-notes','Sulge märkmed','Close notes'],['[data-close="lightbox"]','Sulge ekraanipilt','Close screenshot'],
   ['.language-switch','Esitluse keel','Presentation language'],
-  ['#presentation-mode','Esitlusvaade (P)','Presentation view (P)'],
-  ['#prezi-overview',overviewOpen?'Tagasi slaidile (O)':'Esitluse ülevaade (O)',overviewOpen?'Back to slide (O)':'Presentation overview (O)'],
+  ['#overview-toggle',overviewOpen?'Tagasi slaidile (O)':'Esitluse ülevaade (O)',overviewOpen?'Back to slide (O)':'Presentation overview (O)'],
   ['#controls-reveal','Näita juhtnuppe','Show presentation controls']
  ];
  for(const [selector,et,en] of ariaEntries)$(selector).setAttribute('aria-label',tr(et,en));
  for(const button of document.querySelectorAll('[data-language]'))button.setAttribute('aria-pressed',String(button.dataset.language===language));
- $('#prezi-overview').setAttribute('aria-pressed',String(overviewOpen));
+ $('#overview-toggle').setAttribute('aria-pressed',String(overviewOpen));
  updateFullscreenLabel();
 }
 function setLanguage(next){

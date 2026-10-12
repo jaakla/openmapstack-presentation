@@ -20,21 +20,15 @@ demo are included; the external Tartu dashboard needs a network connection.
 The bottom toolbar hides automatically and overlays the slide without reserving
 space, including in fullscreen. Move the pointer to the bottom edge, tap the small
 bottom handle, or Tab to the controls to reveal it. **F / Escape** exits fullscreen.
-**Overview / O** opens the slide overview in either view; choose a slide or press
+**Overview / O** opens the slide overview; choose a slide or press
 **Escape / O** to return. The overview button is in the bottom toolbar.
 
-### Prezi view
-
-Choose **Prezi** in the footer or open the [Prezi view](https://jaakla.github.io/openmapstack-presentation/?lang=en&mode=prezi).
-Slides sit on one canvas. Navigation zooms out, moves to the next slide and zooms
-back in. **Overview / O** shows the full deck; click a slide to zoom into it, or
-press **Escape / O** to return to the current slide. **P** switches between the
-standard and Prezi views. Language, slide position, notes and demo settings survive
-mode changes. The view choice is remembered in this browser; `?mode=slides` or
-`?mode=prezi` explicitly selects a view in a shared link.
-
-Both views are included in the offline HTML. Reduced-motion browser settings
-disable camera animation while keeping canvas navigation available.
+Slides in the overview run left to right, then top to bottom. Selecting one
+preserves the language, notes and interactive demo settings. Desktop slides use
+one fixed layout and scale proportionally to the available viewport, including
+fullscreen and large displays. Text, graphics and spacing grow together. On small
+screens, the normal view keeps its scrollable mobile layout. Everything is included
+in the offline HTML.
 
 ## Start editing
 

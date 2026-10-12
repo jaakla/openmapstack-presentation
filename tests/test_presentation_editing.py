@@ -91,12 +91,12 @@ print(json.dumps({key: 'Translated: '+value for key,value in request['texts'].it
         output = build.render(self.root)
         self.assertEqual(output.lower().count('</script'), 1)
 
-    def test_prezi_code_changes_rebuild_the_watched_offline_export(self):
+    def test_presentation_code_changes_rebuild_the_watched_offline_export(self):
         editor = serve.Editor(self.root)
         version = editor.version
-        camera = self.root / 'prezi.js'
-        marker = '// Camera update reaches the offline bundle.'
-        camera.write_text(camera.read_text(encoding='utf-8') + '\n' + marker, encoding='utf-8')
+        viewer = self.root / 'presentation.js'
+        marker = '// Viewer update reaches the offline bundle.'
+        viewer.write_text(viewer.read_text(encoding='utf-8') + '\n' + marker, encoding='utf-8')
         editor.refresh()
         self.assertGreater(editor.version, version)
         self.assertIn(marker, editor.html)

@@ -102,7 +102,7 @@ def render(root=ROOT):
     script = '\n'.join([
         (root / 'i18n.js').read_text(encoding='utf-8'),
         (root / 'content.js').read_text(encoding='utf-8').replace('__IMAGES__', json.dumps(images)).replace('__DECK__', json.dumps(deck, ensure_ascii=False)),
-        (root / 'prezi.js').read_text(encoding='utf-8'),
+        (root / 'presentation.js').read_text(encoding='utf-8'),
         (root / 'app.js').read_text(encoding='utf-8'),
     ])
     script = re.sub(r'</script', r'<\\/script', script, flags=re.IGNORECASE)
