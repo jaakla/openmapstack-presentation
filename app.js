@@ -34,7 +34,7 @@ function demoControls(bridge=true){return `<div class="controls"><div class="ran
 function metricMarkup(){const c=coverage(demoState.minutes);return `<span class="huge em">${Math.round(c.pct)}<span class="unit">%</span></span><p class="metric-line">${c.yes} / ${c.total} ${demoState.weighted?tr('eluruumi','dwellings'):tr('elumaja','residential buildings')} ${tr('näidisvõrgus','in the example network')}</p>`;}
 
 let current=0, notesOpen=false, toastTimer;
-let presentationMode='slides',preziView=null;
+let presentationMode='slides',preziView=null,overviewOpen=false;
 try { if(localStorage.getItem('openmapstack-talk-mode')==='prezi')presentationMode='prezi'; } catch {}
 const requestedMode=new URLSearchParams(location.search).get('mode');
 if(['slides','prezi'].includes(requestedMode))presentationMode=requestedMode;
@@ -47,9 +47,9 @@ function buildChooser(){let previousSection='';$('#chooser-list').innerHTML=SLID
 function render(refresh=false){
  updateChrome();const s=SLIDES[current];
  $('#presentation-mode').value=presentationMode;
- if(presentationMode==='prezi'){
+ if(presentationMode==='prezi'||overviewOpen){
   if(!preziView)preziView=new PreziView($('#stage'),go);
-  preziView.show(SLIDES,current,refresh);
+  preziView.show(SLIDES,current,refresh,overviewOpen);
  }else{
   if(preziView){preziView.destroy();preziView=null;}
   $('#stage').innerHTML=`<article class="slide" aria-labelledby="slide-title">${s.html()}</article>`;
@@ -64,12 +64,17 @@ function render(refresh=false){
 }
 function setPresentationMode(next){
  if(!['slides','prezi'].includes(next)||next===presentationMode)return;
- presentationMode=next;
+ presentationMode=next;overviewOpen=false;
  try { localStorage.setItem('openmapstack-talk-mode',next); } catch {}
  const url=new URL(location.href);url.searchParams.set('mode',next);
  history.replaceState(null,'',url);render();
 }
-function go(index){current=Math.max(0,Math.min(SLIDES.length-1,index));const hash=`#slaid-${current+1}`;if(location.hash!==hash)location.hash=hash;else render();}
+function toggleOverview(force){
+ overviewOpen=force??!overviewOpen;
+ if($('#stage').contains(document.activeElement))$('#stage').focus({preventScroll:true});
+ render();
+}
+function go(index){overviewOpen=false;current=Math.max(0,Math.min(SLIDES.length-1,index));const hash=`#slaid-${current+1}`;if(location.hash!==hash)location.hash=hash;else render();}
 function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,4500);}
 function toggleNotes(force){notesOpen=force??!notesOpen;$('#notes').hidden=!notesOpen;$('#notes-toggle').setAttribute('aria-expanded',String(notesOpen));}
 function updateDemo(){if($('#network-view'))$('#network-view').innerHTML=networkGraphic();if($('#chart-view'))$('#chart-view').innerHTML=chartGraphic();if($('#metric'))$('#metric').innerHTML=metricMarkup();if($('#walk-value'))$('#walk-value').textContent=demoState.minutes+' min';if($('#bridge-legend'))$('#bridge-legend').hidden=!demoState.bridge;}
@@ -79,13 +84,38 @@ $('#next').addEventListener('click',()=>go(current+1));$('#previous').addEventLi
 document.addEventListener('fullscreenchange',updateFullscreenLabel);
 for(const button of document.querySelectorAll('[data-language]'))button.addEventListener('click',()=>setLanguage(button.dataset.language));
 $('#presentation-mode').addEventListener('change',event=>setPresentationMode(event.target.value));
+$('#prezi-overview').addEventListener('click',()=>toggleOverview());
 document.addEventListener('click',e=>{const close=e.target.closest('[data-close]');if(close)document.getElementById(close.dataset.close).close();const choice=e.target.closest('[data-go]');if(choice){$('#chooser').close();go(Number(choice.dataset.go));}const image=e.target.closest('[data-image]');if(image){const img=image.querySelector('img');$('#lightbox-img').src=img.src;$('#lightbox-img').alt=img.alt;$('#lightbox-title').textContent=img.alt+tr(' · Tartu Emajõe kergliiklussillad',' · Tartu bridges · screenshot in Estonian');$('#lightbox').showModal();}});
-document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'&&notesOpen){toggleNotes(false);return;}const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;if(e.key==='Escape'&&preziView?.overview){preziView.toggleOverview(false);return;}if(['BUTTON','A'].includes(tag)&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(SLIDES.length-1);}if(e.key.toLowerCase()==='f')fullscreen();if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='g')$('#choose').click();if(e.key.toLowerCase()==='p')setPresentationMode(presentationMode==='prezi'?'slides':'prezi');if(e.key.toLowerCase()==='o'&&preziView)preziView.toggleOverview();});
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'&&notesOpen){toggleNotes(false);return;}const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;if(e.key==='Escape'&&overviewOpen){toggleOverview(false);return;}if(['BUTTON','A'].includes(tag)&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(SLIDES.length-1);}if(e.key.toLowerCase()==='f')fullscreen();if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='g')$('#choose').click();if(e.key.toLowerCase()==='p')setPresentationMode(presentationMode==='prezi'?'slides':'prezi');if(e.key.toLowerCase()==='o')toggleOverview();});
 for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
-window.addEventListener('hashchange',()=>{current=slideIndex();render();});
+window.addEventListener('hashchange',()=>{overviewOpen=false;current=slideIndex();render();});
 let swipeX=0,swipeY=0;$('#stage').addEventListener('touchstart',e=>{swipeX=e.changedTouches[0].clientX;swipeY=e.changedTouches[0].clientY;},{passive:true});$('#stage').addEventListener('touchend',e=>{if(e.target.closest('input,button,a'))return;const dx=e.changedTouches[0].clientX-swipeX,dy=e.changedTouches[0].clientY-swipeY;if(Math.abs(dx)>85&&Math.abs(dx)>Math.abs(dy)*1.8)go(current+(dx<0?1:-1));},{passive:true});
 window.addEventListener('beforeprint',()=>{if(preziView){preziView.destroy();preziView=null;}$('#stage').innerHTML=SLIDES.map(s=>`<article class="slide"><h2>${esc(s.title)}</h2>${s.html().replace(/<h[12][^>]*>[\s\S]*?<\/h[12]>/,'')}</article>`).join('');});window.addEventListener('afterprint',()=>render(true));
 current=slideIndex();render();
+
+// Controls overlay the slide; pointer hover and keyboard focus keep them open.
+const controlsDock=$('#controls-dock');
+let controlsTimer,lastPointerType='';
+function revealControls(duration=3000){
+ clearTimeout(controlsTimer);controlsDock.classList.add('is-visible');
+ controlsTimer=setTimeout(()=>controlsDock.classList.remove('is-visible'),duration);
+}
+$('#controls-reveal').addEventListener('click',()=>revealControls(5000));
+document.addEventListener('pointerdown',event=>{
+ lastPointerType=event.pointerType;
+ if(!controlsDock.contains(event.target))controlsDock.classList.remove('is-visible');
+});
+controlsDock.addEventListener('click',event=>{
+ // Pointer activation must not leave a hidden toolbar pinned by button focus.
+ if(event.detail>0)event.target.closest('button')?.blur();
+ if(lastPointerType==='touch')revealControls(5000);
+});
+$('#presentation-mode').addEventListener('change',()=>{
+ if(lastPointerType){$('#presentation-mode').blur();lastPointerType='';}
+});
+document.addEventListener('keydown',()=>{lastPointerType='';});
+document.addEventListener('fullscreenchange',()=>controlsDock.classList.remove('is-visible'));
+revealControls();
 
 // Development-only hot updates: keep slide, notes and interactive demo state.
 // The bundled offline file never contacts the editor server without ?live=1.

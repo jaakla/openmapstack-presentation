@@ -23,6 +23,12 @@ interaktiivne näidis töötavad ilma serveri või võrguühenduseta.
 - **Home / End:** esimene või viimane slaid.
 - **Klõps ekraanipildil:** pildi suurendus; Escape sulgeb.
 
+Alumine tööriistariba peitub automaatselt ega võta slaidilt ruumi ka täisekraanil.
+Riba avamiseks liiguta hiir alaserva, puuduta allserva väikest käepidet või liigu
+Tab-klahviga juhtnuppudeni. **F / Escape** väljub täisekraanist. **Ülevaade / O**
+avab kõigi slaidide ülevaate nii tava- kui ka Prezi-vaates; nupp asub alumisel ribal.
+Slaidil klõpsamine avab selle, **Escape / O** viib tagasi senisele slaidile.
+
 ### Prezi-vaade
 
 Vali jalusest **Prezi** või ava [Prezi-vaate otseviide](https://jaakla.github.io/openmapstack-presentation/?lang=et&mode=prezi).

@@ -17,6 +17,12 @@ Use **ET / EN** to switch languages, **← / →** to navigate, **F** for fullsc
 and **N** for speaker notes. Screenshots and the interactive synthetic network
 demo are included; the external Tartu dashboard needs a network connection.
 
+The bottom toolbar hides automatically and overlays the slide without reserving
+space, including in fullscreen. Move the pointer to the bottom edge, tap the small
+bottom handle, or Tab to the controls to reveal it. **F / Escape** exits fullscreen.
+**Overview / O** opens the slide overview in either view; choose a slide or press
+**Escape / O** to return. The overview button is in the bottom toolbar.
+
 ### Prezi view
 
 Choose **Prezi** in the footer or open the [Prezi view](https://jaakla.github.io/openmapstack-presentation/?lang=en&mode=prezi).
