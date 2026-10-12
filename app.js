@@ -34,13 +34,41 @@ function demoControls(bridge=true){return `<div class="controls"><div class="ran
 function metricMarkup(){const c=coverage(demoState.minutes);return `<span class="huge em">${Math.round(c.pct)}<span class="unit">%</span></span><p class="metric-line">${c.yes} / ${c.total} ${demoState.weighted?tr('eluruumi','dwellings'):tr('elumaja','residential buildings')} ${tr('näidisvõrgus','in the example network')}</p>`;}
 
 let current=0, notesOpen=false, toastTimer;
+let presentationMode='slides',preziView=null;
+try { if(localStorage.getItem('openmapstack-talk-mode')==='prezi')presentationMode='prezi'; } catch {}
+const requestedMode=new URLSearchParams(location.search).get('mode');
+if(['slides','prezi'].includes(requestedMode))presentationMode=requestedMode;
 const $=selector=>document.querySelector(selector);
 const total=SLIDES.reduce((s,x)=>s+x.minutes,0);
 function startMinute(index){return SLIDES.slice(0,index).reduce((s,x)=>s+x.minutes,0);}
 function slideIndex(){const m=location.hash.match(/^#slaid-(\d+)$/);return m?Math.max(0,Math.min(SLIDES.length-1,Number(m[1])-1)):0;}
 function updateNotes(){const s=SLIDES[current],start=startMinute(current);$('#notes-body').innerHTML=`<div class="note-time">${start}–${start+s.minutes} min / ${total} min · ${tr("selle slaidi aeg","this slide")} ${s.minutes} min</div><h3>${esc(s.title)}</h3><ul>${s.notes.map(n=>`<li>${esc(n)}</li>`).join('')}</ul><p class="hint">${tr("N või Märkmed: sulge paneel enne publikule näitamist. Esinejamärkmed on samas aknas. ← → liigub slaidide vahel; Home / End avab esimese / viimase slaidi.","N or Notes: close this panel before showing the audience. Speaker notes share this window. \u2190 \u2192 navigates slides; Home / End opens the first / last slide.")}</p>`;}
 function buildChooser(){let previousSection='';$('#chooser-list').innerHTML=SLIDES.map((s,i)=>{let header=s.section!==previousSection?`<li class="chooser-section" role="presentation">${s.section}</li>`:'';previousSection=s.section;return `${header}<li><button data-go="${i}" aria-current="${current===i}" ${current===i?'id="current-choice"':''}><span>${String(i+1).padStart(2,'0')}</span><span>${s.title}</span><small>${startMinute(i)}–${startMinute(i)+s.minutes} min</small></button></li>`;}).join('');}
-function render(){updateChrome();const s=SLIDES[current];$('#stage').innerHTML=`<article class="slide" aria-labelledby="slide-title">${s.html()}</article>`;const heading=$('#stage h1,#stage h2');if(heading)heading.id='slide-title';$('#stage').scrollTop=0;$('#counter').textContent=`${current+1} / ${SLIDES.length}`;$('#timing').textContent=`${startMinute(current)}–${startMinute(current)+s.minutes} / ${total} min`;$('#previous').disabled=current===0;$('#next').disabled=current===SLIDES.length-1;$('#progress').style.width=`${(current+1)/SLIDES.length*100}%`;$('#announcement').textContent=`${tr("Slaid","Slide")} ${current+1} / ${SLIDES.length}: ${s.title}`;document.title=`${current+1}. ${s.title} — OpenMapStack`;updateNotes();buildChooser();bindDemo();}
+function render(refresh=false){
+ updateChrome();const s=SLIDES[current];
+ $('#presentation-mode').value=presentationMode;
+ if(presentationMode==='prezi'){
+  if(!preziView)preziView=new PreziView($('#stage'),go);
+  preziView.show(SLIDES,current,refresh);
+ }else{
+  if(preziView){preziView.destroy();preziView=null;}
+  $('#stage').innerHTML=`<article class="slide" aria-labelledby="slide-title">${s.html()}</article>`;
+  const heading=$('#stage h1,#stage h2');if(heading)heading.id='slide-title';
+ }
+ $('#stage').scrollTop=0;$('#counter').textContent=`${current+1} / ${SLIDES.length}`;
+ $('#timing').textContent=`${startMinute(current)}–${startMinute(current)+s.minutes} / ${total} min`;
+ $('#previous').disabled=current===0;$('#next').disabled=current===SLIDES.length-1;
+ $('#progress').style.width=`${(current+1)/SLIDES.length*100}%`;
+ $('#announcement').textContent=`${tr('Slaid','Slide')} ${current+1} / ${SLIDES.length}: ${s.title}`;
+ document.title=`${current+1}. ${s.title} — OpenMapStack`;updateNotes();buildChooser();bindDemo();
+}
+function setPresentationMode(next){
+ if(!['slides','prezi'].includes(next)||next===presentationMode)return;
+ presentationMode=next;
+ try { localStorage.setItem('openmapstack-talk-mode',next); } catch {}
+ const url=new URL(location.href);url.searchParams.set('mode',next);
+ history.replaceState(null,'',url);render();
+}
 function go(index){current=Math.max(0,Math.min(SLIDES.length-1,index));const hash=`#slaid-${current+1}`;if(location.hash!==hash)location.hash=hash;else render();}
 function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,4500);}
 function toggleNotes(force){notesOpen=force??!notesOpen;$('#notes').hidden=!notesOpen;$('#notes-toggle').setAttribute('aria-expanded',String(notesOpen));}
@@ -50,12 +78,13 @@ async function fullscreen(){try{if(document.fullscreenElement)await document.exi
 $('#next').addEventListener('click',()=>go(current+1));$('#previous').addEventListener('click',()=>go(current-1));$('#choose').addEventListener('click',()=>{$('#chooser').showModal();$('#current-choice')?.scrollIntoView({block:'center'});});$('#notes-toggle').addEventListener('click',()=>toggleNotes());$('#close-notes').addEventListener('click',()=>toggleNotes(false));$('#fullscreen').addEventListener('click',fullscreen);
 document.addEventListener('fullscreenchange',updateFullscreenLabel);
 for(const button of document.querySelectorAll('[data-language]'))button.addEventListener('click',()=>setLanguage(button.dataset.language));
+$('#presentation-mode').addEventListener('change',event=>setPresentationMode(event.target.value));
 document.addEventListener('click',e=>{const close=e.target.closest('[data-close]');if(close)document.getElementById(close.dataset.close).close();const choice=e.target.closest('[data-go]');if(choice){$('#chooser').close();go(Number(choice.dataset.go));}const image=e.target.closest('[data-image]');if(image){const img=image.querySelector('img');$('#lightbox-img').src=img.src;$('#lightbox-img').alt=img.alt;$('#lightbox-title').textContent=img.alt+tr(' · Tartu Emajõe kergliiklussillad',' · Tartu bridges · screenshot in Estonian');$('#lightbox').showModal();}});
-document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'&&notesOpen){toggleNotes(false);return;}const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;if(['BUTTON','A'].includes(tag)&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(SLIDES.length-1);}if(e.key.toLowerCase()==='f')fullscreen();if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='g')$('#choose').click();});
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'&&notesOpen){toggleNotes(false);return;}const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;if(e.key==='Escape'&&preziView?.overview){preziView.toggleOverview(false);return;}if(['BUTTON','A'].includes(tag)&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(SLIDES.length-1);}if(e.key.toLowerCase()==='f')fullscreen();if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='g')$('#choose').click();if(e.key.toLowerCase()==='p')setPresentationMode(presentationMode==='prezi'?'slides':'prezi');if(e.key.toLowerCase()==='o'&&preziView)preziView.toggleOverview();});
 for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 window.addEventListener('hashchange',()=>{current=slideIndex();render();});
 let swipeX=0,swipeY=0;$('#stage').addEventListener('touchstart',e=>{swipeX=e.changedTouches[0].clientX;swipeY=e.changedTouches[0].clientY;},{passive:true});$('#stage').addEventListener('touchend',e=>{if(e.target.closest('input,button,a'))return;const dx=e.changedTouches[0].clientX-swipeX,dy=e.changedTouches[0].clientY-swipeY;if(Math.abs(dx)>85&&Math.abs(dx)>Math.abs(dy)*1.8)go(current+(dx<0?1:-1));},{passive:true});
-window.addEventListener('beforeprint',()=>{$('#stage').innerHTML=SLIDES.map(s=>`<article class="slide"><h2>${esc(s.title)}</h2>${s.html().replace(/<h[12][^>]*>[\s\S]*?<\/h[12]>/,'')}</article>`).join('');});window.addEventListener('afterprint',render);
+window.addEventListener('beforeprint',()=>{if(preziView){preziView.destroy();preziView=null;}$('#stage').innerHTML=SLIDES.map(s=>`<article class="slide"><h2>${esc(s.title)}</h2>${s.html().replace(/<h[12][^>]*>[\s\S]*?<\/h[12]>/,'')}</article>`).join('');});window.addEventListener('afterprint',()=>render(true));
 current=slideIndex();render();
 
 // Development-only hot updates: keep slide, notes and interactive demo state.
@@ -76,7 +105,7 @@ if(new URLSearchParams(location.search).get('live')==='1'&&location.protocol!=='
     for(const lang of ['et','en'])DECK[lang]=data.deck[lang];
     SLIDES_ET.splice(0,SLIDES_ET.length,...makeSlides('et'));
     SLIDES_EN.splice(0,SLIDES_EN.length,...makeSlides('en'));
-    liveVersion=data.version;render();
+    liveVersion=data.version;render(true);
    }
   }catch(error){if(liveError!==error.message)toast(error.message);liveError=error.message;}
   finally{liveBusy=false;}

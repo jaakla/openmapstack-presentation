@@ -12,7 +12,7 @@ https://github.com/jaakla/openmapstack-skills.
 - `serve.py`, `editor.html`: local editing, file watching and paired previews.
 - `translate_sync.py`, `translation-state.json`: explicit incremental sync and
   the hashes of synchronized blocks.
-- `app.js`, `content.js`, `i18n.js`, `styles.css`, `viewer.html`, `assets/`:
+- `app.js`, `prezi.js`, `content.js`, `i18n.js`, `styles.css`, `viewer.html`, `assets/`:
   presentation behavior, interactive demo, viewer controls, design and images.
 - `tests/`: deterministic engine, translation and editor contracts.
 - `docs/presentation.md`: presenter guide, demo evidence and editing details.

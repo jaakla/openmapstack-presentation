@@ -24,6 +24,52 @@ footer{border-top:1px solid var(--line);display:flex;align-items:center;gap:12px
 .language-button[aria-pressed=true]{background:var(--pale);color:var(--teal);font-weight:700}
 @media(min-width:701px) and (max-width:1100px){footer .meta{display:none}footer .notes-toggle{display:none}}
 .prompt em{font-synthesis:style}
+
+/* Prezi camera coordinates stay independent of the browser viewport. */
+#stage.prezi-stage{position:relative;display:block;padding:0;overflow:hidden;background-color:#edf4f3;background-image:radial-gradient(#c6d8d5 1px,transparent 1px);background-size:24px 24px;isolation:isolate}
+.prezi-toolbar{position:absolute;z-index:2;top:14px;left:22px;right:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;pointer-events:none}
+.prezi-position{font-size:13px;font-weight:600;color:#486663;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:rgb(237 244 243 / .94);border-radius:4px;padding:8px 10px}
+.prezi-toolbar .btn{pointer-events:auto;flex-shrink:0;box-shadow:0 2px 8px rgb(16 47 51 / .04)}
+.prezi-world{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+.prezi-route{position:absolute;overflow:visible;pointer-events:none}
+.prezi-route polyline{fill:none;stroke:#b2cbc6;stroke-width:18;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:12 34}
+.prezi-frame{position:absolute;width:1440px;height:900px;background:white;border-radius:14px;box-shadow:0 8px 70px rgb(16 47 51 / .09);outline:3px solid #d4e3e0}
+.prezi-frame.is-current{outline:5px solid var(--teal)}
+.prezi-frame .prezi-slide{width:100%;max-width:none;height:100%;padding:58px 70px;display:flex;flex-direction:column;justify-content:center;overflow:auto;animation:none;border-radius:inherit}
+.prezi-slide h1{font-size:78px}.prezi-slide h2{font-size:52px}.prezi-slide h3{font-size:27px}.prezi-slide p,.prezi-slide li{font-size:23px}.prezi-slide .lead{font-size:31px}.prezi-slide .caption{font-size:14px}.prezi-slide .sub{font-size:22px}.prezi-slide .note-line{font-size:18px}
+.prezi-slide .cover{grid-template-columns:1.07fr 1fr;gap:44px}.prezi-slide .cover .sub{font-size:21px;margin-top:32px}
+.prezi-slide .two{grid-template-columns:1.05fr 1fr;gap:64px}.prezi-slide .two.wide{grid-template-columns:1.55fr 1fr;gap:44px}
+.prezi-slide .network{max-height:470px}.prezi-slide .photo{max-height:570px}.prezi-slide .photo-label{font-size:15px}
+.prezi-slide .list{gap:24px}.prezi-slide .list strong{font-size:27px}.prezi-slide .list span{font-size:21px}
+.prezi-slide .flow{grid-template-columns:repeat(4,1fr);gap:28px;margin:42px 0 32px}.prezi-slide .flow.three{grid-template-columns:repeat(3,1fr)}
+.prezi-slide .flow .step:not(:last-child):after{display:block}.prezi-slide .step b.num{width:52px;height:52px;font-size:23px;margin-bottom:24px}.prezi-slide .step p{font-size:21px}
+.prezi-slide .code{font-size:18px;padding:26px 30px}.prezi-slide .project-files-slide>.code{font-size:16px;line-height:1.65;padding:20px}
+.prezi-slide .big-question{font-size:59px}.prezi-slide .quote{font-size:54px}.prezi-slide .huge{font-size:140px}.prezi-slide .unit{font-size:38px}
+.prezi-slide .table td,.prezi-slide .table th{font-size:21px;padding:15px 18px}.prezi-slide .table th{font-size:16px}
+.prezi-slide .discussion{grid-template-columns:repeat(3,1fr);gap:36px}.prezi-slide .discussion p{font-size:21px}
+.prezi-slide .range-row{display:flex;gap:20px}.prezi-slide .range-row label{font-size:20px}.prezi-slide .range-row input{width:auto;margin:0}.prezi-slide .check-row{font-size:18px}
+.prezi-slide .schedule{height:90px;flex-wrap:nowrap}.prezi-slide .schedule>div{flex:revert!important;min-width:0;padding:14px 18px}.prezi-slide .schedule>div:nth-child(1){flex:16!important}.prezi-slide .schedule>div:nth-child(2){flex:15!important}.prezi-slide .schedule>div:nth-child(3){flex:12!important}.prezi-slide .schedule>div:nth-child(4){flex:2!important}.prezi-slide .schedule b{font-size:27px}.prezi-slide .schedule span{font-size:17px}
+.prezi-slide .status-row{grid-template-columns:150px 1fr;gap:25px}.prezi-slide .timeline-row{grid-template-columns:100px 1fr;gap:20px}.prezi-slide .timeline-row b{font-size:28px}.prezi-slide .timeline-row p{font-size:22px}
+.prezi-slide .costs{gap:35px}.prezi-slide .costs .huge{font-size:86px}.prezi-slide .costs p{font-size:20px}.prezi-slide .costs .unit{font-size:38px}
+.prezi-preview{pointer-events:none;user-select:none}
+.prezi-card-go{position:absolute;inset:0;border:0;background:transparent;border-radius:inherit;cursor:zoom-in;color:var(--ink);text-align:left}
+.prezi-card-go:hover,.prezi-card-go:focus-visible{outline:12px solid var(--teal);outline-offset:12px;background:rgb(0 127 118 / .04)}
+.prezi-card-number{position:absolute;top:0;left:0;font-size:var(--prezi-label-size);font-family:var(--mono);font-weight:700;background:var(--teal);color:white;padding:18px 28px;border-radius:12px 0 18px 0}
+.prezi-card-caption{position:absolute;top:calc(100% + 24px);left:0;right:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:var(--prezi-label-size);line-height:1.3;font-weight:600}
+.is-moving .prezi-card-go{pointer-events:none}.is-overview .prezi-slide{pointer-events:none}
+.mode-switch{font-size:13px;flex-shrink:0;cursor:pointer;max-width:110px}
+@media(max-width:1250px){footer .brand,footer .meta{display:none}}
+@media(max-width:700px){
+ #app{grid-template-rows:minmax(0,1fr) 106px}
+ footer{display:grid;grid-template-columns:auto auto 1fr;grid-template-rows:40px 40px;gap:4px 8px;padding:10px 14px}
+ footer .brand,footer .meta{display:none}.language-switch{grid-row:1;grid-column:1;justify-self:start}
+ .mode-switch{grid-row:1;grid-column:2;justify-self:start;min-height:36px;padding:6px 10px}
+ .nav-center{grid-row:2;grid-column:1 / 3;margin-left:0;gap:4px}.nav-right{grid-row:2;grid-column:3;margin-left:0;justify-self:end;gap:4px}
+ .fullscreen-label{width:36px;padding:6px}.fullscreen-label:after{content:'';display:inline-block;width:16px;height:16px;vertical-align:middle;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23102f33' stroke-width='2'%3E%3Cpath d='M7 2H2v5m11-5h5v5M2 13v5h5m11-5v5h-5'/%3E%3C/svg%3E") center / contain no-repeat}
+ .notes-panel{bottom:106px}.toast{bottom:122px}
+ .prezi-toolbar{top:10px;left:10px;right:10px;gap:8px}.prezi-position{font-size:11px;padding:6px}
+}
+@media print{.mode-switch,.prezi-toolbar{display:none!important}}
 </style>
 </head>
 <body>
@@ -31,6 +77,7 @@ footer{border-top:1px solid var(--line);display:flex;align-items:center;gap:12px
   <main id="stage" aria-label="Esitluse slaid"></main>
   <footer aria-label="Esitluse juhtnupud">
     <span class="brand">OpenMapStack</span><div class="language-switch" role="group" aria-label="Esitluse keel"><button class="btn language-button" data-language="et" aria-label="Eesti" aria-pressed="true">ET</button><button class="btn language-button" data-language="en" aria-label="English" aria-pressed="false">EN</button></div><span class="meta" id="timing"></span>
+    <select class="btn mode-switch" id="presentation-mode" aria-label="Esitlusvaade (P)" aria-keyshortcuts="P"><option value="slides">Slaidid</option><option value="prezi">Prezi</option></select>
     <div class="nav-center"><button class="btn quiet back-label" id="previous" aria-label="Eelmine slaid">←</button><span class="counter" id="counter"></span><button class="btn" id="choose">Vali slaid</button></div>
     <div class="nav-right"><button class="btn quiet notes-toggle" id="notes-toggle" aria-label="Näita esinejamärkmeid" aria-expanded="false">Märkmed</button><button class="btn quiet fullscreen-label" id="fullscreen" data-compact-label="Täisekraan" aria-label="Lülita täisekraan">Täisekraan</button><button class="btn primary" id="next">Edasi →</button></div>
   </footer>
@@ -60,6 +107,7 @@ function updateChrome(){
   ['#choose','Vali slaid','Choose slide'],['#next','Edasi →','Next →'],['#notes-toggle','Märkmed','Notes'],
   ['#chooser-title','Vali slaid','Choose slide'],['#notes .dialog-head h3','Esinejamärkmed','Speaker notes'],
   ['[data-close="lightbox"]','Sulge','Close'],
+  ['#presentation-mode option[value="slides"]','Slaidid','Slides'],
   ['#chooser .caption','24 slaidi · 45 minutit · ← → liikumiseks · N märkmeteks · F täisekraaniks','24 slides · 45 minutes · ← → navigate · N notes · F fullscreen']
  ];
  for(const [selector,et,en] of textEntries)$(selector).textContent=tr(et,en);
@@ -68,7 +116,8 @@ function updateChrome(){
   ['#previous','Eelmine slaid','Previous slide'],['#notes-toggle','Näita esinejamärkmeid','Show speaker notes'],
   ['[data-close="chooser"]','Sulge slaidivalik','Close slide chooser'],['#notes','Esinejamärkmed','Speaker notes'],
   ['#close-notes','Sulge märkmed','Close notes'],['[data-close="lightbox"]','Sulge ekraanipilt','Close screenshot'],
-  ['.language-switch','Esitluse keel','Presentation language']
+  ['.language-switch','Esitluse keel','Presentation language'],
+  ['#presentation-mode','Esitlusvaade (P)','Presentation view (P)']
  ];
  for(const [selector,et,en] of ariaEntries)$(selector).setAttribute('aria-label',tr(et,en));
  for(const button of document.querySelectorAll('[data-language]'))button.setAttribute('aria-pressed',String(button.dataset.language===language));
@@ -78,7 +127,7 @@ function setLanguage(next){
  if(!['et','en'].includes(next)||next===language)return;
  language=next;SLIDES=language==='en'?SLIDES_EN:SLIDES_ET;
  try { localStorage.setItem('openmapstack-talk-language',language); } catch {}
- $('#toast').hidden=true;render();
+ $('#toast').hidden=true;render(true);
 }
 
 // Actual Tartu bridges dashboard screenshots are embedded by build.py.
@@ -100,6 +149,164 @@ function slideMarkup(template){
 const makeSlides=lang=>DECK[lang].map(slide=>({...slide,html:()=>slideMarkup(slide.html)}));
 const SLIDES_ET=makeSlides('et');
 const SLIDES_EN=makeSlides('en');
+
+// A local canvas and camera: the same deck works online and in the offline HTML.
+const PREZI_FRAME = {width:1440,height:900,gapX:260,gapY:250,columns:6};
+function preziPositions(count){
+ const {width,height,gapX,gapY,columns}=PREZI_FRAME;
+ return Array.from({length:count},(_,index)=>{
+  const row=Math.floor(index/columns),column=row%2?columns-1-index%columns:index%columns;
+  return {x:column*(width+gapX),y:row*(height+gapY),width,height};
+ });
+}
+
+class PreziView {
+ constructor(stage,onSelect){
+  this.stage=stage;this.onSelect=onSelect;this.index=-1;this.overview=false;
+  this.motion=matchMedia('(prefers-reduced-motion: reduce)');
+  this.onMotionChange=()=>{if(this.world)this.moveTo(this.viewCamera(),false);};
+  this.motion.addEventListener('change',this.onMotionChange);
+  this.resizeObserver=new ResizeObserver(()=>{
+   const size=`${stage.clientWidth},${stage.clientHeight}`;
+   if(size===this.size)return;this.size=size;
+   if(this.world){this.updateLabels();this.moveTo(this.viewCamera(),false);}
+  });
+  this.size=`${stage.clientWidth},${stage.clientHeight}`;
+  this.resizeObserver.observe(stage);
+ }
+
+ mount(slides){
+  this.stop();this.slides=slides;this.positions=preziPositions(slides.length);
+  this.stage.classList.add('prezi-stage');
+  this.stage.innerHTML='<div class="prezi-toolbar"><span class="prezi-position"></span><button class="btn" id="prezi-overview" aria-keyshortcuts="O"></button></div><div class="prezi-world"></div>';
+  this.world=this.stage.querySelector('.prezi-world');
+  const route=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  const {width,height}=PREZI_FRAME;
+  this.bounds={x:-80,y:-80,width:Math.max(...this.positions.map(p=>p.x+width))+160,
+               height:Math.max(...this.positions.map(p=>p.y+height))+240};
+  route.setAttribute('class','prezi-route');route.setAttribute('aria-hidden','true');
+  route.setAttribute('width',this.bounds.width);route.setAttribute('height',this.bounds.height);
+  const path=document.createElementNS(route.namespaceURI,'polyline');
+  path.setAttribute('points',this.positions.map(p=>`${p.x+width/2},${p.y+height/2}`).join(' '));
+  route.append(path);this.world.append(route);
+  this.positions.forEach((position,index)=>{
+   const frame=document.createElement('section');frame.className='prezi-frame';
+   frame.style.left=position.x+'px';frame.style.top=position.y+'px';
+   frame.dataset.index=index;this.world.append(frame);this.drawFrame(index,false);
+  });
+  this.world.addEventListener('click',event=>{
+   const choice=event.target.closest('[data-prezi-go]');
+   if(choice&&this.overview)this.onSelect(Number(choice.dataset.preziGo));
+  });
+  this.stage.querySelector('#prezi-overview').addEventListener('click',()=>this.toggleOverview());
+  this.updateLabels();
+ }
+
+ drawFrame(index,active){
+  const frame=this.world.querySelector(`[data-index="${index}"]`),slide=this.slides[index];
+  frame.classList.toggle('is-current',active);
+  const article=document.createElement('article');
+  article.className='slide prezi-slide';article.innerHTML=slide.html();
+  if(active){
+   article.id='prezi-active';article.setAttribute('aria-labelledby','slide-title');
+   const heading=article.querySelector('h1,h2');if(heading)heading.id='slide-title';
+   this.active=article;
+  }else{
+   // Thumbnails must not duplicate live control IDs or enter the tab order.
+   article.classList.add('prezi-preview');article.inert=true;article.setAttribute('aria-hidden','true');
+   for(const node of article.querySelectorAll('[id],[for],[aria-labelledby],[aria-describedby]')){
+    for(const name of ['id','for','aria-labelledby','aria-describedby'])node.removeAttribute(name);
+   }
+  }
+  const choice=document.createElement('button');choice.className='prezi-card-go';
+  choice.dataset.preziGo=index;choice.hidden=!this.overview;
+  choice.setAttribute('aria-label',`${tr('Ava slaid','Open slide')} ${index+1}: ${slide.title}`);
+  choice.setAttribute('aria-current',String(active));
+  choice.innerHTML=`<span class="prezi-card-number">${String(index+1).padStart(2,'0')}</span><span class="prezi-card-caption">${esc(slide.title)}</span>`;
+  frame.replaceChildren(article,choice);
+ }
+
+ show(slides,index,refresh=false){
+  const previous=this.index,wasOverview=this.overview;
+  const rebuilt=refresh||this.slides!==slides||!this.world?.isConnected;
+  if(rebuilt)this.mount(slides);
+  else if(previous!==index&&previous>=0)this.drawFrame(previous,false);
+  this.index=index;
+  // Text updates retain an open overview; navigation returns to the chosen slide.
+  if(previous!==index)this.overview=false;
+  this.drawFrame(index,true);this.updateLabels();
+  const changed=previous>=0&&previous!==index;
+  const via=changed&&!wasOverview&&!rebuilt?this.travelCamera(previous,index):null;
+  this.moveTo(this.viewCamera(),!rebuilt&&(changed||wasOverview!==this.overview),via);
+ }
+
+ updateLabels(){
+  if(!this.world)return;
+  this.stage.classList.toggle('is-overview',this.overview);
+  const button=this.stage.querySelector('#prezi-overview');
+  button.textContent=this.overview?tr('Tagasi slaidile','Back to slide'):tr('Ülevaade','Overview');
+  button.setAttribute('aria-label',this.overview?tr('Suumi tagasi slaidile (O)','Zoom back to slide (O)'):tr('Suumi kogu esitluse ülevaatesse (O)','Zoom out to presentation overview (O)'));
+  button.setAttribute('aria-pressed',String(this.overview));
+  const slide=this.slides[Math.max(0,this.index)];
+  this.stage.querySelector('.prezi-position').textContent=this.overview?
+   `${this.slides.length} ${tr('slaidi · Vali slaid, et sisse suumida','slides · Choose a slide to zoom in')}`:
+   `${String(Math.max(0,this.index)+1).padStart(2,'0')} / ${this.slides.length} · ${slide.section}`;
+  for(const choice of this.world.querySelectorAll('[data-prezi-go]'))choice.hidden=!this.overview;
+  this.world.style.setProperty('--prezi-label-size',`${Math.max(38,12/this.fit(this.bounds).scale)}px`);
+  if(this.active){this.active.inert=this.overview;this.active.setAttribute('aria-hidden',String(this.overview));}
+ }
+
+ fit(bounds,maxScale=Infinity){
+  const width=this.stage.clientWidth,height=this.stage.clientHeight;
+  const scale=Math.max(.01,Math.min((width-40)/bounds.width,(height-100)/bounds.height,maxScale));
+  return {scale,x:width/2-(bounds.x+bounds.width/2)*scale,
+          y:(height+40)/2-(bounds.y+bounds.height/2)*scale};
+ }
+ viewCamera(){return this.fit(this.overview?this.bounds:this.positions[this.index]);}
+ travelCamera(from,to){
+  const a=this.positions[from],b=this.positions[to];
+  const bounds={x:Math.min(a.x,b.x)-100,y:Math.min(a.y,b.y)-100,
+                width:Math.abs(a.x-b.x)+a.width+200,height:Math.abs(a.y-b.y)+a.height+200};
+  return this.fit(bounds,this.fit(b).scale*.43);
+ }
+ transform(camera){return `translate(${camera.x}px,${camera.y}px) scale(${camera.scale})`;}
+
+ moveTo(camera,animate,via=null){
+  this.stop();
+  const start=getComputedStyle(this.world).transform,target=this.transform(camera);
+  this.world.style.transform=target;
+  if(!animate||this.motion.matches||!this.world.animate){this.setMoving(false);return;}
+  const frames=[{transform:start,offset:0}];
+  if(via)frames.push({transform:this.transform(via),offset:.45});
+  frames.push({transform:target,offset:1});
+  this.setMoving(true);
+  const animation=this.world.animate(frames,{duration:via?1150:750,easing:'cubic-bezier(.4,0,.2,1)'});
+  this.animation=animation;
+  animation.onfinish=()=>{
+   if(this.animation!==animation)return;
+   this.animation=null;animation.cancel();this.setMoving(false);
+  };
+ }
+ setMoving(moving){
+  this.stage.classList.toggle('is-moving',moving);this.stage.setAttribute('aria-busy',String(moving));
+  if(this.active)this.active.inert=moving||this.overview;
+ }
+ stop(){
+  if(!this.animation)return;
+  this.world.style.transform=getComputedStyle(this.world).transform;
+  this.animation.onfinish=null;this.animation.cancel();this.animation=null;
+ }
+ toggleOverview(force){
+  const next=force??!this.overview;if(next===this.overview)return;
+  // Keep focus outside content that is becoming inert or leaving the viewport.
+  this.stage.querySelector('#prezi-overview').focus({preventScroll:true});
+  this.overview=next;this.updateLabels();this.moveTo(this.viewCamera(),true);
+ }
+ destroy(){
+  this.stop();this.resizeObserver.disconnect();this.motion.removeEventListener('change',this.onMotionChange);
+  this.stage.classList.remove('prezi-stage','is-overview','is-moving');this.stage.removeAttribute('aria-busy');
+ }
+}
 
 'use strict';
 let SLIDES=language==='en'?SLIDES_EN:SLIDES_ET;
@@ -137,13 +344,41 @@ function demoControls(bridge=true){return `<div class="controls"><div class="ran
 function metricMarkup(){const c=coverage(demoState.minutes);return `<span class="huge em">${Math.round(c.pct)}<span class="unit">%</span></span><p class="metric-line">${c.yes} / ${c.total} ${demoState.weighted?tr('eluruumi','dwellings'):tr('elumaja','residential buildings')} ${tr('näidisvõrgus','in the example network')}</p>`;}
 
 let current=0, notesOpen=false, toastTimer;
+let presentationMode='slides',preziView=null;
+try { if(localStorage.getItem('openmapstack-talk-mode')==='prezi')presentationMode='prezi'; } catch {}
+const requestedMode=new URLSearchParams(location.search).get('mode');
+if(['slides','prezi'].includes(requestedMode))presentationMode=requestedMode;
 const $=selector=>document.querySelector(selector);
 const total=SLIDES.reduce((s,x)=>s+x.minutes,0);
 function startMinute(index){return SLIDES.slice(0,index).reduce((s,x)=>s+x.minutes,0);}
 function slideIndex(){const m=location.hash.match(/^#slaid-(\d+)$/);return m?Math.max(0,Math.min(SLIDES.length-1,Number(m[1])-1)):0;}
 function updateNotes(){const s=SLIDES[current],start=startMinute(current);$('#notes-body').innerHTML=`<div class="note-time">${start}–${start+s.minutes} min / ${total} min · ${tr("selle slaidi aeg","this slide")} ${s.minutes} min</div><h3>${esc(s.title)}</h3><ul>${s.notes.map(n=>`<li>${esc(n)}</li>`).join('')}</ul><p class="hint">${tr("N või Märkmed: sulge paneel enne publikule näitamist. Esinejamärkmed on samas aknas. ← → liigub slaidide vahel; Home / End avab esimese / viimase slaidi.","N or Notes: close this panel before showing the audience. Speaker notes share this window. \u2190 \u2192 navigates slides; Home / End opens the first / last slide.")}</p>`;}
 function buildChooser(){let previousSection='';$('#chooser-list').innerHTML=SLIDES.map((s,i)=>{let header=s.section!==previousSection?`<li class="chooser-section" role="presentation">${s.section}</li>`:'';previousSection=s.section;return `${header}<li><button data-go="${i}" aria-current="${current===i}" ${current===i?'id="current-choice"':''}><span>${String(i+1).padStart(2,'0')}</span><span>${s.title}</span><small>${startMinute(i)}–${startMinute(i)+s.minutes} min</small></button></li>`;}).join('');}
-function render(){updateChrome();const s=SLIDES[current];$('#stage').innerHTML=`<article class="slide" aria-labelledby="slide-title">${s.html()}</article>`;const heading=$('#stage h1,#stage h2');if(heading)heading.id='slide-title';$('#stage').scrollTop=0;$('#counter').textContent=`${current+1} / ${SLIDES.length}`;$('#timing').textContent=`${startMinute(current)}–${startMinute(current)+s.minutes} / ${total} min`;$('#previous').disabled=current===0;$('#next').disabled=current===SLIDES.length-1;$('#progress').style.width=`${(current+1)/SLIDES.length*100}%`;$('#announcement').textContent=`${tr("Slaid","Slide")} ${current+1} / ${SLIDES.length}: ${s.title}`;document.title=`${current+1}. ${s.title} — OpenMapStack`;updateNotes();buildChooser();bindDemo();}
+function render(refresh=false){
+ updateChrome();const s=SLIDES[current];
+ $('#presentation-mode').value=presentationMode;
+ if(presentationMode==='prezi'){
+  if(!preziView)preziView=new PreziView($('#stage'),go);
+  preziView.show(SLIDES,current,refresh);
+ }else{
+  if(preziView){preziView.destroy();preziView=null;}
+  $('#stage').innerHTML=`<article class="slide" aria-labelledby="slide-title">${s.html()}</article>`;
+  const heading=$('#stage h1,#stage h2');if(heading)heading.id='slide-title';
+ }
+ $('#stage').scrollTop=0;$('#counter').textContent=`${current+1} / ${SLIDES.length}`;
+ $('#timing').textContent=`${startMinute(current)}–${startMinute(current)+s.minutes} / ${total} min`;
+ $('#previous').disabled=current===0;$('#next').disabled=current===SLIDES.length-1;
+ $('#progress').style.width=`${(current+1)/SLIDES.length*100}%`;
+ $('#announcement').textContent=`${tr('Slaid','Slide')} ${current+1} / ${SLIDES.length}: ${s.title}`;
+ document.title=`${current+1}. ${s.title} — OpenMapStack`;updateNotes();buildChooser();bindDemo();
+}
+function setPresentationMode(next){
+ if(!['slides','prezi'].includes(next)||next===presentationMode)return;
+ presentationMode=next;
+ try { localStorage.setItem('openmapstack-talk-mode',next); } catch {}
+ const url=new URL(location.href);url.searchParams.set('mode',next);
+ history.replaceState(null,'',url);render();
+}
 function go(index){current=Math.max(0,Math.min(SLIDES.length-1,index));const hash=`#slaid-${current+1}`;if(location.hash!==hash)location.hash=hash;else render();}
 function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>$('#toast').hidden=true,4500);}
 function toggleNotes(force){notesOpen=force??!notesOpen;$('#notes').hidden=!notesOpen;$('#notes-toggle').setAttribute('aria-expanded',String(notesOpen));}
@@ -153,12 +388,13 @@ async function fullscreen(){try{if(document.fullscreenElement)await document.exi
 $('#next').addEventListener('click',()=>go(current+1));$('#previous').addEventListener('click',()=>go(current-1));$('#choose').addEventListener('click',()=>{$('#chooser').showModal();$('#current-choice')?.scrollIntoView({block:'center'});});$('#notes-toggle').addEventListener('click',()=>toggleNotes());$('#close-notes').addEventListener('click',()=>toggleNotes(false));$('#fullscreen').addEventListener('click',fullscreen);
 document.addEventListener('fullscreenchange',updateFullscreenLabel);
 for(const button of document.querySelectorAll('[data-language]'))button.addEventListener('click',()=>setLanguage(button.dataset.language));
+$('#presentation-mode').addEventListener('change',event=>setPresentationMode(event.target.value));
 document.addEventListener('click',e=>{const close=e.target.closest('[data-close]');if(close)document.getElementById(close.dataset.close).close();const choice=e.target.closest('[data-go]');if(choice){$('#chooser').close();go(Number(choice.dataset.go));}const image=e.target.closest('[data-image]');if(image){const img=image.querySelector('img');$('#lightbox-img').src=img.src;$('#lightbox-img').alt=img.alt;$('#lightbox-title').textContent=img.alt+tr(' · Tartu Emajõe kergliiklussillad',' · Tartu bridges · screenshot in Estonian');$('#lightbox').showModal();}});
-document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'&&notesOpen){toggleNotes(false);return;}const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;if(['BUTTON','A'].includes(tag)&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(SLIDES.length-1);}if(e.key.toLowerCase()==='f')fullscreen();if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='g')$('#choose').click();});
+document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;if(document.querySelector('dialog[open]'))return;if(e.key==='Escape'&&notesOpen){toggleNotes(false);return;}const tag=document.activeElement?.tagName;if(['INPUT','TEXTAREA','SELECT'].includes(tag))return;if(e.key==='Escape'&&preziView?.overview){preziView.toggleOverview(false);return;}if(['BUTTON','A'].includes(tag)&&e.key===' ')return;if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(current-1);}if(e.key==='Home'){e.preventDefault();go(0);}if(e.key==='End'){e.preventDefault();go(SLIDES.length-1);}if(e.key.toLowerCase()==='f')fullscreen();if(e.key.toLowerCase()==='n')toggleNotes();if(e.key.toLowerCase()==='g')$('#choose').click();if(e.key.toLowerCase()==='p')setPresentationMode(presentationMode==='prezi'?'slides':'prezi');if(e.key.toLowerCase()==='o'&&preziView)preziView.toggleOverview();});
 for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 window.addEventListener('hashchange',()=>{current=slideIndex();render();});
 let swipeX=0,swipeY=0;$('#stage').addEventListener('touchstart',e=>{swipeX=e.changedTouches[0].clientX;swipeY=e.changedTouches[0].clientY;},{passive:true});$('#stage').addEventListener('touchend',e=>{if(e.target.closest('input,button,a'))return;const dx=e.changedTouches[0].clientX-swipeX,dy=e.changedTouches[0].clientY-swipeY;if(Math.abs(dx)>85&&Math.abs(dx)>Math.abs(dy)*1.8)go(current+(dx<0?1:-1));},{passive:true});
-window.addEventListener('beforeprint',()=>{$('#stage').innerHTML=SLIDES.map(s=>`<article class="slide"><h2>${esc(s.title)}</h2>${s.html().replace(/<h[12][^>]*>[\s\S]*?<\/h[12]>/,'')}</article>`).join('');});window.addEventListener('afterprint',render);
+window.addEventListener('beforeprint',()=>{if(preziView){preziView.destroy();preziView=null;}$('#stage').innerHTML=SLIDES.map(s=>`<article class="slide"><h2>${esc(s.title)}</h2>${s.html().replace(/<h[12][^>]*>[\s\S]*?<\/h[12]>/,'')}</article>`).join('');});window.addEventListener('afterprint',()=>render(true));
 current=slideIndex();render();
 
 // Development-only hot updates: keep slide, notes and interactive demo state.
@@ -179,7 +415,7 @@ if(new URLSearchParams(location.search).get('live')==='1'&&location.protocol!=='
     for(const lang of ['et','en'])DECK[lang]=data.deck[lang];
     SLIDES_ET.splice(0,SLIDES_ET.length,...makeSlides('et'));
     SLIDES_EN.splice(0,SLIDES_EN.length,...makeSlides('en'));
-    liveVersion=data.version;render();
+    liveVersion=data.version;render(true);
    }
   }catch(error){if(liveError!==error.message)toast(error.message);liveError=error.message;}
   finally{liveBusy=false;}

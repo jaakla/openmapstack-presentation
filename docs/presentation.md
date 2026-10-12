@@ -23,6 +23,17 @@ interaktiivne näidis töötavad ilma serveri või võrguühenduseta.
 - **Home / End:** esimene või viimane slaid.
 - **Klõps ekraanipildil:** pildi suurendus; Escape sulgeb.
 
+### Prezi-vaade
+
+Vali jalusest **Prezi** või ava [Prezi-vaate otseviide](https://jaakla.github.io/openmapstack-presentation/?lang=et&mode=prezi).
+Kõik slaidid asuvad ühisel lõuendil. Slaidivahetus suumib välja, liigub järgmise
+slaidi juurde ja suumib sisse. **Ülevaade / O** näitab kogu esitlust; klõps slaidil
+avab selle. **Escape / O** viib ülevaatest tagasi valitud slaidile. **P** vahetab
+tavalise ja Prezi-vaate vahel. Keel, avatud märkmed ja interaktiivse näite seaded
+säilivad. Vaatevalik jääb brauseris meelde; lingi `mode=slides` või `mode=prezi`
+parameeter määrab avamisel vaate. Brauseri vähendatud liikumise eelistus lülitab
+suumianimatsiooni välja. Mõlemad vaated töötavad ka võrguühenduseta HTML-failis.
+
 ## 45 minuti läbimäng
 
 | Slaidid | Aeg | Teema |
@@ -183,6 +194,7 @@ key. Live polling is enabled only for previews explicitly opened with `?live=1`.
 - `layouts.json`: shared, fixed slide structure and timing for both languages.
 - `content.js`: screenshot helpers and runtime layout components.
 - `app.js`: viewer, live text updates and interactive calculations.
+- `prezi.js`: shared-canvas camera, zoom transitions and slide overview.
 - `i18n.js`: language choice and viewer controls.
 - `styles.css`, `viewer.html`, `assets/`: design, shell and screenshot originals.
 - `build.py`, `serve.py`, `translate_sync.py`: compilation, editing and translation.

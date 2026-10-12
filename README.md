@@ -17,6 +17,19 @@ Use **ET / EN** to switch languages, **← / →** to navigate, **F** for fullsc
 and **N** for speaker notes. Screenshots and the interactive synthetic network
 demo are included; the external Tartu dashboard needs a network connection.
 
+### Prezi view
+
+Choose **Prezi** in the footer or open the [Prezi view](https://jaakla.github.io/openmapstack-presentation/?lang=en&mode=prezi).
+Slides sit on one canvas. Navigation zooms out, moves to the next slide and zooms
+back in. **Overview / O** shows the full deck; click a slide to zoom into it, or
+press **Escape / O** to return to the current slide. **P** switches between the
+standard and Prezi views. Language, slide position, notes and demo settings survive
+mode changes. The view choice is remembered in this browser; `?mode=slides` or
+`?mode=prezi` explicitly selects a view in a shared link.
+
+Both views are included in the offline HTML. Reduced-motion browser settings
+disable camera animation while keeping canvas navigation available.
+
 ## Start editing
 
 Requires Python 3.10+; the engine uses only the standard library.
