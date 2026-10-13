@@ -231,7 +231,10 @@ The time-display selector offers time remaining, elapsed time, or the local
 24-hour clock (`HH:MM`). The duration controls the outer ring and pacing colours
 in every mode; selecting local time does not restart the presentation timer.
 The remaining-time mode uses this duration as its countdown target.
-Reduced-motion preferences disable the sliding transition.
+The display slides between adjacent panels over 650 ms. Below 10% of the
+planned duration remaining (including overtime), the time digits turn red with
+a LED glow and pulse while the timer is running. Pausing keeps the red warning
+steady. Reduced-motion preferences disable both sliding and pulsing.
 
 Time digits use [DSEG7 Classic](https://github.com/keshikan/DSEG), version 0.46,
 by keshikan under SIL OFL 1.1. The unmodified WOFF2 and license are stored in

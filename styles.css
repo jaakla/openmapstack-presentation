@@ -85,7 +85,7 @@ footer{border-top:1px solid var(--line);display:flex;align-items:center;gap:12px
 .presentation-clock .timer-inner{stroke-width:3}
 .timer-track{stroke:#dce6e6}.timer-time{stroke:var(--pace)}.timer-slides{stroke:#617f85}
 .timer-readout{position:absolute;left:12px;right:12px;top:21px;height:30px;overflow:hidden;white-space:nowrap}
-.timer-strip{display:flex;width:200%;height:100%;transform:translateX(0);transition:transform 420ms cubic-bezier(.22,.68,.2,1)}
+.timer-strip{display:flex;width:200%;height:100%;transform:translateX(0);transition:transform 650ms cubic-bezier(.65,0,.25,1)}
 .shows-time .timer-strip{transform:translateX(-50%)}
 .timer-strip>span{width:50%;flex:0 0 50%;display:flex;align-items:center;justify-content:center}
 @media(prefers-reduced-motion:reduce){.timer-strip{transition:none}}
@@ -102,3 +102,9 @@ body:has(.controls-dock:is(.is-visible,:focus-within)) .presentation-clock{botto
 @font-face{font-family:"DSEG7 Classic";src:url("__TIMER_FONT__") format("woff2");font-style:normal;font-weight:400;font-display:swap}
 .timer-mode-field{flex-basis:100%;min-width:0}.timer-mode-field select{min-width:0;max-width:100%;padding:6px;border:1px solid var(--line);border-radius:4px;background:white;color:var(--ink);font:inherit}.timer-controls{max-width:min(620px,calc(100vw - 116px))}
 @media(max-width:480px){.timer-mode-field{flex-wrap:wrap}.timer-mode-field select{width:100%;font-size:13px}}
+
+/* The final 10% stays unmistakable even when reduced motion is enabled. */
+.timer-critical .timer-remaining{color:#c51d24;text-shadow:0 0 2px #ff454580,0 0 6px #ff353550}
+.timer-critical.timer-running .timer-remaining{animation:timer-led-pulse 1.2s steps(2,end) infinite}
+@keyframes timer-led-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media(prefers-reduced-motion:reduce){.timer-critical .timer-remaining{animation:none}}

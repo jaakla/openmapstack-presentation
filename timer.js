@@ -37,6 +37,8 @@ class PresentationTimer {
   const delta=e-(this.index+.5)*unit,remaining=total-e;
   const pace=!this.started?'idle':e>total||delta>2*unit?'slow':delta>unit?'late':delta < -unit?'fast':'on-time';
   this.clock.dataset.pace=pace;
+  this.clock.classList.toggle('timer-critical',this.started&&remaining<total*.1);
+  this.clock.classList.toggle('timer-running',this.running);
   this.clock.querySelector('.timer-slides').setAttribute('stroke-dasharray',`${(this.index+1)/this.count*100} 100`);
   this.clock.querySelector('.timer-time').setAttribute('stroke-dasharray',`${Math.min(100,e/total*100)} 100`);
   const showTime=(this.started||this.mode==="clock")&&Math.floor((performance.now()-this.phase)/3000)%2===1;
@@ -46,16 +48,23 @@ class PresentationTimer {
   const now=new Date();
   const timeText=this.mode==='clock'?`${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`:this.mode==='elapsed'?this.format(Math.floor(e)):this.format(remaining);
   const timeLabel=this.mode==='clock'?tr('Kellaaeg','Local time'):this.mode==='elapsed'?tr('Aega algusest','Elapsed time'):remaining<0?tr('Üle aja','Over time'):tr('Aega lõpuni','Time remaining');
-  const readout=this.clock.querySelector('.timer-remaining');readout.textContent=timeText;
+  const readout=this.clock.querySelector('.timer-remaining');
+  if(readout.textContent!==timeText)readout.textContent=timeText;
   readout.classList.toggle('timer-long',timeText.length>5);
   const status={idle:tr('Valmis','Ready'),fast:tr('Graafikust ees','Ahead of schedule'),'on-time':tr('Graafikus','On schedule'),late:tr('Graafikust maas','Behind schedule'),slow:tr('Liiga aeglane','Too slow')}[pace];
   this.clock.setAttribute('aria-label',`${tr('Slaid','Slide')} ${this.index+1}/${this.count}. ${timeLabel} ${timeText}. ${status}. ${tr('Näita juhtnuppe','Show controls')}`);
   this.controls.querySelector('#timer-start').textContent=this.running?tr('Paus','Pause'):this.started?tr('Jätka','Resume'):tr('Käivita','Start');
-  this.controls.querySelector('#timer-reset').textContent=tr('Lähtesta aeg','Reset timer');
-  this.controls.querySelector('#timer-target-label').textContent=tr('Kestus','Duration');
-  this.controls.querySelector('#timer-mode-label').textContent=tr('Ajanäit','Time display');
-  for(const [value,et,en] of [['remaining','Aeg lõpuni','Time remaining'],['elapsed','Aeg algusest','Elapsed time'],['clock','Kellaaeg (HH:MM)','Local time (HH:MM)']])this.modeInput.querySelector(`[value="${value}"]`).textContent=tr(et,en);
-  this.targetInput.setAttribute('aria-label',tr('Sihtaeg minutites','Target time in minutes'));
-  this.controls.querySelector('#timer-auto-label').textContent=tr('Automaatne start','Auto start');
+  // Do not mutate native select options on timer ticks: an open picker must
+  // retain its highlighted choice until the user confirms it.
+  const localeLabel=tr('Ajanäit','Time display');
+  if(this.localeLabel!==localeLabel){
+   this.localeLabel=localeLabel;
+   this.controls.querySelector('#timer-reset').textContent=tr('Lähtesta aeg','Reset timer');
+   this.controls.querySelector('#timer-target-label').textContent=tr('Kestus','Duration');
+   this.controls.querySelector('#timer-mode-label').textContent=tr('Ajanäit','Time display');
+   for(const [value,et,en] of [['remaining','Aeg lõpuni','Time remaining'],['elapsed','Aeg algusest','Elapsed time'],['clock','Kellaaeg (HH:MM)','Local time (HH:MM)']])this.modeInput.querySelector(`[value="${value}"]`).textContent=tr(et,en);
+   this.targetInput.setAttribute('aria-label',tr('Sihtaeg minutites','Target time in minutes'));
+   this.controls.querySelector('#timer-auto-label').textContent=tr('Automaatne start','Auto start');
+  }
  }
 }
