@@ -251,3 +251,9 @@ existing translation hashes were left unchanged.
 The slide uses a recorded single-trial verdict, explicitly not a configuration
 comparison. Its [retained evidence](evidence/openmapbench-ee-vec-002/README.md)
 includes the staged task, candidate, reference and scoped evaluation report.
+
+The OpenMapBench slide now follows task → artifact → verdict → evidence, with
+the longer interpretation in speaker notes. Its zoomable six-task comparison
+screenshot retains original English labels, distinguishes historical-contract
+from prompt-only trials and is embedded in the offline HTML. It shows recorded
+configuration differences, not a controlled model ranking.

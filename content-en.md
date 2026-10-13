@@ -1452,7 +1452,7 @@ Validation and product development
 
 ## slide-19-bench.text-01
 
-OpenMapBench: compare configurations
+OpenMapBench: compare results
 
 ## slide-19-bench.text-02
 
@@ -1460,7 +1460,7 @@ OpenMapStack
 
 ## slide-19-bench.text-03
 
-Workflow guidance, project structure and project checks.
+Workflow · project structure · checks
 
 ## slide-19-bench.text-04
 
@@ -1468,11 +1468,11 @@ OpenMapBench
 
 ## slide-19-bench.text-05
 
-Compares tested combinations of agent, model, skill and tools.
+Agent × model × skill × tools
 
 ## slide-19-bench.text-06
 
-One recorded trial · not a ranking
+One recorded trial · ee-vec-002
 
 ## slide-19-bench.text-07
 
@@ -1480,7 +1480,7 @@ Task
 
 ## slide-19-bench.text-08
 
-Match Tartu pharmacies from Overture and OSM: one-to-one pairs within 60 m, in EPSG:3301.
+Tartu pharmacies · matches within 60 m
 
 ## slide-19-bench.text-09
 
@@ -1488,7 +1488,7 @@ Expected artifact
 
 ## slide-19-bench.text-10
 
-pharmacy_conflation.json — counts, matched pairs and unmatched Overture IDs.
+`pharmacy_conflation.json`
 
 ## slide-19-bench.text-11
 
@@ -1496,7 +1496,7 @@ Actual verdict
 
 ## slide-19-bench.text-12
 
-passed · 15 pairs, 48 distinct pharmacies; all five output fields matched the reference.
+`passed` · 15 pairs · 48 distinct pharmacies
 
 ## slide-19-bench.text-13
 
@@ -1504,19 +1504,24 @@ Retained evidence
 
 ## slide-19-bench.text-14
 
-Task snapshot, output and reference, check report; input and log hashes.
+Output · reference · report · hashes
 
 ## slide-19-bench.text-15
 
-Same task + frozen data + same runtime. Repeat each configuration; compare pass rates and variation across trials.
+Fair comparison: same task, data and runtime. Repeat trials for every configuration.
 
 ## slide-19-bench.text-16
 
-Evidence bundle · ee-vec-002 · 12 Oct 2026
+Open evidence bundle
+
+## slide-19-bench.text-17
+
+Recorded results · protocols differ; not a model ranking
 
 ## slide-19-bench.note-01
 
 OpenMapStack guides project work and project checks. OpenMapBench compares tested configurations; one passing trial does not establish a model’s general superiority.
+OpenMapStack supplies workflow guidance, project structure and project checks. OpenMapBench compares tested agent/model/skill/tool configurations.
 
 ## slide-19-bench.note-02
 
@@ -1529,7 +1534,7 @@ Reference and output: 21 Overture pharmacies, 42 OSM pharmacies, 15 matched pair
 ## slide-19-bench.note-04
 
 For comparison, fix the task version, data hashes, reference, evaluator, tool versions, permissions and time/cost limits. Repeat each configuration several times. Report pass rate and variation in time and cost; never infer missing model metadata. The evidence bundle retains the staged task snapshot because the current task file has since changed.
-
+The screenshot shows six tasks requiring attention in the OpenMapBench comparison report. Columns: GPT-5.6 Luna and Sol with the historical contract; those models with OpenMapStack under the prompt-only protocol; other recorded runs. These are recorded outcomes, not a controlled comparison of models or skill effects: task prompts and protocols changed. The Pi model is unknown. FAILED, TIMEOUT and MISSING OUTPUT are distinct outcomes. The original English table is retained in both language versions; click to enlarge. The single pharmacy trial has its own linked evidence.
 <!-- Slide 20: Time and money: one case study -->
 
 ## slide-20.title

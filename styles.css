@@ -109,8 +109,12 @@ body:has(.controls-dock:is(.is-visible,:focus-within)) .presentation-clock{botto
 @keyframes timer-led-pulse{0%,100%{opacity:1}50%{opacity:.35}}
 @media(prefers-reduced-motion:reduce){.timer-critical .timer-remaining{animation:none}}
 
-/* Roles and one recorded benchmark trial, with its evidence kept separate. */
-.bench-roles h3{color:var(--teal);margin:0 0 12px}.bench-roles p{font-size:24px;line-height:1.45}.bench-roles h3:not(:first-child){margin-top:36px}
-.bench-example{padding:22px 26px;background:var(--soft);border-left:4px solid var(--teal)}.bench-label{font-size:17px;color:var(--teal);font-weight:600;margin-bottom:18px}.bench-example dl{margin:0}.bench-example dt{font-size:16px;font-weight:600;color:var(--muted);margin-top:16px}.bench-example dd{margin:5px 0 0;font-size:20px;line-height:1.35;overflow-wrap:anywhere}.bench-example a{display:block;margin-top:18px}
-.canvas-slide .bench-slide{grid-template-columns:.8fr 1.2fr;gap:48px}.canvas-slide .bench-roles p{font-size:24px}.canvas-slide .bench-example dd{font-size:20px}
-@media(max-width:700px){.bench-roles p{font-size:20px}.bench-example{padding:18px}.bench-example dd{font-size:18px}}
+/* Compact workflow with the original cross-configuration report below it. */
+.bench-division{display:flex;justify-content:space-between;gap:24px;margin-bottom:14px}.bench-division p{font-size:17px;line-height:1.35;color:var(--muted)}.bench-division strong{color:var(--teal)}
+.bench-trial{font-size:14px;color:var(--muted);margin:0 0 8px}
+.bench-sequence{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;list-style:none;padding:0;margin:0 0 18px}.bench-sequence li{position:relative;border-top:3px solid var(--teal);padding-top:10px}.bench-sequence li:not(:last-child):after{content:'→';position:absolute;right:-25px;top:8px;color:var(--teal);font-size:24px}.bench-sequence h3{font-size:22px;margin:0 0 7px}.bench-sequence p{font-size:17px;line-height:1.35}.bench-sequence code{font-size:14px;overflow-wrap:anywhere}.bench-sequence a{font-size:13px;display:block;margin-top:5px}
+.bench-validation .photo{width:auto;max-width:100%;margin:auto;max-height:430px;border:1px solid var(--line)}.bench-validation .caption{font-size:13px;margin-top:7px}.bench-method.note-line{font-size:17px;margin-top:12px;padding-top:12px}
+.canvas-slide:has(.bench-sequence) h2{font-size:48px;margin-bottom:20px}.canvas-slide .bench-division p{font-size:17px}.canvas-slide .bench-trial{font-size:14px}.canvas-slide .bench-sequence h3{font-size:22px}.canvas-slide .bench-sequence p{font-size:17px}.canvas-slide .bench-validation .photo{max-height:430px}.canvas-slide .bench-validation .caption{font-size:13px}
+@media(max-width:700px){.bench-division{flex-direction:column;gap:8px}.bench-sequence{grid-template-columns:1fr;gap:20px}.bench-sequence li:not(:last-child):after{content:'↓';right:0;top:auto;bottom:-24px}.bench-validation .photo{max-height:none}.bench-method.note-line{font-size:15px}}
+
+.canvas-slide .bench-sequence{grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}.canvas-slide .bench-sequence li:not(:last-child):after{content:"→";right:-25px;top:8px;bottom:auto}.canvas-slide .bench-division{flex-direction:row;gap:24px}

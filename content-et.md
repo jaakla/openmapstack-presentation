@@ -1452,7 +1452,7 @@ Kontroll ja tootearendus
 
 ## slide-19-bench.text-01
 
-OpenMapBench: võrdle seadistusi
+OpenMapBench: võrdle tulemusi
 
 ## slide-19-bench.text-02
 
@@ -1460,7 +1460,7 @@ OpenMapStack
 
 ## slide-19-bench.text-03
 
-Töövoo juhised, projekti struktuur ja projekti kontrollid.
+Töövoog · projekti struktuur · kontrollid
 
 ## slide-19-bench.text-04
 
@@ -1468,11 +1468,11 @@ OpenMapBench
 
 ## slide-19-bench.text-05
 
-Katsetatud agendi, mudeli, skilli ja tööriistade kombinatsioonide võrdlus.
+Agent × mudel × skill × tööriistad
 
 ## slide-19-bench.text-06
 
-Üks päris katsekord · mitte paremusjärjestus
+Üks päris katse · ee-vec-002
 
 ## slide-19-bench.text-07
 
@@ -1480,7 +1480,7 @@ Katsetatud agendi, mudeli, skilli ja tööriistade kombinatsioonide võrdlus.
 
 ## slide-19-bench.text-08
 
-Ühenda Tartu Overture’i ja OSM-i apteegid: üks-ühele vasted kuni 60 m kaugusel, EPSG:3301.
+Tartu apteegid · vasted kuni 60 m
 
 ## slide-19-bench.text-09
 
@@ -1488,7 +1488,7 @@ Oodatud artefakt
 
 ## slide-19-bench.text-10
 
-pharmacy_conflation.json — loendused, vastete arv ja vasteta Overture’i ID-d.
+`pharmacy_conflation.json`
 
 ## slide-19-bench.text-11
 
@@ -1496,7 +1496,7 @@ Tegelik otsus
 
 ## slide-19-bench.text-12
 
-passed · 15 vastet, 48 eri apteeki; kõik viis väljundvälja vastasid etalonile.
+`passed` · 15 vastet · 48 eri apteeki
 
 ## slide-19-bench.text-13
 
@@ -1504,19 +1504,24 @@ Säilitatud tõendid
 
 ## slide-19-bench.text-14
 
-Ülesande hetktõmmis, väljund ja etalon, kontrolliraport; sisendite ja logide räsid.
+Väljund · etalon · raport · räsid
 
 ## slide-19-bench.text-15
 
-Sama ülesanne + fikseeritud andmed + sama käituskeskkond. Korda iga seadistust; võrdle läbimismäära ja tulemuste hajuvust.
+Aus võrdlus: sama ülesanne, andmed ja käituskeskkond. Iga seadistusega mitu katset.
 
 ## slide-19-bench.text-16
 
-Tõendipakett · ee-vec-002 · 12.10.2026
+Ava tõendipakett
+
+## slide-19-bench.text-17
+
+Salvestatud tulemused · protokollid erinevad, mitte mudelite paremusjärjestus
 
 ## slide-19-bench.note-01
 
 OpenMapStack juhendab projekti tegemist ja kontrollimist. OpenMapBench võrdleb katsetatud konfiguratsioone; ühe katse passed ei tõenda mudeli üldist paremust.
+OpenMapStack annab töövoo juhised, projekti struktuuri ja projekti kontrollid. OpenMapBench võrdleb katsetatud agendi, mudeli, skilli ja tööriistade konfiguratsioone.
 
 ## slide-19-bench.note-02
 
@@ -1529,7 +1534,7 @@ Etalon ja väljund: Overture 21, OSM 42, vasted 15, ühendamisel 48 eri apteeki 
 ## slide-19-bench.note-04
 
 Võrdluseks fikseeri ülesande versioon, andmete räsid, etalon, hindaja, tööriistaversioonid, õigused ja aja-/kulupiir. Korda iga konfiguratsiooni mitu korda. Raporteeri läbimismäär ning aja ja kulu hajuvus; puuduvat mudelimetaandmestikku ei tohi oletada. Tõendipaketis on salvestatud ülesande koopia, sest praegune ülesandefail on vahepeal muutunud.
-
+Ekraanipilt pärineb OpenMapBenchi võrdlusaruande kuuest tähelepanu vajavast ülesandest. Veerud: GPT-5.6 Luna ja Sol ajaloolise lepinguga; samad mudelid OpenMapStackiga prompt-only protokollis; teised salvestatud jooksud. Need on eri katsete tulemused, mitte kontrollitud mudelite või skilli mõju võrdlus: ülesande prompt ja protokoll muutusid. Pi mudel on teadmata. FAILED, TIMEOUT ja MISSING OUTPUT on erinevad tulemused. Tabel on mõlemas keeleversioonis algsel ingliskeelsel kujul; klõps ava täissuuruses. Ühe apteekide katse tõendid on eraldi lingitud.
 <!-- Slide 20: Aeg ja raha: ühe juhtumi kogemus -->
 
 ## slide-20.title

@@ -1,7 +1,7 @@
 // Actual Tartu bridges dashboard screenshots are embedded by build.py.
 const IMAGES = __IMAGES__;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const shot=(key,label)=>`<div class="screenshot-frame"><div class="photo-label">${tr("Päris demo: Tartu Emajõe kergliiklussillad","Actual demo: Tartu bridges · screenshot in Estonian")}</div><button class="photo-button" data-image="${key}" aria-label="${tr("Suurenda ekraanipilti","Enlarge screenshot")}: ${esc(label)}"><img class="photo" src="${IMAGES[key]}" alt="${esc(label)}"></button><p class="caption">${esc(label)}. ${tr("Klõpsa pildil suurendamiseks.","Click the image to enlarge.")}</p></div>`;
+const shot=(key,label)=>key==='bench-validation'?`<div class="screenshot-frame"><button class="photo-button" data-image="${key}" aria-label="${tr("Suurenda OpenMapBenchi võrdlustabelit","Enlarge OpenMapBench comparison table")}"><img class="photo" src="${IMAGES[key]}" alt="${esc(label)}"></button><p class="caption">${esc(label)} · ${tr("Klõpsa suurendamiseks","Click to enlarge")}</p></div>`:`<div class="screenshot-frame"><div class="photo-label">${tr("Päris demo: Tartu Emajõe kergliiklussillad","Actual demo: Tartu bridges · screenshot in Estonian")}</div><button class="photo-button" data-image="${key}" aria-label="${tr("Suurenda ekraanipilti","Enlarge screenshot")}: ${esc(label)}"><img class="photo" src="${IMAGES[key]}" alt="${esc(label)}"></button><p class="caption">${esc(label)}. ${tr("Klõpsa pildil suurendamiseks.","Click the image to enlarge.")}</p></div>`;
 
 // Fixed templates come from layouts.json; all slide wording comes from Markdown.
 const DECK = __DECK__;

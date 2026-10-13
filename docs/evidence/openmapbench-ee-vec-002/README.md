@@ -38,3 +38,17 @@ A defensible configuration comparison fixes the versioned task, input data,
 reference, evaluator, runtime, permissions and time/cost limits. It records the
 agent/model/skill/tool configuration explicitly, repeats trials and reports
 pass rates and variation in time and cost. This one trial supplies no such ranking.
+
+## Wider validation screenshot
+
+`assets/openmapbench-validation.png` captures `#attention table` from the local
+OpenMapBench comparison report, matching the six-row table supplied by the user.
+`comparison-screenshot.json` retains source/image hashes, task IDs, column names,
+recorded outcomes and the report's protocol caveat. This is a screenshot of the
+report, not a newly run evaluation or a reconstructed result table. The original
+English labels remain visible in both slide languages.
+
+Historical plain runs and OpenMapStack prompt-only runs used different task
+prompts/protocols. Differences cannot be attributed to skills alone, and these
+selected attention rows are not an overall success-rate estimate. Click the
+screenshot to inspect the full-resolution table.

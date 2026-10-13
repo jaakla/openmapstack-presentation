@@ -99,6 +99,7 @@ def render(root=ROOT):
     images = {}
     for key in ('analysis', 'map', 'provenance', 'comparison', 'trips'):
         images[key] = 'data:image/png;base64,' + base64.b64encode((root / 'assets' / f'bridges-{key}.png').read_bytes()).decode('ascii')
+    images['bench-validation'] = 'data:image/png;base64,' + base64.b64encode((root / 'assets/openmapbench-validation.png').read_bytes()).decode('ascii')
     script = '\n'.join([
         (root / 'i18n.js').read_text(encoding='utf-8'),
         (root / 'content.js').read_text(encoding='utf-8').replace('__IMAGES__', json.dumps(images)).replace('__DECK__', json.dumps(deck, ensure_ascii=False)),

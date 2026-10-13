@@ -1,0 +1,219 @@
+{
+  "source": "OpenMapBench/runs/benchmark/native-comparison-20261012/comparison.html",
+  "source_sha256": "78fff38b78ac29ca8be0b761392d6f694d664d2da1d06dc663f66c46611ea6f2",
+  "screenshot": "assets/openmapbench-validation.png",
+  "screenshot_sha256": "83a43979b280298ab720a5aacd296c1706f5e3f3f414aac6fb5e535f02ffffbc",
+  "captured_element": "#attention table",
+  "protocol": "Mixed: historical contract plain runs; prompt-only skill runs",
+  "limitations": "Luna and Sol skills run on 13 October. Protocol and task prompts changed; differences cannot be attributed to skills alone.",
+  "tasks": [
+    "ee-acc-001",
+    "ee-crs-001",
+    "ee-rs-002",
+    "ee-rs-003",
+    "gab-rsia-002a",
+    "gab-sosa-002a"
+  ],
+  "columns": {
+    "luna": "GPT-5.6 Luna",
+    "sol": "GPT-5.6 Sol",
+    "deepseek": "DeepSeek V4 Flash 0731",
+    "pi": "Pi · model unknown",
+    "luna_skill": "GPT-5.6 Luna + OpenMapStack",
+    "sol_skill": "GPT-5.6 Sol + OpenMapStack"
+  },
+  "outcomes": {
+    "luna": {
+      "ee-crs-001": {
+        "title": "Area of Tartu in the national CRS and in Web Mercator",
+        "status": "passed",
+        "contaminated": false
+      },
+      "ee-rs-002": {
+        "title": "NDVI of Tartu on 14 June 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "ee-acc-001": {
+        "title": "Walking access to pharmacies in Tartu",
+        "status": "failed",
+        "contaminated": false
+      },
+      "ee-rs-003": {
+        "title": "NDVI season in Rahinge, 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "gab-rsia-002a": {
+        "title": "Vectorize landcover classes into 8-connected polygons",
+        "status": "passed",
+        "contaminated": false
+      },
+      "gab-sosa-002a": {
+        "title": "Clip a river network to municipalities, preserving the input CRS",
+        "status": "passed",
+        "contaminated": false
+      }
+    },
+    "sol": {
+      "ee-acc-001": {
+        "title": "Walking access to pharmacies in Tartu",
+        "status": "failed",
+        "contaminated": false
+      },
+      "ee-crs-001": {
+        "title": "Area of Tartu in the national CRS and in Web Mercator",
+        "status": "passed",
+        "contaminated": false
+      },
+      "ee-rs-002": {
+        "title": "NDVI of Tartu on 14 June 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "ee-rs-003": {
+        "title": "NDVI season in Rahinge, 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "gab-rsia-002a": {
+        "title": "Vectorize landcover classes into 8-connected polygons",
+        "status": "passed",
+        "contaminated": false
+      },
+      "gab-sosa-002a": {
+        "title": "Clip a river network to municipalities, preserving the input CRS",
+        "status": "passed",
+        "contaminated": false
+      }
+    },
+    "deepseek": {
+      "ee-acc-001": {
+        "title": "Walking access to pharmacies in Tartu",
+        "status": "agent_error",
+        "contaminated": false
+      },
+      "ee-crs-001": {
+        "title": "Area of Tartu in the national CRS and in Web Mercator",
+        "status": "passed",
+        "contaminated": false
+      },
+      "ee-rs-002": {
+        "title": "NDVI of Tartu on 14 June 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "ee-rs-003": {
+        "title": "NDVI season in Rahinge, 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "gab-rsia-002a": {
+        "title": "Vectorize landcover classes into 8-connected polygons",
+        "status": "passed",
+        "contaminated": false
+      },
+      "gab-sosa-002a": {
+        "title": "Clip a river network to municipalities, preserving the input CRS",
+        "status": "passed",
+        "contaminated": false
+      }
+    },
+    "pi": {
+      "ee-acc-001": {
+        "title": "Walking access to pharmacies in Tartu",
+        "status": "passed",
+        "contaminated": false
+      },
+      "ee-crs-001": {
+        "title": "Area of Tartu in the national CRS and in Web Mercator",
+        "status": "missing_output",
+        "contaminated": false
+      },
+      "ee-rs-002": {
+        "title": "NDVI of Tartu on 14 June 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "ee-rs-003": {
+        "title": "NDVI season in Rahinge, 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "gab-rsia-002a": {
+        "title": "Vectorize landcover classes into 8-connected polygons",
+        "status": "passed",
+        "contaminated": false
+      },
+      "gab-sosa-002a": {
+        "title": "Clip a river network to municipalities, preserving the input CRS",
+        "status": "failed",
+        "contaminated": false
+      }
+    },
+    "luna_skill": {
+      "ee-acc-001": {
+        "title": "Walking access to pharmacies in Tartu",
+        "status": "passed",
+        "contaminated": false
+      },
+      "ee-crs-001": {
+        "title": "Area of Tartu in the national CRS and in Web Mercator",
+        "status": "passed",
+        "contaminated": false
+      },
+      "ee-rs-002": {
+        "title": "NDVI of Tartu on 14 June 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "ee-rs-003": {
+        "title": "NDVI season in Rahinge, 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "gab-rsia-002a": {
+        "title": "Vectorize landcover classes into 8-connected polygons",
+        "status": "failed",
+        "contaminated": false
+      },
+      "gab-sosa-002a": {
+        "title": "Clip a river network to municipalities, preserving the input CRS",
+        "status": "passed",
+        "contaminated": false
+      }
+    },
+    "sol_skill": {
+      "ee-acc-001": {
+        "title": "Walking access to pharmacies in Tartu",
+        "status": "passed",
+        "contaminated": false
+      },
+      "ee-crs-001": {
+        "title": "Area of Tartu in the national CRS and in Web Mercator",
+        "status": "passed",
+        "contaminated": false
+      },
+      "ee-rs-002": {
+        "title": "NDVI of Tartu on 14 June 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "ee-rs-003": {
+        "title": "NDVI season in Rahinge, 2025",
+        "status": "failed",
+        "contaminated": false
+      },
+      "gab-rsia-002a": {
+        "title": "Vectorize landcover classes into 8-connected polygons",
+        "status": "passed",
+        "contaminated": false
+      },
+      "gab-sosa-002a": {
+        "title": "Clip a river network to municipalities, preserving the input CRS",
+        "status": "passed",
+        "contaminated": false
+      }
+    }
+  }
+}
