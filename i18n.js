@@ -18,7 +18,7 @@ function updateChrome(){
   ['#chooser-title','Vali slaid','Choose slide'],['#notes .dialog-head h3','Esinejamärkmed','Speaker notes'],
   ['[data-close="lightbox"]','Sulge','Close'],
   ['#overview-toggle',overviewOpen?'Tagasi slaidile':'Ülevaade',overviewOpen?'Back to slide':'Overview'],
-  ['#chooser .caption','24 slaidi · 45 minutit · ← → liikumiseks · N märkmeteks · F täisekraaniks','24 slides · 45 minutes · ← → navigate · N notes · F fullscreen']
+  ['#chooser .caption',`${SLIDES.length} slaidi · ${total} minutit · ← → liikumiseks · N märkmeteks · F täisekraaniks`,`${SLIDES.length} slides · ${total} minutes · ← → navigate · N notes · F fullscreen`]
  ];
  for(const [selector,et,en] of textEntries)$(selector).textContent=tr(et,en);
  const ariaEntries=[

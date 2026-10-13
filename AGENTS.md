@@ -1,7 +1,7 @@
 # Maintainer guide
 
 This repository owns the standalone OpenMapStack presentation engine and its
-bilingual 24-slide, 45-minute demo deck. It was extracted from
+bilingual 25-slide, 45-minute demo deck. It was extracted from
 https://github.com/jaakla/openmapstack-skills.
 
 ## Sources of truth

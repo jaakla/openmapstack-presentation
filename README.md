@@ -2,7 +2,7 @@
 
 A standalone Markdown presentation editor with two live language previews,
 explicit translation sync and a self-contained offline HTML export. Includes
-the bilingual Estonian/English OpenMapStack demo: 24 slides, 45 minutes, speaker
+the bilingual Estonian/English OpenMapStack demo: 25 slides, 45 minutes, speaker
 notes, dashboard screenshots and an interactive synthetic network example.
 
 ## Present online

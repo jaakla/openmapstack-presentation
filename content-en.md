@@ -1440,6 +1440,96 @@ not_testable is not passed. A valid report may include limitations.
 
 Example invariant: increasing the time threshold should not reduce coverage on a fixed network with the same denominator.
 
+<!-- Slide 20: OpenMapBench -->
+
+## slide-19-bench.title
+
+OpenMapBench: compare configurations
+
+## slide-19-bench.section
+
+Validation and product development
+
+## slide-19-bench.text-01
+
+OpenMapBench: compare configurations
+
+## slide-19-bench.text-02
+
+OpenMapStack
+
+## slide-19-bench.text-03
+
+Workflow guidance, project structure and project checks.
+
+## slide-19-bench.text-04
+
+OpenMapBench
+
+## slide-19-bench.text-05
+
+Compares tested combinations of agent, model, skill and tools.
+
+## slide-19-bench.text-06
+
+One recorded trial · not a ranking
+
+## slide-19-bench.text-07
+
+Task
+
+## slide-19-bench.text-08
+
+Match Tartu pharmacies from Overture and OSM: one-to-one pairs within 60 m, in EPSG:3301.
+
+## slide-19-bench.text-09
+
+Expected artifact
+
+## slide-19-bench.text-10
+
+pharmacy_conflation.json — counts, matched pairs and unmatched Overture IDs.
+
+## slide-19-bench.text-11
+
+Actual verdict
+
+## slide-19-bench.text-12
+
+passed · 15 pairs, 48 distinct pharmacies; all five output fields matched the reference.
+
+## slide-19-bench.text-13
+
+Retained evidence
+
+## slide-19-bench.text-14
+
+Task snapshot, output and reference, check report; input and log hashes.
+
+## slide-19-bench.text-15
+
+Same task + frozen data + same runtime. Repeat each configuration; compare pass rates and variation across trials.
+
+## slide-19-bench.text-16
+
+Evidence bundle · ee-vec-002 · 12 Oct 2026
+
+## slide-19-bench.note-01
+
+OpenMapStack guides project work and project checks. OpenMapBench compares tested configurations; one passing trial does not establish a model’s general superiority.
+
+## slide-19-bench.note-02
+
+Recorded run 20261012T213809Z-ee-vec-002-8b792b6e used agent pi. The manifest does not identify the model or the full skill/tool configuration. This is a real trial verdict, not a controlled comparison between configurations.
+
+## slide-19-bench.note-03
+
+Reference and output: 21 Overture pharmacies, 42 OSM pharmacies, 15 matched pairs, 48 distinct pharmacies after merging and 6 unmatched Overture IDs. The exact check compared all five fields; ID order was ignored. Output, reference and all three input hashes were checked against retained files.
+
+## slide-19-bench.note-04
+
+For comparison, fix the task version, data hashes, reference, evaluator, tool versions, permissions and time/cost limits. Repeat each configuration several times. Report pass rate and variation in time and cost; never infer missing model metadata. The evidence bundle retains the staged task snapshot because the current task file has since changed.
+
 <!-- Slide 20: Time and money: one case study -->
 
 ## slide-20.title

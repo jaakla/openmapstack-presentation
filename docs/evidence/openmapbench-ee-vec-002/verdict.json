@@ -1,0 +1,128 @@
+{
+  "run_id": "20261012T213809Z-ee-vec-002-8b792b6e",
+  "task_id": "ee-vec-002",
+  "task_title": "Conflating Overture and OpenStreetMap pharmacies",
+  "started_at": "2026-10-12T21:38:09.239749+00:00",
+  "finished_at": "2026-10-12T21:38:59.874404+00:00",
+  "status": "passed",
+  "agent": {
+    "name": "pi"
+  },
+  "benchmark_commit": "e24dafba9deb182dbf9552d23e412001fbd32a0e",
+  "environment": {
+    "openmapbench": "0.3.0",
+    "openmapbench_env": [
+      "OPENMAPBENCH_AUDIT_PATH",
+      "OPENMAPBENCH_OUTPUT_DIR",
+      "OPENMAPBENCH_OUTPUT_PATH",
+      "OPENMAPBENCH_RUN_DIR",
+      "OPENMAPBENCH_TASK_DIR",
+      "OPENMAPBENCH_TASK_FILE",
+      "OPENMAPBENCH_WORKSPACE_DIR"
+    ],
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43",
+    "python": "3.12.14"
+  },
+  "evaluation": {
+    "checks": [
+      {
+        "details": {
+          "absolute_tolerance": 0.0,
+          "field_rules": {
+            "unmatched_overture_ids": {
+              "unordered": true
+            }
+          },
+          "mismatch_count": 0,
+          "relative_tolerance": 0.0
+        },
+        "id": "value",
+        "passed": true,
+        "required": true
+      }
+    ],
+    "diagnostics": {
+      "absolute_tolerance": 0.0,
+      "candidate": {
+        "distinct_after_merge": 48,
+        "matched_pairs": 15,
+        "osm_count": 42,
+        "overture_count": 21,
+        "unmatched_overture_ids": [
+          "2d0e2ded-2660-409e-9557-203053321f33",
+          "77194c0a-84dc-4c97-aef4-79bb32963bb2",
+          "8780efd7-e15a-43d7-8591-0583edd3dcf8",
+          "a99897ea-a5ab-4423-aa31-0388ad14b7b1",
+          "bd82a254-cc02-459f-84d3-c7c1b00746a5",
+          "e2dc4a54-56f2-4a24-babc-63e9afea49fb"
+        ]
+      },
+      "mismatch_count": 0,
+      "mismatches": [],
+      "reference": {
+        "distinct_after_merge": 48,
+        "matched_pairs": 15,
+        "osm_count": 42,
+        "overture_count": 21,
+        "unmatched_overture_ids": [
+          "2d0e2ded-2660-409e-9557-203053321f33",
+          "77194c0a-84dc-4c97-aef4-79bb32963bb2",
+          "8780efd7-e15a-43d7-8591-0583edd3dcf8",
+          "a99897ea-a5ab-4423-aa31-0388ad14b7b1",
+          "bd82a254-cc02-459f-84d3-c7c1b00746a5",
+          "e2dc4a54-56f2-4a24-babc-63e9afea49fb"
+        ]
+      },
+      "relative_tolerance": 0.0
+    },
+    "score": 1.0,
+    "success": true
+  },
+  "scope": "One recorded trial, not a controlled configuration comparison or ranking. Model and full skill/tool configuration are not recorded in agent metadata.",
+  "source_manifest_sha256": "71f3576b1c0fc106736b11b42c5a23fcd1e514321735fb8970c424b0125f66ae",
+  "recorded_original_task_sha256": "ce21f9fb4a66871a606edfd91cc2d4b126230e8cdc44910228d83adfd9d2e8ff",
+  "task_note": "Current source task differs from its recorded hash. The retained staged task snapshot is provided, not the current task.",
+  "inputs": [
+    {
+      "name": "places_tartu.parquet",
+      "sha256": "25e426a61167cef0aa8d3d6da9e92fcd13a67a6c56a1fe8e8f3b93c29cd8d5e0"
+    },
+    {
+      "name": "pharmacies.osm.pbf",
+      "sha256": "9f4b1475f75a67915740882260ed7fae85f5043fab0544bcf1dfcdb6bdb1de6f"
+    },
+    {
+      "name": "tartu_linn.geojson",
+      "sha256": "658b8476096cb88c1b48877c6bed39b92ccd2cc609462d7189d429fd3c750c2e"
+    }
+  ],
+  "candidate_sha256": "0e79a3976be80d9fe825418dbbb76bf6fc272bbfc2888ff796b6047709aa5427",
+  "reference_sha256": "09974ee437d87f7dd61304e80e2e8d558411e823b3077500dd137149ffdf8763",
+  "retained_run_files": [
+    {
+      "path": "manifest.json",
+      "sha256": "71f3576b1c0fc106736b11b42c5a23fcd1e514321735fb8970c424b0125f66ae",
+      "size_bytes": 15978
+    },
+    {
+      "path": "task/task.yaml",
+      "sha256": "985857bfec08476a917b6b6cc582f0a98c50b4db55bdb3f02ec3e2abceb8cf29",
+      "size_bytes": 1789
+    },
+    {
+      "path": "agent.stdout.log",
+      "sha256": "b4e9499c4d9f21b7db0f2a5cd8da5b281b6e5267f10df8b1b3f835fbf21ba545",
+      "size_bytes": 913886
+    },
+    {
+      "path": "agent.stderr.log",
+      "sha256": "54a70236f7b3145a0c8150d8d1f873eec2afc924f7070ac72d7aad0422b21205",
+      "size_bytes": 698
+    }
+  ],
+  "integrity_record": {
+    "checked": true,
+    "contaminated": false,
+    "findings": []
+  }
+}

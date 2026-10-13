@@ -1440,6 +1440,96 @@ not_testable ei ole passed. Õige raport võib sisaldada piiranguid.
 
 Invariandi näide: ajapiiri suurendamine ei tohiks fikseeritud võrgus ja sama nimetajaga katvust vähendada.
 
+<!-- Slide 20: OpenMapBench -->
+
+## slide-19-bench.title
+
+OpenMapBench: võrdle seadistusi
+
+## slide-19-bench.section
+
+Kontroll ja tootearendus
+
+## slide-19-bench.text-01
+
+OpenMapBench: võrdle seadistusi
+
+## slide-19-bench.text-02
+
+OpenMapStack
+
+## slide-19-bench.text-03
+
+Töövoo juhised, projekti struktuur ja projekti kontrollid.
+
+## slide-19-bench.text-04
+
+OpenMapBench
+
+## slide-19-bench.text-05
+
+Katsetatud agendi, mudeli, skilli ja tööriistade kombinatsioonide võrdlus.
+
+## slide-19-bench.text-06
+
+Üks päris katsekord · mitte paremusjärjestus
+
+## slide-19-bench.text-07
+
+Ülesanne
+
+## slide-19-bench.text-08
+
+Ühenda Tartu Overture’i ja OSM-i apteegid: üks-ühele vasted kuni 60 m kaugusel, EPSG:3301.
+
+## slide-19-bench.text-09
+
+Oodatud artefakt
+
+## slide-19-bench.text-10
+
+pharmacy_conflation.json — loendused, vastete arv ja vasteta Overture’i ID-d.
+
+## slide-19-bench.text-11
+
+Tegelik otsus
+
+## slide-19-bench.text-12
+
+passed · 15 vastet, 48 eri apteeki; kõik viis väljundvälja vastasid etalonile.
+
+## slide-19-bench.text-13
+
+Säilitatud tõendid
+
+## slide-19-bench.text-14
+
+Ülesande hetktõmmis, väljund ja etalon, kontrolliraport; sisendite ja logide räsid.
+
+## slide-19-bench.text-15
+
+Sama ülesanne + fikseeritud andmed + sama käituskeskkond. Korda iga seadistust; võrdle läbimismäära ja tulemuste hajuvust.
+
+## slide-19-bench.text-16
+
+Tõendipakett · ee-vec-002 · 12.10.2026
+
+## slide-19-bench.note-01
+
+OpenMapStack juhendab projekti tegemist ja kontrollimist. OpenMapBench võrdleb katsetatud konfiguratsioone; ühe katse passed ei tõenda mudeli üldist paremust.
+
+## slide-19-bench.note-02
+
+Salvestatud jooks 20261012T213809Z-ee-vec-002-8b792b6e: agent pi. Manifest ei täpsusta mudelit ega skilli/tööriistade täielikku konfiguratsiooni. Seetõttu näitame päris katse otsust, mitte kontrollitud konfiguratsioonide võrdlust.
+
+## slide-19-bench.note-03
+
+Etalon ja väljund: Overture 21, OSM 42, vasted 15, ühendamisel 48 eri apteeki ning 6 vasteta Overture’i ID-d. Täpne kontroll võrdles kõiki viit välja; ID-de järjekord ei olnud oluline. Väljundi, etaloni ja kolme sisendi räsid kontrolliti säilinud failide vastu.
+
+## slide-19-bench.note-04
+
+Võrdluseks fikseeri ülesande versioon, andmete räsid, etalon, hindaja, tööriistaversioonid, õigused ja aja-/kulupiir. Korda iga konfiguratsiooni mitu korda. Raporteeri läbimismäär ning aja ja kulu hajuvus; puuduvat mudelimetaandmestikku ei tohi oletada. Tõendipaketis on salvestatud ülesande koopia, sest praegune ülesandefail on vahepeal muutunud.
+
 <!-- Slide 20: Aeg ja raha: ühe juhtumi kogemus -->
 
 ## slide-20.title

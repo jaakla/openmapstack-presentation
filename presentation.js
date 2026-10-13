@@ -12,6 +12,8 @@ class SlideView {
   this.stage.classList.toggle('overview-stage',overview);
   if(overview){
    const grid=document.createElement('div');grid.className='overview-grid';
+   grid.style.setProperty('--overview-rows',Math.ceil(slides.length/6));
+   grid.style.setProperty('--overview-mobile-rows',Math.ceil(slides.length/3));
    slides.forEach((slide,i)=>{
     const button=document.createElement('button');button.className='overview-card';
     button.dataset.overviewGo=i;button.setAttribute('aria-current',String(i===index));

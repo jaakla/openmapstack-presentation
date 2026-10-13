@@ -60,11 +60,28 @@ print(json.dumps({key: 'Translated: '+value for key,value in request['texts'].it
     def test_both_decks_keep_slide_identity_and_timing(self):
         deck = build.compile_deck(self.root)
         for lang in ('et', 'en'):
-            self.assertEqual(len(deck[lang]), 24)
+            self.assertEqual(len(deck[lang]), 25)
             self.assertEqual(sum(s['minutes'] for s in deck[lang]), 45)
             self.assertTrue(all(s['notes'] for s in deck[lang]))
             self.assertFalse(any(build.SLOT.search(s['html']) for s in deck[lang]))
         self.assertEqual([s['minutes'] for s in deck['et']], [s['minutes'] for s in deck['en']])
+
+    def test_openmapbench_slide_follows_checks_and_preserves_evidence(self):
+        layouts, fields = build.read_sources(self.root)
+        self.assertEqual([s['id'] for s in layouts[18:21]],
+                         ['slide-19', 'slide-19-bench', 'slide-20'])
+        evidence = self.root / 'docs/evidence/openmapbench-ee-vec-002'
+        verdict = json.loads((evidence / 'verdict.json').read_text())
+        import hashlib
+        self.assertEqual(hashlib.sha256((evidence / 'output.json').read_bytes()).hexdigest(),
+                         verdict['candidate_sha256'])
+        self.assertEqual(hashlib.sha256((evidence / 'reference.json').read_bytes()).hexdigest(),
+                         verdict['reference_sha256'])
+        self.assertEqual(verdict['status'], 'passed')
+        self.assertEqual(verdict['evaluation']['diagnostics']['mismatch_count'], 0)
+        for lang in ('et', 'en'):
+            self.assertIn('OpenMapBench', fields[lang]['slide-19-bench.title'])
+            self.assertIn('passed', fields[lang]['slide-19-bench.text-12'])
 
     def test_edit_changes_only_one_language_and_escapes_html(self):
         before = build.compile_deck(self.root)

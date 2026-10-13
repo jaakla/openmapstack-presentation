@@ -1,6 +1,6 @@
 # OpenMapStack — 45 minuti demo ja esitlus
 
-Eesti- ja ingliskeelne esitlus tehnilise tooteettevõtte GIS-ekspertidele: 24 slaidi,
+Eesti- ja ingliskeelne esitlus tehnilise tooteettevõtte GIS-ekspertidele: 25 slaidi,
 45 minuti ajastus, juhitud demo ja iga slaidi esinejamärkmed.
 
 ## Ava ja esitle
@@ -41,8 +41,8 @@ Kõik töötab ka võrguühenduseta HTML-failis.
 |---|---:|---|
 | 1–10 | 0–16 min | Demoküsimus, agent, skill, andmetöö ja projektileping |
 | 11–16 | 16–31 min | Võrgupõhine katvus, kaalud, dashboard, päritolu, stsenaarium |
-| 17–23 | 31–43 min | Iteratsioon, brauser/QGIS, kontrollid, kulu, privaatandmed |
-| 24 | 43–45 min | Arutelu ja piloodi valik |
+| 17–24 | 31–43 min | Iteratsioon, brauser/QGIS, kontrollid, kulu, privaatandmed |
+| 25 | 43–45 min | Arutelu ja piloodi valik |
 
 Demo kolm käiku:
 
@@ -84,7 +84,7 @@ README, CLI parser, hoidla projekti näide ja sillarakenduse Päritolu vaade.
 
 The text sources are `content-et.md` (Estonian) and `content-en.md` (English).
 They contain slide titles, section names, visible slide text, screenshot labels,
-code examples and speaker notes. The existing 24 slides, timings, layouts, image
+code examples and speaker notes. The existing 25 slides, timings, layouts, image
 choices and link destinations are fixed in `layouts.json`. Viewer controls and
 interactive diagram labels remain in `i18n.js`, `app.js` and `content.js`.
 
@@ -239,3 +239,15 @@ steady. Reduced-motion preferences disable both sliding and pulsing.
 Time digits use [DSEG7 Classic](https://github.com/keshikan/DSEG), version 0.46,
 by keshikan under SIL OFL 1.1. The unmodified WOFF2 and license are stored in
 `assets/fonts/`; both are embedded in the offline HTML.
+
+### OpenMapBench slide
+
+Slide 20 (stable text ID `slide-19-bench`) follows the project-checks slide.
+Existing text IDs are preserved; the former slides 20–24 now display as 21–25.
+The 45-minute total is preserved: slide 19 and the new slide each have one minute.
+Both language sources and the new keys' translation hashes were added together;
+existing translation hashes were left unchanged.
+
+The slide uses a recorded single-trial verdict, explicitly not a configuration
+comparison. Its [retained evidence](evidence/openmapbench-ee-vec-002/README.md)
+includes the staged task, candidate, reference and scoped evaluation report.

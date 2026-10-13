@@ -1,0 +1,46 @@
+schema_version: '0.1'
+id: ee-vec-002
+title: Conflating Overture and OpenStreetMap pharmacies
+category: scalar
+prompt: 'inputs/places_tartu.parquet holds Overture Maps places (EPSG:4326). inputs/pharmacies.osm.pbf
+  is an OpenStreetMap extract holding the objects tagged amenity=pharmacy around Tartu
+  and the nodes they need. inputs/tartu_linn.geojson is the municipality of Tartu
+  (Tartu linn, including the former Tähtvere parish villages merged in 2017), as one
+  polygon in EPSG:4326 from Overture Maps divisions.
+
+  Overture pharmacies are places with basic_category "pharmacy_and_drug_store" whose
+  operating_status is not "permanently_closed". OSM pharmacies are objects tagged
+  amenity=pharmacy: nodes as points, ways and relations as a point on their surface.
+  Use only features inside Tartu linn. Match the two sets one-to-one: repeatedly take
+  the closest unmatched Overture-OSM pair, measured in EPSG:3301, while its distance
+  is at most 60 m.
+
+  Write pharmacy_conflation.json as a JSON object with exactly five keys: overture_count,
+  osm_count, matched_pairs, distinct_after_merge (integers), and unmatched_overture_ids
+  (list of the Overture ids without an OSM match, in any order). If a value the task
+  asks for does not exist in the inputs, write the string "not_present" for it; never
+  estimate or invent a value.
+
+  '
+inputs:
+- path: inputs/places_tartu.parquet
+  role: places
+- path: inputs/pharmacies.osm.pbf
+  role: osm
+- path: inputs/tartu_linn.geojson
+  role: boundary
+output:
+  path: pharmacy_conflation.json
+  kind: scalar
+  layer: null
+  geometry_type: null
+  crs: null
+  required_fields: []
+evaluation:
+  strict:
+    absolute_tolerance: 0
+    relative_tolerance: 0
+    fields:
+      unmatched_overture_ids:
+        unordered: true
+  diagnostics: {}
