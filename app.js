@@ -37,6 +37,7 @@ let current=0, notesOpen=false, toastTimer;
 let overviewOpen=false;
 const $=selector=>document.querySelector(selector);
 const slideView=new SlideView($('#stage'),go);
+const presentationTimer=new PresentationTimer($('#presentation-clock'),$('#timer-controls'),tr,duration=>revealControls(duration));
 const total=SLIDES.reduce((s,x)=>s+x.minutes,0);
 function startMinute(index){return SLIDES.slice(0,index).reduce((s,x)=>s+x.minutes,0);}
 function slideIndex(){const m=location.hash.match(/^#slaid-(\d+)$/);return m?Math.max(0,Math.min(SLIDES.length-1,Number(m[1])-1)):0;}
@@ -48,7 +49,7 @@ function render(refresh=false){
  $('#stage').scrollTop=0;$('#counter').textContent=`${current+1} / ${SLIDES.length}`;
  $('#timing').textContent=`${startMinute(current)}–${startMinute(current)+s.minutes} / ${total} min`;
  $('#previous').disabled=current===0;$('#next').disabled=current===SLIDES.length-1;
- $('#progress').style.width=`${(current+1)/SLIDES.length*100}%`;
+ presentationTimer.update(current,SLIDES.length);
  $('#announcement').textContent=`${tr('Slaid','Slide')} ${current+1} / ${SLIDES.length}: ${s.title}`;
  document.title=`${current+1}. ${s.title} — OpenMapStack`;updateNotes();buildChooser();bindDemo();
 }
@@ -85,7 +86,7 @@ function revealControls(duration=3000){
 $('#controls-reveal').addEventListener('click',()=>revealControls(5000));
 document.addEventListener('pointerdown',event=>{
  lastPointerType=event.pointerType;
- if(!controlsDock.contains(event.target))controlsDock.classList.remove('is-visible');
+ if(!controlsDock.contains(event.target)&&!event.target.closest('#presentation-clock'))controlsDock.classList.remove('is-visible');
 });
 controlsDock.addEventListener('click',event=>{
  // Pointer activation must not leave a hidden toolbar pinned by button focus.

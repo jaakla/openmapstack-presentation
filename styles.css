@@ -76,3 +76,21 @@ footer{border-top:1px solid var(--line);display:flex;align-items:center;gap:12px
  .fullscreen-label:after{content:'';display:inline-block;width:16px;height:16px;vertical-align:middle;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23102f33' stroke-width='2'%3E%3Cpath d='M7 2H2v5m11-5h5v5M2 13v5h5m11-5v5h-5'/%3E%3C/svg%3E") center / contain no-repeat}
 }
 @media print{.controls-dock{display:none!important}}
+
+/* A 72px pacing clock remains available while presentation controls are hidden. */
+.presentation-clock{position:fixed;right:16px;bottom:16px;width:72px;height:72px;z-index:7;border:0;border-radius:50%;padding:0;background:white;color:var(--ink);font-family:inherit;font-variant-numeric:tabular-nums;--pace:#61777c}
+.presentation-clock[data-pace="on-time"]{--pace:#087f78}.presentation-clock[data-pace="fast"]{--pace:#2872cc}.presentation-clock[data-pace="late"]{--pace:#ad7900}.presentation-clock[data-pace="slow"]{--pace:#c13d38}
+.presentation-clock svg{display:block;width:100%;height:100%;transform:rotate(-90deg)}
+.presentation-clock circle{fill:none;stroke-width:4;stroke-linecap:round}
+.presentation-clock .timer-inner{stroke-width:3}
+.timer-track{stroke:#dce6e6}.timer-slides{stroke:var(--pace)}.timer-time{stroke:#617f85}
+.timer-readout{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;letter-spacing:-.04em;white-space:nowrap}
+.timer-count{display:flex;align-items:baseline;gap:1px}.timer-count strong{font-size:20px;font-weight:600}.timer-count small{font-size:12px;font-weight:400;color:var(--muted)}.timer-remaining{font-size:15px;font-weight:500}
+.presentation-clock [hidden]{display:none!important}
+.timer-controls{position:absolute;right:100px;bottom:calc(var(--controls-height) + 8px);display:flex;flex-wrap:wrap;align-items:center;gap:8px;max-width:calc(100vw - 116px);padding:10px;background:white;border:1px solid var(--line);border-radius:6px;visibility:hidden;pointer-events:none}
+.timer-controls label{display:flex;align-items:center;gap:5px;font-size:13px;white-space:nowrap}.timer-controls input[type=number]{width:62px;padding:6px;border:1px solid var(--line);border-radius:4px;font:inherit;font-size:16px;color:var(--ink)}.timer-controls input[type=checkbox]{accent-color:var(--teal);width:18px;height:18px}
+.controls-dock:is(.is-visible,:focus-within) .timer-controls{visibility:visible;pointer-events:auto}
+body:has(.controls-dock:is(.is-visible,:focus-within)) .presentation-clock{bottom:calc(var(--controls-height) + 12px)}
+@media(hover:hover) and (pointer:fine){.controls-dock:hover .timer-controls{visibility:visible;pointer-events:auto}body:has(.controls-dock:hover) .presentation-clock{bottom:calc(var(--controls-height) + 12px)}}
+@media(max-width:480px){.timer-controls{right:96px;max-width:calc(100vw - 108px);padding:8px}.timer-controls .btn{padding:6px 8px;font-size:12px}}
+@media print{.presentation-clock,.timer-controls{display:none!important}}

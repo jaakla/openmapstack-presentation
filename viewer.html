@@ -19,9 +19,10 @@
     <div class="nav-center"><button class="btn quiet back-label" id="previous" aria-label="Eelmine slaid">←</button><span class="counter" id="counter"></span><button class="btn" id="choose">Vali slaid</button></div>
     <div class="nav-right"><button class="btn quiet notes-toggle" id="notes-toggle" aria-label="Näita esinejamärkmeid" aria-expanded="false">Märkmed</button><button class="btn quiet fullscreen-label" id="fullscreen" data-compact-label="Täisekraan" aria-label="Lülita täisekraan">Täisekraan</button><button class="btn primary" id="next">Edasi →</button></div>
   </footer>
+  <div id="timer-controls" class="timer-controls"></div>
   </div>
 </div>
-<div class="progress" id="progress" aria-hidden="true"></div>
+<button id="presentation-clock" class="presentation-clock" aria-controls="timer-controls presentation-controls" aria-label="Näita juhtnuppe"></button>
 <div class="live" id="announcement" aria-live="polite"></div>
 <dialog id="chooser" aria-labelledby="chooser-title"><div class="dialog-head"><div><h2 id="chooser-title">Vali slaid</h2><p class="caption">24 slaidi · 45 minutit · ← → liikumiseks · N märkmeteks · F täisekraaniks</p></div><button class="btn quiet" data-close="chooser" aria-label="Sulge slaidivalik">✕</button></div><ol class="chooser-list" id="chooser-list"></ol></dialog>
 <aside class="notes-panel" id="notes" aria-label="Esinejamärkmed" hidden><div class="dialog-head"><h3>Esinejamärkmed</h3><button class="btn quiet" id="close-notes" aria-label="Sulge märkmed">✕</button></div><div id="notes-body"></div></aside>

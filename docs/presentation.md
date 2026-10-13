@@ -205,3 +205,24 @@ Focused deterministic checks (with a fake translator; no model calls):
 ```bash
 python3 -m unittest tests.test_presentation_editing -v
 ```
+
+### Compact presentation clock
+
+The 72 px clock at the lower right stays visible when the toolbar is hidden.
+Its outer ring shows slide progress and pacing; its inner ring shows elapsed
+time. The centre alternates every three seconds between the current slide
+(with the smaller total count) and time remaining. Navigating to a different
+slide immediately shows its number. Before starting, only the slide count is
+shown. Overtime uses a `+m:ss` display.
+
+Click the clock to reveal the toolbar and timer controls. Set the target in
+minutes (20 by default), start/pause/resume manually, or enable automatic start
+on the first slide change. Reset clears time without moving slides; a paused
+timer stays paused during navigation. Target and auto-start preferences are
+saved locally; reloading starts a fresh session. Language changes and live
+content updates preserve the current timer.
+
+Pacing assumes equal time per slide and compares elapsed time with the middle
+of the current slide's time slot. Blue is more than one slot ahead, green is
+within one slot, yellow is one to two slots behind, and red is more than two
+slots behind or over the target time. Speaker-note timings remain unchanged.
