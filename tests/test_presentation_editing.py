@@ -1,4 +1,5 @@
 """Text source, translation and local editor contracts for the 45-minute deck."""
+import base64
 import importlib.util
 import json
 from pathlib import Path
@@ -75,6 +76,10 @@ print(json.dumps({key: 'Translated: '+value for key,value in request['texts'].it
         self.assertEqual(output, (self.root / 'index.html').read_text(encoding='utf-8'))
         self.assertIn('data:image/png;base64,', output)
         self.assertNotIn('__APP__', output)
+        font = (self.root / 'assets/fonts/DSEG7Classic-Regular.woff2').read_bytes()
+        self.assertIn('data:font/woff2;base64,' + base64.b64encode(font).decode('ascii'), output)
+        self.assertIn('SIL OPEN FONT LICENSE', output)
+        self.assertNotIn('__TIMER_FONT__', output)
 
     def test_reject_missing_duplicate_and_unknown_keys(self):
         with self.assertRaisesRegex(ValueError, 'Duplicate'):

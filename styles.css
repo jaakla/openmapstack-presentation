@@ -83,9 +83,13 @@ footer{border-top:1px solid var(--line);display:flex;align-items:center;gap:12px
 .presentation-clock svg{display:block;width:100%;height:100%;transform:rotate(-90deg)}
 .presentation-clock circle{fill:none;stroke-width:4;stroke-linecap:round}
 .presentation-clock .timer-inner{stroke-width:3}
-.timer-track{stroke:#dce6e6}.timer-slides{stroke:var(--pace)}.timer-time{stroke:#617f85}
-.timer-readout{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;letter-spacing:-.04em;white-space:nowrap}
-.timer-count{display:flex;align-items:baseline;gap:1px}.timer-count strong{font-size:20px;font-weight:600}.timer-count small{font-size:12px;font-weight:400;color:var(--muted)}.timer-remaining{font-size:15px;font-weight:500}
+.timer-track{stroke:#dce6e6}.timer-time{stroke:var(--pace)}.timer-slides{stroke:#617f85}
+.timer-readout{position:absolute;left:12px;right:12px;top:21px;height:30px;overflow:hidden;white-space:nowrap}
+.timer-strip{display:flex;width:200%;height:100%;transform:translateX(0);transition:transform 420ms cubic-bezier(.22,.68,.2,1)}
+.shows-time .timer-strip{transform:translateX(-50%)}
+.timer-strip>span{width:50%;flex:0 0 50%;display:flex;align-items:center;justify-content:center}
+@media(prefers-reduced-motion:reduce){.timer-strip{transition:none}}
+.timer-strip>.timer-count{align-items:baseline;padding-top:3px;gap:1px}.timer-count strong{font-size:20px;font-weight:600}.timer-count small{font-size:12px;font-weight:400;color:var(--muted)}.timer-remaining{font-family:"DSEG7 Classic",monospace;font-size:13px;font-weight:400;font-variant-numeric:normal;letter-spacing:0}.timer-remaining.timer-long{font-size:11px}
 .presentation-clock [hidden]{display:none!important}
 .timer-controls{position:absolute;right:100px;bottom:calc(var(--controls-height) + 8px);display:flex;flex-wrap:wrap;align-items:center;gap:8px;max-width:calc(100vw - 116px);padding:10px;background:white;border:1px solid var(--line);border-radius:6px;visibility:hidden;pointer-events:none}
 .timer-controls label{display:flex;align-items:center;gap:5px;font-size:13px;white-space:nowrap}.timer-controls input[type=number]{width:62px;padding:6px;border:1px solid var(--line);border-radius:4px;font:inherit;font-size:16px;color:var(--ink)}.timer-controls input[type=checkbox]{accent-color:var(--teal);width:18px;height:18px}
@@ -94,3 +98,7 @@ body:has(.controls-dock:is(.is-visible,:focus-within)) .presentation-clock{botto
 @media(hover:hover) and (pointer:fine){.controls-dock:hover .timer-controls{visibility:visible;pointer-events:auto}body:has(.controls-dock:hover) .presentation-clock{bottom:calc(var(--controls-height) + 12px)}}
 @media(max-width:480px){.timer-controls{right:96px;max-width:calc(100vw - 108px);padding:8px}.timer-controls .btn{padding:6px 8px;font-size:12px}}
 @media print{.presentation-clock,.timer-controls{display:none!important}}
+
+@font-face{font-family:"DSEG7 Classic";src:url("__TIMER_FONT__") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+.timer-mode-field{flex-basis:100%;min-width:0}.timer-mode-field select{min-width:0;max-width:100%;padding:6px;border:1px solid var(--line);border-radius:4px;background:white;color:var(--ink);font:inherit}.timer-controls{max-width:min(620px,calc(100vw - 116px))}
+@media(max-width:480px){.timer-mode-field{flex-wrap:wrap}.timer-mode-field select{width:100%;font-size:13px}}

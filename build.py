@@ -108,7 +108,11 @@ def render(root=ROOT):
     ])
     script = re.sub(r'</script', r'<\\/script', script, flags=re.IGNORECASE)
     template = (root / 'viewer.html').read_text(encoding='utf-8')
-    return template.replace('__STYLES__', (root / 'styles.css').read_text(encoding='utf-8')).replace('__APP__', script)
+    font = base64.b64encode((root / 'assets/fonts/DSEG7Classic-Regular.woff2').read_bytes()).decode('ascii')
+    styles = (root / 'styles.css').read_text(encoding='utf-8').replace('__TIMER_FONT__', 'data:font/woff2;base64,' + font)
+    license_text = (root / 'assets/fonts/DSEG-LICENSE.txt').read_text(encoding='utf-8')
+    styles += '\n/* DSEG font license\n' + '\n'.join(line.rstrip() for line in license_text.splitlines()) + '\n*/'
+    return template.replace('__STYLES__', styles).replace('__APP__', script)
 
 
 def atomic_write(path, source):

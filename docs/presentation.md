@@ -209,16 +209,16 @@ python3 -m unittest tests.test_presentation_editing -v
 ### Compact presentation clock
 
 The 72 px clock at the lower right stays visible when the toolbar is hidden.
-Its outer ring shows slide progress and pacing; its inner ring shows elapsed
-time. The centre alternates every three seconds between the current slide
-(with the smaller total count) and time remaining. Navigating to a different
+Its outer ring shows elapsed time and pacing colour; its inner ring shows slide
+progress. The centre slides horizontally every three seconds between the current slide
+(with the smaller total count) and the selected time display. Navigating to a different
 slide immediately shows its number. Before starting, only the slide count is
-shown. Overtime uses a `+m:ss` display.
+shown, except in local-clock mode. Overtime uses a `+m:ss` display.
 
 Click the clock to reveal the toolbar and timer controls. Set the target in
 minutes (20 by default), start/pause/resume manually, or enable automatic start
 on the first slide change. Reset clears time without moving slides; a paused
-timer stays paused during navigation. Target and auto-start preferences are
+timer stays paused during navigation. Duration, time-display mode and auto-start preferences are
 saved locally; reloading starts a fresh session. Language changes and live
 content updates preserve the current timer.
 
@@ -226,3 +226,13 @@ Pacing assumes equal time per slide and compares elapsed time with the middle
 of the current slide's time slot. Blue is more than one slot ahead, green is
 within one slot, yellow is one to two slots behind, and red is more than two
 slots behind or over the target time. Speaker-note timings remain unchanged.
+
+The time-display selector offers time remaining, elapsed time, or the local
+24-hour clock (`HH:MM`). The duration controls the outer ring and pacing colours
+in every mode; selecting local time does not restart the presentation timer.
+The remaining-time mode uses this duration as its countdown target.
+Reduced-motion preferences disable the sliding transition.
+
+Time digits use [DSEG7 Classic](https://github.com/keshikan/DSEG), version 0.46,
+by keshikan under SIL OFL 1.1. The unmodified WOFF2 and license are stored in
+`assets/fonts/`; both are embedded in the offline HTML.

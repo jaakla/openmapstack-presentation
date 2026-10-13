@@ -37,7 +37,7 @@ class Editor:
     def refresh(self):
         with self.lock:
             paths = ['content-et.md', 'content-en.md', 'layouts.json', 'content.js', 'i18n.js',
-                     'presentation.js', 'timer.js', 'app.js', 'styles.css', 'viewer.html']
+                     'presentation.js', 'timer.js', 'assets/fonts/DSEG7Classic-Regular.woff2', 'assets/fonts/DSEG-LICENSE.txt', 'app.js', 'styles.css', 'viewer.html']
             paths += [str(p.relative_to(self.root)) for p in (self.root / 'assets').glob('*.png')]
             signature = tuple((p, (self.root / p).stat().st_mtime_ns, (self.root / p).stat().st_size) for p in paths)
             if signature == self.signature:
