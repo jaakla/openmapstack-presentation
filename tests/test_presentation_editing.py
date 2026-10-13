@@ -60,7 +60,7 @@ print(json.dumps({key: 'Translated: '+value for key,value in request['texts'].it
     def test_both_decks_keep_slide_identity_and_timing(self):
         deck = build.compile_deck(self.root)
         for lang in ('et', 'en'):
-            self.assertEqual(len(deck[lang]), 25)
+            self.assertEqual(len(deck[lang]), 18)
             self.assertEqual(sum(s['minutes'] for s in deck[lang]), 45)
             self.assertTrue(all(s['notes'] for s in deck[lang]))
             self.assertFalse(any(build.SLOT.search(s['html']) for s in deck[lang]))
@@ -68,7 +68,7 @@ print(json.dumps({key: 'Translated: '+value for key,value in request['texts'].it
 
     def test_openmapbench_slide_follows_checks_and_preserves_evidence(self):
         layouts, fields = build.read_sources(self.root)
-        self.assertEqual([s['id'] for s in layouts[18:21]],
+        self.assertEqual([s['id'] for s in layouts[13:16]],
                          ['slide-19', 'slide-19-bench', 'slide-20'])
         evidence = self.root / 'docs/evidence/openmapbench-ee-vec-002'
         verdict = json.loads((evidence / 'verdict.json').read_text())

@@ -36,7 +36,7 @@ We already have GIS tools. What happens when an agent does the work from questio
 
 ## slide-01.note-02
 
-Show the workflow, limitations and inspectable artifacts. We will not run an hour-long data pipeline during this 45-minute session.
+Show the workflow, limitations and inspectable artifacts. We will not run an hour-long data pipeline during this 45-minute session. Pacing: 13 minutes for the question and project, 17 for the interactive examples and guided demo, 8 for checks and practical limits, and 7 for discussion.
 
 ## slide-01.note-03
 
@@ -116,85 +116,7 @@ The nearest school does not prove that a school place is available: capacity, ag
 
 Primary schools were the original case. The live demo shows its evolution: comparing the network effects of bridge locations over the Emajõgi in Tartu.
 
-<!-- Slide 3: The 45-minute journey -->
-
-## slide-03.title
-
-The 45-minute journey
-
-## slide-03.section
-
-Question and framework
-
-## slide-03.text-01
-
-45 minutes: from question to decision
-
-## slide-03.text-02
-
-16 min
-
-## slide-03.text-03
-
-Agent, skill and project
-
-## slide-03.text-04
-
-15 min
-
-## slide-03.text-05
-
-Method and guided demo
-
-## slide-03.text-06
-
-12 min
-
-## slide-03.text-07
-
-Validation and product
-
-## slide-03.text-08
-
-2 min
-
-## slide-03.text-09
-
-Discussion
-
-## slide-03.text-10
-
-What do we demonstrate?
-
-## slide-03.text-11
-
-The work becomes readable, runnable and verifiable.
-
-## slide-03.text-12
-
-What do we investigate?
-
-## slide-03.text-13
-
-Did the agent choose the right source, method and coverage denominator?
-
-## slide-03.text-14
-
-What does the GIS expert decide?
-
-## slide-03.text-15
-
-Which assumptions and limitations are acceptable for this decision?
-
-## slide-03.note-01
-
-The schedule is calculated from slide durations: 16 + 15 + 12 + 2 = 45 minutes.
-
-## slide-03.note-02
-
-The demo includes an offline illustration and the actual dashboard. If the connection fails, use the screenshots and illustration.
-
-<!-- Slide 4: The prompt defines the analysis task -->
+<!-- Slide 3: The prompt defines the analysis task -->
 
 ## slide-04.title
 
@@ -240,7 +162,7 @@ The first paragraph is the user’s task. The two italicised paragraphs explain 
 
 The GIS expert reviews the concept and method rather than writing every line of Python.
 
-<!-- Slide 5: Choose the agent and its capabilities -->
+<!-- Slide 4: Choose the agent and its capabilities -->
 
 ## slide-05.title
 
@@ -304,11 +226,11 @@ Do not present a model ranking as a general benchmark. Compare the value and cos
 
 A chat interface and an agent that executes code offer different workspaces. Products may support different skill formats.
 
-<!-- Slide 6: Skills add detail; checks add confidence -->
+<!-- Slide 5: Skills make the instructions reusable. -->
 
 ## slide-06.title
 
-Skills add detail; checks add confidence
+Skills make the instructions reusable.
 
 ## slide-06.section
 
@@ -316,15 +238,7 @@ Question and framework
 
 ## slide-06.text-01
 
-Skills add detail.
-
-## slide-06.text-02
-
-Checks add confidence.
-
-## slide-06.text-03
-
-1
+Skills make the instructions reusable.
 
 ## slide-06.text-04
 
@@ -334,10 +248,6 @@ Instructions
 
 Source discovery, CRS, formats and workflow.
 
-## slide-06.text-06
-
-2
-
 ## slide-06.text-07
 
 Choices
@@ -346,37 +256,9 @@ Choices
 
 An open-first stack or the company’s existing technology.
 
-## slide-06.text-09
-
-3
-
-## slide-06.text-10
-
-Artifacts
-
-## slide-06.text-11
-
-Project, pipeline, provenance and selected outputs.
-
-## slide-06.text-12
-
-4
-
-## slide-06.text-13
-
-Evidence
-
-## slide-06.text-14
-
-Tests, evaluations and expert review of the result.
-
 ## slide-06.text-15
 
-A skill is readable, versioned guidance. Its value can be measured in agent behaviour.
-
-## slide-06.text-16
-
-Risk: a service, format or API changes. Verify specific claims against the source again.
+Readable, versioned guidance for the agent.
 
 ## slide-06.text-17
 
@@ -392,7 +274,7 @@ skills.sh
 
 ## slide-06.note-01
 
-A skill does not automatically prove the method is correct. An agent can make mistakes even with good instructions.
+A skill does not automatically prove the method is correct. An agent can make mistakes even with good instructions. Risk: a service, format or API changes. Verify specific claims against the source again.
 
 ## slide-06.note-02
 
@@ -402,7 +284,7 @@ An opinionated stack narrows the search space; a company need not replace its ex
 
 Separating the contribution of the model and skill requires comparable trials. One demo is a case study, not a generalisation. skills.sh homepage checked on 8 October 2026.
 
-<!-- Slide 7: From context to data tools -->
+<!-- Slide 6: From context to data tools -->
 
 ## slide-07.title
 
@@ -492,91 +374,7 @@ Structured data and code enable precise computation, but still require the right
 
 The draft’s 100K-token / $2 estimate depends on the model and tariff. Snowflake may be part of the company stack; this is not a promise of a built-in connector.
 
-<!-- Slide 8: From conversation to reproducible project -->
-
-## slide-08.title
-
-From conversation to reproducible project
-
-## slide-08.section
-
-Question and framework
-
-## slide-08.text-01
-
-From question to a verifiable project
-
-## slide-08.text-02
-
-1
-
-## slide-08.text-03
-
-Question
-
-## slide-08.text-04
-
-Decision, scope and metric.
-
-## slide-08.text-05
-
-2
-
-## slide-08.text-06
-
-Skill + agent
-
-## slide-08.text-07
-
-Sources, method and implementation.
-
-## slide-08.text-08
-
-3
-
-## slide-08.text-09
-
-Project + pipeline
-
-## slide-08.text-10
-
-A readable contract and runnable computation.
-
-## slide-08.text-11
-
-4
-
-## slide-08.text-12
-
-Checks + output
-
-## slide-08.text-13
-
-Provenance, evidence and a usable map.
-
-## slide-08.text-14
-
-openmapstack validate project.yaml --preflight
-openmapstack run project.yaml
-openmapstack verify project.yaml
-
-## slide-08.text-15
-
-Conversation helps get the work done. The analysis dependencies must be readable in the project.
-
-## slide-08.note-01
-
-The OpenMapStack CLI does not execute a chat prompt. run executes the declared canonical pipeline.
-
-## slide-08.note-02
-
-Less dependence on prior chat may reduce context work; changes in speed and cost need measurement.
-
-## slide-08.note-03
-
-The commands were checked against the parser in openmapstack/cli.py.
-
-<!-- Slide 9: project.yaml is the analysis contract -->
+<!-- Slide 7: project.yaml is the analysis contract -->
 
 ## slide-09.title
 
@@ -680,7 +478,7 @@ This excerpt explains the structure; it is not a complete runnable manifest.
 
 ## slide-09.note-01
 
-Open project.yaml in an editor if needed. Do not read a long manifest aloud.
+Open project.yaml in an editor if needed. Do not read a long manifest aloud. Explain the workflow here once: question → agent with skills → project pipeline → checked output. Preflight checks readiness, run produces the artifacts, and verify checks the recorded result.
 
 ## slide-09.note-02
 
@@ -690,7 +488,7 @@ Persistent explanations belong in data fields. The example pipeline reserialises
 
 SHA-256 and run evidence link a specific computation to specific files.
 
-<!-- Slide 10: A workspace you can hand over -->
+<!-- Slide 8: A workspace you can hand over -->
 
 ## slide-10.title
 
@@ -810,7 +608,7 @@ Source data and derived results are separate. Distinguish a cache from the autho
 
 The current implementation uses SHA-256, not the MD5 mentioned in the draft.
 
-<!-- Slide 11: 15 minutes along the network -->
+<!-- Slide 9: 15 minutes along the network -->
 
 ## slide-11.title
 
@@ -856,7 +654,7 @@ This undirected synthetic graph uses Dijkstra. The bridges demo computes separat
 
 Direction, slopes, gates and time-dependent access can make real networks more complex. A spatial buffer does not automatically measure network accessibility.
 
-<!-- Slide 12: The coverage denominator changes the answer -->
+<!-- Slide 10: The coverage denominator changes the answer -->
 
 ## slide-12.title
 
@@ -902,85 +700,7 @@ Dwelling weights do not measure the number of children.
 
 Eurostat’s 1 km grid can be an additional check, but does not automatically locate people at building resolution. The historical comparison has not been recomputed here.
 
-<!-- Slide 13: Five dashboard views -->
-
-## slide-13.title
-
-Five dashboard views
-
-## slide-13.section
-
-Method and demo
-
-## slide-13.text-01
-
-A map you can interrogate.
-
-## slide-13.text-02
-
-Bridge location comparison and a network-based recommendation
-
-## slide-13.text-03
-
-1
-
-## slide-13.text-04
-
-All locations
-
-## slide-13.text-05
-
-Rank bridge locations and screen the entire river section.
-
-## slide-13.text-06
-
-2
-
-## slide-13.text-07
-
-Tuglase vs Marja
-
-## slide-13.text-08
-
-One bridge, the other or both.
-
-## slide-13.text-09
-
-3
-
-## slide-13.text-10
-
-Routes
-
-## slide-13.text-11
-
-Address pairs and scenario routes.
-
-## slide-13.text-12
-
-4
-
-## slide-13.text-13
-
-Map and provenance
-
-## slide-13.text-14
-
-Metrics, layers, sources and checks.
-
-## slide-13.note-01
-
-Actual application tabs (Estonian): Kõik kohad (All locations), Tuglase vs Marja, Teekonnad (Routes), Kaart (Map), Päritolu (Provenance).
-
-## slide-13.note-02
-
-The original primary-school question evolved into an urban mobility question: where to add a connection and whose access improves?
-
-## slide-13.note-03
-
-All locations compares planned bridges and screening locations derived every 100 m. Usage potential is a model index, not an observed count.
-
-<!-- Slide 14: Guided demo: compare bridge locations -->
+<!-- Slide 11: Guided demo: compare bridge locations -->
 
 ## slide-14.title
 
@@ -1040,7 +760,7 @@ Open Tartu bridge analysis ↗
 
 ## slide-14.note-01
 
-Open the Tartu bridge analysis in a new tab; keep the presentation open. The live application and screenshots are in Estonian.
+Open the Tartu bridge analysis in a new tab; keep the presentation open. The live application and screenshots are in Estonian. Use ten minutes for one guided comparison, rather than touring each tab separately. Start with the map, compare Tuglase and Marja individually and together, then trace one route. Ask the audience to predict the change before switching.
 
 ## slide-14.note-02
 
@@ -1056,9 +776,9 @@ Sensitivity: gravity metric half-life 5/10/20 min; the walking threshold for add
 
 ## slide-14.note-05
 
-If interrupted, use the screenshots and the offline illustration on slides 11–12.
+If interrupted, use the screenshots and the offline illustration on slides 9–10.
 
-<!-- Slide 15: Guided demo: inspect provenance -->
+<!-- Slide 12: Guided demo: inspect provenance -->
 
 ## slide-15.title
 
@@ -1140,163 +860,7 @@ Bridge usage potential is an uncalibrated gravity-model index. The order of magn
 
 The application report shows 28/29 checks passed: qgis_runtime_load is not tested. That is not a pass.
 
-<!-- Slide 16: Guided demo: one bridge or both? -->
-
-## slide-16.title
-
-Guided demo: one bridge or both?
-
-## slide-16.section
-
-Method and demo
-
-## slide-16.text-01
-
-One bridge, the other or both?
-
-## slide-16.text-02
-
-Tuglase and Marja comparison and the value of a second bridge
-
-## slide-16.text-03
-
-1
-
-## slide-16.text-04
-
-Compare individual bridges
-
-## slide-16.text-05
-
-Greater total impact and greater time savings are different things.
-
-## slide-16.text-06
-
-2
-
-## slide-16.text-07
-
-Add the second bridge
-
-## slide-16.text-08
-
-The combined effect need not equal the sum of individual effects.
-
-## slide-16.text-09
-
-3
-
-## slide-16.text-10
-
-Inspect a route
-
-## slide-16.text-11
-
-Show which network route becomes shorter.
-
-## slide-16.text-12
-
-Source data + a declared network change = a scenario.
-
-## slide-16.note-01
-
-Open Tuglase vs Marja. Compare Üks, teine või mõlemad (One, the other or both) and Teise silla lisaväärtus (Value of the second bridge).
-
-## slide-16.note-02
-
-This application adds bridges to walking and cycling networks. Show the difference between individual and combined scenarios.
-
-## slide-16.note-03
-
-Teekonnad (Routes): select Supilinn (Marja tn) → Staadioni tn kool. The T/M/TM column shows the scenario route.
-
-## slide-16.note-04
-
-Source data stays unchanged. Proposed bridge geometry comes from planning data; the pipeline checks the network connection.
-
-<!-- Slide 17: The first prompt does not finish the job -->
-
-## slide-17.title
-
-The first prompt does not finish the job
-
-## slide-17.section
-
-Validation and product development
-
-## slide-17.text-01
-
-The first prompt does not finish the job.
-
-## slide-17.text-02
-
-1.0.1
-
-## slide-17.text-03
-
-Browser connected; checks repeated.
-
-## slide-17.text-04
-
-Does the view render? Do the buttons work?
-
-## slide-17.text-05
-
-2.0
-
-## slide-17.text-06
-
-Coverage dynamics and Tartu districts.
-
-## slide-17.text-07
-
-Walking time vs coverage; a table of gaps.
-
-## slide-17.text-08
-
-+ check
-
-## slide-17.text-09
-
-Eurostat’s 2021 population grid, 1 km.
-
-## slide-17.text-10
-
-Author’s finding: apartment weights were already included.
-
-## slide-17.text-11
-
-+ UX
-
-## slide-17.text-12
-
-School point clicks added with another tool.
-
-## slide-17.text-13
-
-The same workspace and clear artifacts.
-
-## slide-17.text-14
-
-Iteration refines both the question and the product.
-
-## slide-17.text-15
-
-The author’s primary-school demo history. These versions and findings have not been independently confirmed from the repository example.
-
-## slide-17.note-01
-
-This slide preserves the author’s historical account, not repository versioning.
-
-## slide-17.note-02
-
-Distinguish improvements to the method, source clarification and UI fixes.
-
-## slide-17.note-03
-
-Switching agents works better when the task and canonical pipeline are in files.
-
-<!-- Slide 18: Browser and QGIS provide different evidence -->
+<!-- Slide 13: Browser and QGIS provide different evidence -->
 
 ## slide-18.title
 
@@ -1354,7 +918,7 @@ QGIS MCP helps when it is installed and available. The example runtime check may
 
 A map or browser test alone does not prove that the analysis is correct.
 
-<!-- Slide 19: Three layers of validation -->
+<!-- Slide 14: Three layers of validation -->
 
 ## slide-19.title
 
@@ -1440,7 +1004,7 @@ not_testable is not passed. A valid report may include limitations.
 
 Example invariant: increasing the time threshold should not reduce coverage on a fixed network with the same denominator.
 
-<!-- Slide 20: OpenMapBench -->
+<!-- Slide 15: OpenMapBench: compare configurations -->
 
 ## slide-19-bench.title
 
@@ -1535,7 +1099,8 @@ Reference and output: 21 Overture pharmacies, 42 OSM pharmacies, 15 matched pair
 
 For comparison, fix the task version, data hashes, reference, evaluator, tool versions, permissions and time/cost limits. Repeat each configuration several times. Report pass rate and variation in time and cost; never infer missing model metadata. The evidence bundle retains the staged task snapshot because the current task file has since changed.
 The screenshot shows six tasks requiring attention in the OpenMapBench comparison report. Columns: GPT-5.6 Luna and Sol with the historical contract; those models with OpenMapStack under the prompt-only protocol; other recorded runs. These are recorded outcomes, not a controlled comparison of models or skill effects: task prompts and protocols changed. The Pi model is unknown. FAILED, TIMEOUT and MISSING OUTPUT are distinct outcomes. The original English table is retained in both language versions; click to enlarge. The single pharmacy trial has its own linked evidence.
-<!-- Slide 20: Time and money: one case study -->
+
+<!-- Slide 16: Time and money: one case study -->
 
 ## slide-20.title
 
@@ -1595,7 +1160,7 @@ Author’s estimates, not a benchmark or price list. Subscription usage limits d
 
 ## slide-20.note-01
 
-150K tokens is an approximate experience-based estimate. Exact accounting requires logs and the model tariff.
+150K tokens is an approximate experience-based estimate. Exact accounting requires logs and the model tariff. The iteration included browser checks, dynamic scenarios, population weights and interface refinements. These are observations from this project, not controlled performance measurements.
 
 ## slide-20.note-02
 
@@ -1605,7 +1170,7 @@ The draft’s Pro-plan price and session window describe the author’s experien
 
 Compare the same task and quality criteria. A smaller local model is a goal, not a proven equivalent replacement.
 
-<!-- Slide 21: Private data and partial updates -->
+<!-- Slide 17: Private data and partial updates -->
 
 ## slide-21.title
 
@@ -1693,109 +1258,9 @@ A file may remain local, but tool output and prompts can carry data to a model s
 
 ## slide-21.note-03
 
-A new bridge must change the correct computation. A change file does not prove the routing graph was rebuilt.
+A new bridge must change the correct computation. A change file does not prove the routing graph was rebuilt. A reusable analysis with safe updates is the next product step. Smaller models and streaming are future possibilities, not demonstrated capabilities of this deck.
 
-<!-- Slide 22: Product focus: what should we build next? -->
-
-## slide-22.title
-
-Product focus: what should we build next?
-
-## slide-22.section
-
-Validation and product development
-
-## slide-22.text-01
-
-What should we build next?
-
-## slide-22.text-02
-
-First goal: reusable analysis
-
-## slide-22.text-03
-
-From a task to a transferable project and a verifiable result.
-
-## slide-22.text-04
-
-Next goal: safe updates
-
-## slide-22.text-05
-
-Data flow, permissions, accepting overrides and comparing runs.
-
-## slide-22.text-06
-
-Research direction: smaller models and streaming
-
-## slide-22.text-07
-
-Local execution, event-driven updates and persistent freshness need separate implementation.
-
-## slide-22.text-08
-
-Real-time streaming is not implemented in this demo. We show a snapshot-based workflow.
-
-## slide-22.note-01
-
-Discuss integration boundaries: which part is the agent, the worker and the checker?
-
-## slide-22.note-02
-
-Streaming is a proposed future direction, not a confirmed delivery commitment.
-
-<!-- Slide 23: What should you take away? -->
-
-## slide-23.title
-
-What should you take away?
-
-## slide-23.section
-
-Validation and product development
-
-## slide-23.text-01
-
-A good result stays in the folder.
-
-## slide-23.text-02
-
-The agent does the work.
-
-## slide-23.text-03
-
-The project preserves the method.
-
-## slide-23.text-04
-
-The GIS expert judges its meaning.
-
-## slide-23.text-05
-
-OpenMapStack repository ↗
-
-## slide-23.text-06
-
-Homepage and working examples ↗
-
-## slide-23.text-07
-
-Tartu bridge analysis and its provenance ↗
-
-## slide-23.text-08
-
-Technical sources: README · project.yaml · pipeline.py · cli.py · validation/latest-report.json. Presentation basis: the author’s demo experience.
-
-## slide-23.note-01
-
-Three ideas: a file-based contract, the right spatial concept and visible validation.
-
-## slide-23.note-02
-
-The installation command and exact version are in the repository README. Links open in a separate tab.
-
-<!-- Slide 24: Discussion: where would you pilot this? -->
+<!-- Slide 18: Discussion: where would you pilot this? -->
 
 ## slide-24.title
 
@@ -1839,7 +1304,7 @@ Pilot deliverable: the same question and metric, a visible method, a repeatable 
 
 ## slide-24.note-01
 
-Take one concrete pilot example. If time is short, choose only the validation question.
+Take one concrete pilot example. If time is short, choose only the validation question. Allow seven minutes. Choose one real decision, its acceptance check and its data boundary; finish with an owner and a next step. The takeaway: the agent does the work, the project retains the method, and the expert judges the result.
 
 ## slide-24.note-02
 

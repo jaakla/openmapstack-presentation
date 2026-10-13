@@ -1,6 +1,6 @@
 # OpenMapStack — 45 minuti demo ja esitlus
 
-Eesti- ja ingliskeelne esitlus tehnilise tooteettevõtte GIS-ekspertidele: 25 slaidi,
+Eesti- ja ingliskeelne esitlus tehnilise tooteettevõtte GIS-ekspertidele: 18 slaidi,
 45 minuti ajastus, juhitud demo ja iga slaidi esinejamärkmed.
 
 ## Ava ja esitle
@@ -39,18 +39,18 @@ Kõik töötab ka võrguühenduseta HTML-failis.
 
 | Slaidid | Aeg | Teema |
 |---|---:|---|
-| 1–10 | 0–16 min | Demoküsimus, agent, skill, andmetöö ja projektileping |
-| 11–16 | 16–31 min | Võrgupõhine katvus, kaalud, dashboard, päritolu, stsenaarium |
-| 17–24 | 31–43 min | Iteratsioon, brauser/QGIS, kontrollid, kulu, privaatandmed |
-| 25 | 43–45 min | Arutelu ja piloodi valik |
+| 1–8 | 0–13 min | Demoküsimus, agent, skill, andmetöö ja projektileping |
+| 9–12 | 13–30 min | Näidisvõrk, kaalud, juhitud sillavõrdlus ja päritolu |
+| 13–17 | 30–38 min | Brauser/QGIS, kontrollid, OpenMapBench, kulu ja privaatandmed |
+| 18 | 38–45 min | Arutelu ja konkreetse piloodi valik |
 
 Demo kolm käiku:
 
-1. Slaid 11: muuda jalutusaega 15 → 10 → 20 minutit ja lisa näidisvõrku sild.
-2. Slaid 12: võrdle elumajade arvu ja eluruumidega kaalutud katvust.
-3. Slaid 16: võrdle päris rakenduses Tuglast, Marjat ja mõlemat silda koos.
+1. Slaid 9: muuda jalutusaega 15 → 10 → 20 minutit ja lisa näidisvõrku sild.
+2. Slaid 10: võrdle elumajade arvu ja eluruumidega kaalutud katvust.
+3. Slaid 11: võrdle päris rakenduses Tuglast, Marjat ja mõlemat silda koos.
 
-Slaidilt 14 saab avada [Tartu Emajõe sillaanalüüsi](https://tartu-sillad.jaak-laineste.workers.dev/).
+Slaidilt 11 saab avada [Tartu Emajõe sillaanalüüsi](https://tartu-sillad.jaak-laineste.workers.dev/).
 Live-demo viis vaadet on Kõik kohad, Tuglase vs Marja, Teekonnad, Kaart ja
 Päritolu. Võrdle sillakohti, jalgsi/rattaga liikumist, mõjumõõdikuid ja
 tundlikkuse parameetreid. Poolestusaeg (gravitatsioonipõhine ligipääsetavus) ja
@@ -84,7 +84,7 @@ README, CLI parser, hoidla projekti näide ja sillarakenduse Päritolu vaade.
 
 The text sources are `content-et.md` (Estonian) and `content-en.md` (English).
 They contain slide titles, section names, visible slide text, screenshot labels,
-code examples and speaker notes. The existing 25 slides, timings, layouts, image
+code examples and speaker notes. The existing 18 slides, timings, layouts, image
 choices and link destinations are fixed in `layouts.json`. Viewer controls and
 interactive diagram labels remain in `i18n.js`, `app.js` and `content.js`.
 
@@ -242,11 +242,26 @@ by keshikan under SIL OFL 1.1. The unmodified WOFF2 and license are stored in
 
 ### OpenMapBench slide
 
-Slide 20 (stable text ID `slide-19-bench`) follows the project-checks slide.
-Existing text IDs are preserved; the former slides 20–24 now display as 21–25.
-The 45-minute total is preserved: slide 19 and the new slide each have one minute.
-Both language sources and the new keys' translation hashes were added together;
-existing translation hashes were left unchanged.
+Slide 15 (stable text ID `slide-19-bench`) follows the project-checks slide.
+The deck has 18 slides and retains the 45-minute slot, including ten minutes
+for the guided bridge comparison and seven minutes for discussion.
+
+### Simplification after the live presentation (13 October 2026)
+
+Repeated material was merged rather than presented as separate slides:
+
+- Agenda → opening notes.
+- Workflow → project contract notes.
+- Dashboard tour and one/both-bridge comparison → one guided demo.
+- Iteration history → time and cost notes.
+- Product roadmap → private-data and update notes.
+- Takeaways and source links → final pilot discussion.
+
+Stable IDs of retained slides and untouched translation hashes are preserved.
+Display positions and URL fragments now follow the shorter order. The full
+25-slide version remains in Git at `6b09990`. Both language sources, including
+speaker notes, share the new structure. The skills slide now focuses on
+reusable guidance; artifacts and validation are explained in their own sections.
 
 The slide uses a recorded single-trial verdict, explicitly not a configuration
 comparison. Its [retained evidence](evidence/openmapbench-ee-vec-002/README.md)

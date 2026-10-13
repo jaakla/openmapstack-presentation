@@ -36,13 +36,13 @@ GIS-tööriistad on meil olemas. Mis juhtub, kui küsimusest ehitusprojektini vi
 
 ## slide-01.note-02
 
-Näita töö käiku, piiranguid ja kontrollitavaid artefakte. 45 minuti sees ei käivita me tunnist andmepipeline’i.
+Näita töö käiku, piiranguid ja kontrollitavaid artefakte. 45 minuti sees ei käivita me tunnist andmepipeline’i. Ajastus: küsimus ja projekt 13 minutit, interaktiivsed näited ja juhitud demo 17, kontrollid ja praktilised piirid 8 ning arutelu 7 minutit.
 
 ## slide-01.note-03
 
 Kaardigraafika on sünteetiline ja on hiljem interaktiivne.
 
-<!-- Slide 2: Demoküsimus: Tartu algkoolid -->
+<!-- Slide 2: Demoküsimus: Tartu koolivõrgu katvus -->
 
 ## slide-02.title
 
@@ -98,7 +98,7 @@ Katvus mille suhtes?
 
 ## slide-02.text-12
 
-Eluruumid, elanikud või vanusegrupi lapsed? 
+Eluruumid, elanikud või vanusegrupi lapsed?
 
 ## slide-02.text-13
 
@@ -117,84 +117,7 @@ Lähim kool ei tõenda koolikoha kättesaadavust: vabade kohtade arv, sihtgrupi 
 
 Algkoolide küsimus on algne lähtejuhtum. Live-demo näitab edasiarendust: Tartu Emajõe sillakohtade võrgumõju võrdlust.
 
-<!-- Slide 3: 45 minuti teekond -->
-
-## slide-03.title
-
-45 minuti teekond
-
-## slide-03.section
-
-Küsimus ja raamistik.
-
-## slide-03.text-01
-
-45 minutit küsimusest otsuseni
-
-## slide-03.text-02
-
-16 min
-
-## slide-03.text-03
-
-Agent, skill ja projekt
-
-## slide-03.text-04
-
-15 min
-
-## slide-03.text-05
-
-Meetod ja juhitud demo
-
-## slide-03.text-06
-
-12 min
-
-## slide-03.text-07
-
-Kontrolli ja korda
-
-## slide-03.text-08
-
-2 min
-
-## slide-03.text-09
-
-Otsus
-
-## slide-03.text-10
-
-Väärtus
-
-## slide-03.text-11
-
-Töö muutub loetavaks, käivitatavaks ja kontrollitavaks.
-
-## slide-03.text-12
-
-Uuring
-## slide-03.text-13
-
-Kas agent valis õige allika, meetodi ja katvuse nimetaja?
-
-## slide-03.text-14
-
-GIS-eksperdi otsus
-
-## slide-03.text-15
-
-Millised andmed, eeldused ja piirangud on selle otsuse jaoks vastuvõetavad?
-
-## slide-03.note-01
-
-Ajajaotus on slaidide kestustest arvutatud: 16 + 15 + 12 + 2 = 45 minutit.
-
-## slide-03.note-02
-
-Demo sisaldab offline-skeemi ja tegeliku dashboardi avamist. Võrguprobleemi korral jää ekraanipiltide ja skeemi juurde.
-
-<!-- Slide 4: Prompt on analüüsi lähteülesanne -->
+<!-- Slide 3: Prompt on analüüsi lähteülesanne -->
 
 ## slide-04.title
 
@@ -240,7 +163,7 @@ Esimene lõik on kasutaja lähteülesanne. Kaks kursiivis lõiku selgitavad Open
 
 GIS-eksperdi panus on mõiste ja meetodi ülevaatus, mitte iga Python-rea kirjutamine.
 
-<!-- Slide 5: Vali agent ja võimekus -->
+<!-- Slide 4: Vali agent ja võimekus -->
 
 ## slide-05.title
 
@@ -304,11 +227,11 @@ Autori eelistus on olnud tugev mudel ning high või kõrgem mõtlemistase, kui t
 
 Tavaline vestlusliides ja koodi käivitav agent ei anna sama tööpinda. Iga toode ei pruugi toetada sama skill-formaati.
 
-<!-- Slide 6: Skill annab detailid, kontroll annab kindluse -->
+<!-- Slide 5: Skill teeb juhised korduskasutatavaks. -->
 
 ## slide-06.title
 
-Skill annab detailid, kontroll annab kindluse
+Skill teeb juhised korduskasutatavaks.
 
 ## slide-06.section
 
@@ -316,15 +239,7 @@ Küsimus ja raamistik
 
 ## slide-06.text-01
 
-Skill/oskus annab detailid.
-
-## slide-06.text-02
-
-Kontroll annab kindluse.
-
-## slide-06.text-03
-
-1
+Skill teeb juhised korduskasutatavaks.
 
 ## slide-06.text-04
 
@@ -334,10 +249,6 @@ Juhised
 
 Allikate leidmine, formaadid ja töövoog.
 
-## slide-06.text-06
-
-2
-
 ## slide-06.text-07
 
 Valikud
@@ -346,37 +257,9 @@ Valikud
 
 Open-first stack või olemasolev ettevõtte tehnoloogia (nt ESRI).
 
-## slide-06.text-09
-
-3
-
-## slide-06.text-10
-
-Väljundid
-
-## slide-06.text-11
-
-Projekt, pipeline.py, päritolu, readme ja valitud väljundid.
-
-## slide-06.text-12
-
-4
-
-## slide-06.text-13
-
-Tõendid
-
-## slide-06.text-14
-
-Testid, kontrollid (eval’id) ja tulemuse sisuline ülevaatus.
-
 ## slide-06.text-15
 
-Skill on loetav täiendav juhis. Selle täpsustab agentide käitumist ja väljundit.
-
-## slide-06.text-16
-
-Riskid: andmed, teenus, formaat või API muutub. Täpne väide tuleb allikast uuesti kontrollida.
+Loetav ja versioonitav juhis agendile.
 
 ## slide-06.text-17
 
@@ -392,7 +275,7 @@ skills.sh
 
 ## slide-06.note-01
 
-Skill ei tõesta automaatselt, et meetod on õige. Ka hästi kirjutatud juhisega agent võib eksida.
+Skill ei tõesta automaatselt, et meetod on õige. Ka hästi kirjutatud juhisega agent võib eksida. Riskid: andmed, teenus, formaat või API muutub. Täpne väide tuleb allikast uuesti kontrollida.
 
 ## slide-06.note-02
 
@@ -402,7 +285,7 @@ Opinionated stack vähendab otsinguruumi, kuid ettevõtte olemasolevat stack’i
 
 Mudeli ja skilli panuse eristamiseks on vaja võrreldavaid katseid. Üks demo on juhtum, mitte üldistus. skills.sh avaleht vaadatud 08.10.2026.
 
-<!-- Slide 7: Andmed kontekstist tööriistadesse -->
+<!-- Slide 6: Andmed kontekstist tööriistadesse -->
 
 ## slide-07.title
 
@@ -492,91 +375,7 @@ Struktureeritud andmed ja kood võimaldavad täpset arvutust, mis eeldab siiski 
 
 Drafti 100K tokeni / 2 dollari hinnang sõltub mudelist ja tariifist. Snowflake võib olla ettevõtte stack, mitte lubadus sisseehitatud connector’ist.
 
-<!-- Slide 8: Vestlusest korratavaks projektiks -->
-
-## slide-08.title
-
-Vestlusest korratavaks projektiks
-
-## slide-08.section
-
-Küsimus ja raamistik
-
-## slide-08.text-01
-
-Küsimusest kontrollitava projektini
-
-## slide-08.text-02
-
-1
-
-## slide-08.text-03
-
-Küsimus
-
-## slide-08.text-04
-
-Otsus, ulatus ja mõõdik.
-
-## slide-08.text-05
-
-2
-
-## slide-08.text-06
-
-Skill + agent
-
-## slide-08.text-07
-
-Allikad, meetod ja teostus.
-
-## slide-08.text-08
-
-3
-
-## slide-08.text-09
-
-Projekt + pipeline
-
-## slide-08.text-10
-
-Loetav leping ja käivitatav arvutus.
-
-## slide-08.text-11
-
-4
-
-## slide-08.text-12
-
-Kontroll + väljund
-
-## slide-08.text-13
-
-Päritolu, tõendid ja kasutatav kaart.
-
-## slide-08.text-14
-
-openmapstack validate project.yaml --preflight
-openmapstack run project.yaml
-openmapstack verify project.yaml
-
-## slide-08.text-15
-
-Vestlus aitab tööd teha. Analüüsi sõltuvused peavad olema projektis loetavad.
-
-## slide-08.note-01
-
-OpenMapStacki CLI ei käivita vestlusprompti. run käivitab deklareeritud canonical pipeline’i.
-
-## slide-08.note-02
-
-Vähem varasemast chatist sõltumist võib vähendada uut kontekstitööd; kiiruse ja hinna muutus vajab mõõtmist.
-
-## slide-08.note-03
-
-Käsud on kontrollitud hoidla openmapstack/cli.py parseri järgi.
-
-<!-- Slide 9: project.yaml on analüüsi leping -->
+<!-- Slide 7: project.yaml on analüüsi leping -->
 
 ## slide-09.title
 
@@ -680,7 +479,7 @@ Väljavõte selgitab struktuuri; see ei ole käivitatav tervikmanifest.
 
 ## slide-09.note-01
 
-Ava vajadusel project.yaml editoris. Ära loe pikka manifesti ette.
+Ava vajadusel project.yaml editoris. Ära loe pikka manifesti ette. Selgita töövoogu siin ühe korra: küsimus → oskustega agent → projekti pipeline → kontrollitud väljund. Preflight kontrollib valmisolekut, run toodab artefaktid ja verify kontrollib salvestatud tulemust.
 
 ## slide-09.note-02
 
@@ -690,7 +489,7 @@ Püsivad seletused tuleb panna andmeväljadele. Näite pipeline serialiseerib YA
 
 SHA-256 ja jooksu tõendid seovad konkreetse arvutuse konkreetsete failidega.
 
-<!-- Slide 10: Töökaust on üleantav tulemus -->
+<!-- Slide 8: Töökaust on üleantav tulemus -->
 
 ## slide-10.title
 
@@ -810,7 +609,7 @@ Algandmed ja tuletatud tulemused on eraldi. Vahemälu peab olema eristatav ametl
 
 Praegune teostus kasutab SHA-256, mitte draftis mainitud MD5.
 
-<!-- Slide 11: 15 minutit mööda võrku -->
+<!-- Slide 9: 15 minutit mööda võrku -->
 
 ## slide-11.title
 
@@ -856,7 +655,7 @@ Selles suunamata sünteetilises võrgus on Dijkstra arvutus; sillademo arvutab e
 
 Kõnni suund, tõusud, väravad ja ajaline ligipääs võivad päris võrgu keerukamaks muuta. Ruumiline puhver ei ole automaatselt võrgupõhine ligipääsetavus.
 
-<!-- Slide 12: Katvuse nimetaja muudab vastust -->
+<!-- Slide 10: Katvuse nimetaja muudab vastust -->
 
 ## slide-12.title
 
@@ -902,85 +701,7 @@ Eluruumide kaal ei võrdu laste arvu mõõtmisega.
 
 Eurostati 1 km ruudustik võib olla lisakontroll, kuid ei anna automaatselt hoone täpsusega paiknemist. Ajalooline võrdlus ei ole siin uuesti arvutatud.
 
-<!-- Slide 13: Dashboardi viis vaadet -->
-
-## slide-13.title
-
-Dashboardi viis vaadet
-
-## slide-13.section
-
-Meetod ja demo
-
-## slide-13.text-01
-
-Kaart, mida saab küsitleda.
-
-## slide-13.text-02
-
-Sillakohtade võrdlus ja soovitus võrgumõju põhjal
-
-## slide-13.text-03
-
-1
-
-## slide-13.text-04
-
-Kõik kohad
-
-## slide-13.text-05
-
-Sillakohtade järjestus ja kogu jõelõigu sõelumine.
-
-## slide-13.text-06
-
-2
-
-## slide-13.text-07
-
-Tuglase vs Marja
-
-## slide-13.text-08
-
-Üks sild, teine sild või mõlemad.
-
-## slide-13.text-09
-
-3
-
-## slide-13.text-10
-
-Teekonnad
-
-## slide-13.text-11
-
-Aadressipaarid ja stsenaariumide marsruudid.
-
-## slide-13.text-12
-
-4
-
-## slide-13.text-13
-
-Kaart ja päritolu
-
-## slide-13.text-14
-
-Mõõdikud, kihid, allikad ja kontrollid.
-
-## slide-13.note-01
-
-Demorakenduse päris vaated: Kõik kohad, Tuglase vs Marja, Teekonnad, Kaart, Päritolu.
-
-## slide-13.note-02
-
-Algne algkoolide küsimus on kasvanud linna liikuvuse küsimuseks: kuhu lisada uus ühendus ja kelle ligipääs paraneb?
-
-## slide-13.note-03
-
-Kõik kohad võrdleb planeeritud sillakohti ja iga 100 m järel tuletatud sõelumiskohti. Kasutuspotentsiaal on mudeli indeks, mitte loendus.
-
-<!-- Slide 14: Juhitud demo: võrdle sillakohti -->
+<!-- Slide 11: Juhitud demo: võrdle sillakohti -->
 
 ## slide-14.title
 
@@ -1040,7 +761,7 @@ Ava Tartu sillaanalüüs ↗
 
 ## slide-14.note-01
 
-Ava Tartu sillaanalüüs uuel tab’il; jäta esitlus alles.
+Ava Tartu sillaanalüüs uuel tab’il; jäta esitlus alles. Kasuta kümme minutit üheks juhitud võrdluseks, mitte iga menüü eraldi tutvustamiseks. Alusta kaardist, võrdle Tuglast ja Marjat eraldi ning koos, seejärel jälgi üht teekonda. Palu publikul enne vahetust muutust ennustada.
 
 ## slide-14.note-02
 
@@ -1056,9 +777,9 @@ Tundlikkus: gravitatsioonimõõdiku poolestusaeg 5/10/20 min; lisanduva pinna aj
 
 ## slide-14.note-05
 
-Katkestuse korral kasuta ekraanipilte ja slaidide 11–12 offline-skeemi.
+Katkestuse korral kasuta ekraanipilte ja slaidide 9–10 offline-skeemi.
 
-<!-- Slide 15: Juhitud demo: vaata päritolu -->
+<!-- Slide 12: Juhitud demo: vaata päritolu -->
 
 ## slide-15.title
 
@@ -1140,163 +861,7 @@ Silla kasutuspotentsiaal on kalibreerimata gravitatsioonimudeli indeks. Päevase
 
 Rakenduse raportis on 28/29 kontrolli läbitud: qgis_runtime_load on ei testitud. See ei ole sama mis läbitud.
 
-<!-- Slide 16: Juhitud demo: üks sild või mõlemad? -->
-
-## slide-16.title
-
-Juhitud demo: üks sild või mõlemad?
-
-## slide-16.section
-
-Meetod ja demo
-
-## slide-16.text-01
-
-Üks sild, teine või mõlemad?
-
-## slide-16.text-02
-
-Tuglase ja Marja võrdlus ning teise silla lisaväärtus
-
-## slide-16.text-03
-
-1
-
-## slide-16.text-04
-
-Võrdle üksiksildu
-
-## slide-16.text-05
-
-Suurem kogumõju ja suurem ajasääst pole sama asi.
-
-## slide-16.text-06
-
-2
-
-## slide-16.text-07
-
-Lisa teine sild
-
-## slide-16.text-08
-
-Koosmõju ei pea olema üksikmõjude summa.
-
-## slide-16.text-09
-
-3
-
-## slide-16.text-10
-
-Vaata teekonda
-
-## slide-16.text-11
-
-Näita võrgus, milline marsruut lüheneb.
-
-## slide-16.text-12
-
-Algandmed + deklareeritud võrgumuudatus = stsenaarium.
-
-## slide-16.note-01
-
-Ava Tuglase vs Marja. Võrdle ridu Üks, teine või mõlemad ning Teise silla lisaväärtus.
-
-## slide-16.note-02
-
-Sillad lisatakse selles rakenduses jalgsi- ja rattavõrku. Näita erinevust üksiksilla ja kombineeritud stsenaariumi vahel.
-
-## slide-16.note-03
-
-Teekonnad: vali Supilinn (Marja tn) → Staadioni tn kool; T/M/TM veerg näitab eri stsenaariumi marsruuti.
-
-## slide-16.note-04
-
-Algandmed ei muutu; kavandatavate sildade geomeetria tuleb planeeringust ning seost kontrollib pipeline.
-
-<!-- Slide 17: Esimene prompt ei lõpeta tööd -->
-
-## slide-17.title
-
-Esimene prompt ei lõpeta tööd
-
-## slide-17.section
-
-Kontroll ja tootearendus
-
-## slide-17.text-01
-
-Esimene prompt ei lõpeta tööd.
-
-## slide-17.text-02
-
-1.0.1
-
-## slide-17.text-03
-
-Brauser ühendati; kontroll korrati.
-
-## slide-17.text-04
-
-Kas vaade renderdub ja nupud töötavad?
-
-## slide-17.text-05
-
-2.0
-
-## slide-17.text-06
-
-Katvuse dünaamika ja Tartu asumid.
-
-## slide-17.text-07
-
-Jalutusaeg vs katvus; aukude tabel.
-
-## slide-17.text-08
-
-+ kontroll
-
-## slide-17.text-09
-
-Eurostati 2021. aasta 1 km ruudustik.
-
-## slide-17.text-10
-
-Autori järeldus: kortermajade kaal oli juba sees.
-
-## slide-17.text-11
-
-+ UX
-
-## slide-17.text-12
-
-Koolipunkti klikk teise töövahendiga.
-
-## slide-17.text-13
-
-Sama töökaust, selged artefaktid.
-
-## slide-17.text-14
-
-Iteratsioon täpsustab nii küsimust kui ka toodet.
-
-## slide-17.text-15
-
-Autori algkoolide demo ajalugu. Neid versioone ja järeldusi ei ole hoidla näite põhjal sõltumatult kinnitatud.
-
-## slide-17.note-01
-
-See slaid säilitab autori antud ajaloolise loo, mitte hoidla versioneerimise.
-
-## slide-17.note-02
-
-Erista meetodi parandust, allika täpsustust ja UI-parandust.
-
-## slide-17.note-03
-
-Agentide vahetamine toimib paremini, kui lähteülesanne ja canonical pipeline on failides.
-
-<!-- Slide 18: Brauser ja QGIS annavad eri tõendeid -->
+<!-- Slide 13: Brauser ja QGIS annavad eri tõendeid -->
 
 ## slide-18.title
 
@@ -1354,7 +919,7 @@ QGIS MCP aitab siis, kui see on paigaldatud ja kasutatav. Näite runtime kontrol
 
 Kaart ega brauseritest ei tõenda üksi analüüsi õigsust.
 
-<!-- Slide 19: Kolm kontrollikihti -->
+<!-- Slide 14: Kolm kontrollikihti -->
 
 ## slide-19.title
 
@@ -1440,7 +1005,7 @@ not_testable ei ole passed. Õige raport võib sisaldada piiranguid.
 
 Invariandi näide: ajapiiri suurendamine ei tohiks fikseeritud võrgus ja sama nimetajaga katvust vähendada.
 
-<!-- Slide 20: OpenMapBench -->
+<!-- Slide 15: OpenMapBench: võrdle seadistusi -->
 
 ## slide-19-bench.title
 
@@ -1535,7 +1100,8 @@ Etalon ja väljund: Overture 21, OSM 42, vasted 15, ühendamisel 48 eri apteeki 
 
 Võrdluseks fikseeri ülesande versioon, andmete räsid, etalon, hindaja, tööriistaversioonid, õigused ja aja-/kulupiir. Korda iga konfiguratsiooni mitu korda. Raporteeri läbimismäär ning aja ja kulu hajuvus; puuduvat mudelimetaandmestikku ei tohi oletada. Tõendipaketis on salvestatud ülesande koopia, sest praegune ülesandefail on vahepeal muutunud.
 Ekraanipilt pärineb OpenMapBenchi võrdlusaruande kuuest tähelepanu vajavast ülesandest. Veerud: GPT-5.6 Luna ja Sol ajaloolise lepinguga; samad mudelid OpenMapStackiga prompt-only protokollis; teised salvestatud jooksud. Need on eri katsete tulemused, mitte kontrollitud mudelite või skilli mõju võrdlus: ülesande prompt ja protokoll muutusid. Pi mudel on teadmata. FAILED, TIMEOUT ja MISSING OUTPUT on erinevad tulemused. Tabel on mõlemas keeleversioonis algsel ingliskeelsel kujul; klõps ava täissuuruses. Ühe apteekide katse tõendid on eraldi lingitud.
-<!-- Slide 20: Aeg ja raha: ühe juhtumi kogemus -->
+
+<!-- Slide 16: Aeg ja raha: ühe juhtumi kogemus -->
 
 ## slide-20.title
 
@@ -1595,7 +1161,7 @@ Autori hinnangud, mitte benchmark ega hinnakiri. Tellimuse kasutuslimiit ei ole 
 
 ## slide-20.note-01
 
-150K tokenit on ligikaudne kogemushinnang. Täpne arvestus vajab logi ja mudeli tariifi.
+150K tokenit on ligikaudne kogemushinnang. Täpne arvestus vajab logi ja mudeli tariifi. Iteratsioon hõlmas brauserikontrolle, dünaamilisi stsenaariume, rahvastikukaale ja kasutajaliidese täpsustusi. Need on selle projekti tähelepanekud, mitte kontrollitud jõudlusmõõtmised.
 
 ## slide-20.note-02
 
@@ -1605,7 +1171,7 @@ Drafti Pro-plaani hind ja sessiooniaken on tollane kasutuskogemus, mitte üldine
 
 Võrdle sama töö ja kvaliteedikriteeriumiga läbimist. Väiksem kohalik mudel on siht, mitte tõendatud võrdväärne asendus.
 
-<!-- Slide 21: Privaatandmed ja osalised uuendused -->
+<!-- Slide 17: Privaatandmed ja osalised uuendused -->
 
 ## slide-21.title
 
@@ -1693,109 +1259,9 @@ Fail võib jääda kohalikuks, kuid tool-output ja prompt võivad andmeid mudeli
 
 ## slide-21.note-03
 
-Uus sild peab muutma õiget arvutust. Muudatusefail ei tõenda, et ruutimisgraaf taastati.
+Uus sild peab muutma õiget arvutust. Muudatusefail ei tõenda, et ruutimisgraaf taastati. Korduskasutatav analüüs ja turvalised uuendused on järgmine tootearenduse samm. Väiksemad mudelid ja voogtöötlus on tulevikuvõimalused, mitte selles esitluses tõestatud võimekused.
 
-<!-- Slide 22: Tootefookus: mida edasi ehitada? -->
-
-## slide-22.title
-
-Tootefookus: mida edasi ehitada?
-
-## slide-22.section
-
-Kontroll ja tootearendus
-
-## slide-22.text-01
-
-Mida edasi ehitada?
-
-## slide-22.text-02
-
-Esimene siht: korduskasutatav analüüs
-
-## slide-22.text-03
-
-Lähteülesandest üleantav projekt ja kontrollitav tulemus.
-
-## slide-22.text-04
-
-Järgmine siht: turvaline uuendus
-
-## slide-22.text-05
-
-Andmevoog, õigused, override’i aktsepteerimine ja jooksude võrdlus.
-
-## slide-22.text-06
-
-Uuritav suund: väiksemad mudelid ja streaming
-
-## slide-22.text-07
-
-Kohalik täitmine, sündmuspõhised uuendused ja püsiv värskus vajavad eraldi teostust.
-
-## slide-22.text-08
-
-Reaalaja andmevoog ei ole demos teostatud. Näitame snapshot’il põhinevat töövoogu.
-
-## slide-22.note-01
-
-Arutle integratsioonipiiridest: milline osa on agent, milline worker, milline kontrollija?
-
-## slide-22.note-02
-
-Streaming on pakutud tulevikusuund, mitte kinnitatud tarnelubadus.
-
-<!-- Slide 23: Mida kaasa võtta? -->
-
-## slide-23.title
-
-Mida kaasa võtta?
-
-## slide-23.section
-
-Kontroll ja tootearendus
-
-## slide-23.text-01
-
-Hea tulemus jääb kausta.
-
-## slide-23.text-02
-
-Agent teeb töö.
-
-## slide-23.text-03
-
-Projekt säilitab meetodi.
-
-## slide-23.text-04
-
-GIS-ekspert hindab tähendust.
-
-## slide-23.text-05
-
-OpenMapStacki hoidla ↗
-
-## slide-23.text-06
-
-Koduleht ja töötavad näited ↗
-
-## slide-23.text-07
-
-Tartu sillaanalüüs ja selle päritolu ↗
-
-## slide-23.text-08
-
-Tehnilised allikad: README · project.yaml · pipeline.py · cli.py · validation/latest-report.json. Esitluse alus: autori demokogemus.
-
-## slide-23.note-01
-
-Kolm mõtet: failipõhine leping, õige ruumiline mõiste, nähtav kontroll.
-
-## slide-23.note-02
-
-Installi käsk ja täpne versioon on hoidla README-s. Lingid avanevad eraldi tab’il.
-
-<!-- Slide 24: Arutelu: kus oleks teie esimene piloot? -->
+<!-- Slide 18: Arutelu: kus oleks teie esimene piloot? -->
 
 ## slide-24.title
 
@@ -1839,7 +1305,7 @@ Piloodi väljund: sama küsimus, sama mõõdik, nähtav meetod, korratav jooks j
 
 ## slide-24.note-01
 
-Võta üks konkreetne pilootnäide. Kui aega vähe, vali ainult kontrollküsimus.
+Võta üks konkreetne pilootnäide. Kui aega vähe, vali ainult kontrollküsimus. Varu seitse minutit. Vali üks päris otsus, selle vastuvõtukontroll ja andmepiir; lõpeta vastutaja ning järgmise sammuga. Põhisõnum: agent teeb töö, projekt säilitab meetodi ja ekspert hindab tulemust.
 
 ## slide-24.note-02
 
